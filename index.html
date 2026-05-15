@@ -56,6 +56,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="css/mobile.css">
 <style>
   :root {
     --bg: #0e1f38;
@@ -220,6 +221,31 @@
   @media (max-width: 900px) {
     .service-grid { grid-template-columns: 1fr 1fr; }
     .hero-content h1 { font-size: 40px; }
+    .soc-grid { grid-template-columns: 1fr 1fr; }
+    .soc-section { margin: -40px auto 60px; }
+  }
+
+  @media (max-width: 600px) {
+    .hero-wrap { padding: 100px 16px 50px; }
+    .hero-content h1 { font-size: 30px; letter-spacing: -0.5px; }
+    .hero-content p { font-size: 14px; }
+    .btn-group {
+      flex-direction: column;
+      align-items: center;
+    }
+    .btn-group .cn-btn {
+      width: 100%;
+      max-width: 320px;
+      text-align: center;
+    }
+    .soc-section { margin: 20px auto 60px; }
+    .soc-grid { grid-template-columns: 1fr; }
+    .service-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 375px) {
+    .hero-content h1 { font-size: 24px; }
+    .hero-wrap { padding: 90px 12px 40px; }
   }
 </style>
 </head>
