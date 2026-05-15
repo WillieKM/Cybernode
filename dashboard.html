@@ -35,11 +35,7 @@
 
   /* ── LAYOUT ─────────────────── */
   .dashboard { display: flex; min-height: 100vh; }
-<div class="menu-toggle" id="mobile-menu">
-  <span class="bar"></span>
-  <span class="bar"></span>
-  <span class="bar"></span>
-</div>
+
   /* ── SIDEBAR ────────────────── */
   .sidebar {
     width: 200px;
@@ -52,6 +48,7 @@
     position: sticky;
     top: 0;
     height: 100vh;
+    transition: left 0.3s ease;
   }
 
   .brand {
@@ -106,6 +103,35 @@
     background: currentColor;
     opacity: 0.7;
   }
+
+  /* ── MOBILE HAMBURGER ───────── */
+  .menu-toggle {
+    display: none;
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    z-index: 1100;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 8px 10px;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 2px;
+    transition: 0.3s ease;
+  }
+
+  .menu-toggle.is-active .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
+  .menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
   /* ── MAIN ───────────────────── */
   .main { flex: 1; padding: 28px 32px; overflow-y: auto; }
@@ -198,7 +224,6 @@
     margin-bottom: 14px;
   }
 
-  /* Score ring */
   .score-wrap {
     display: flex;
     align-items: center;
@@ -239,7 +264,6 @@
     margin-top: 4px;
   }
 
-  /* Numeric metrics */
   .big-num {
     font-size: 42px;
     font-weight: 700;
@@ -302,7 +326,6 @@
     letter-spacing: 1px;
   }
 
-  /* ── CHART ──────────────────── */
   .chart-wrap { height: 180px; position: relative; }
 
   /* ── THREAT LIST ────────────── */
@@ -410,27 +433,48 @@
   }
 
   @media (max-width: 700px) {
-    .sidebar { display: none; }
-    .stat-grid { grid-template-columns: 1fr; }
+    .menu-toggle { display: flex; }
+    .sidebar {
+      position: fixed;
+      left: -220px;
+      top: 0;
+      height: 100vh;
+      z-index: 1000;
+    }
+    .sidebar.active { left: 0; }
+    .stat-grid { grid-template-columns: 1fr 1fr; }
     .main { padding: 16px; }
+    .topbar { margin-top: 50px; }
+  }
+
+  @media (max-width: 480px) {
+    .stat-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
 <div class="dashboard">
 
+  <!-- MOBILE HAMBURGER -->
+  <button class="menu-toggle" id="mobile-menu" aria-label="Toggle sidebar">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+
   <!-- SIDEBAR -->
-  <div class="sidebar">
+  <div class="sidebar" id="sidebar">
     <div class="brand">
       <div class="brand-hex"></div>
       <div class="brand-name">Cyber-Node</div>
       <div class="brand-ver">v2.4.1</div>
     </div>
-    <a href="#" class="nav-link active"><span class="nav-dot"></span>Dashboard</a>
+    <a href="dashboard.html" class="nav-link active"><span class="nav-dot"></span>Dashboard</a>
     <a href="tools/security-scan.html" class="nav-link"><span class="nav-dot"></span>Scanner</a>
     <a href="tools/attack-surface.html" class="nav-link"><span class="nav-dot"></span>Attack Surface</a>
-    <a href="#" class="nav-link"><span class="nav-dot"></span>Threat Intel</a>
-    <a href="#" class="nav-link"><span class="nav-dot"></span>Reports</a>
+    <a href="services.html" class="nav-link"><span class="nav-dot"></span>Services</a>
+    <a href="reports/" class="nav-link"><span class="nav-dot"></span>Reports</a>
+    <a href="index.html" class="nav-link" style="margin-top: auto;"><span class="nav-dot"></span>Home</a>
   </div>
 
   <!-- MAIN -->
@@ -484,7 +528,7 @@
       <div class="stat-card c-green">
         <div class="stat-label">Assets Monitored</div>
         <div class="big-num green" id="assets">12</div>
-        <div class="stat-delta" id="assetsDelta" style="color:var(--muted)">all systems nominal</div>
+        <div class="stat-delta" style="color:var(--muted)">all systems nominal</div>
       </div>
 
     </div>
@@ -536,7 +580,7 @@
             <div class="threat-icon low">&#10003;</div>
             <div class="threat-info">
               <div class="threat-name">Port Scan</div>
-              <div class="threat-meta">192.168.1.44 — 1h ago</div>
+              <div class="threat-meta">185.220.101.47 — 1h ago</div>
             </div>
             <div class="sev-badge low">Low</div>
           </div>
@@ -553,7 +597,7 @@
       </div>
       <ul id="activityLog">
         <li>Scan completed — example.com</li>
-        <li>New vulnerability detected — CVE-2024-1234</li>
+        <li>New vulnerability detected — CVE-2024-3400</li>
         <li>Security report generated</li>
       </ul>
     </div>
@@ -593,8 +637,7 @@ const vulnChart = new Chart(ctx, {
         pointBackgroundColor: '#ff6b35',
         pointRadius: 4,
         pointHoverRadius: 6,
-        borderWidth: 2,
-        borderDash: [5, 3]
+        borderWidth: 2
       }
     ]
   },
@@ -624,7 +667,7 @@ const vulnChart = new Chart(ctx, {
 });
 
 /* ── LIVE METRICS ───────────────────────────────── */
-const circumference = 2 * Math.PI * 29; // r=29
+const circumference = 2 * Math.PI * 29;
 
 function updateScore(score) {
   const offset = circumference - (score / 100) * circumference;
@@ -647,15 +690,15 @@ const eventPool = [
   'Port scan detected — 203.0.113.7',
   'SSL certificate expiring — api.cyber-node.io',
   'Brute force attempt blocked',
-  'New asset added — 192.168.1.50',
-  'CVE-2024-8821 flagged',
+  'New asset added — 10.0.0.50',
+  'CVE-2024-3400 flagged',
   'Firewall rule updated',
   'Scan completed — target.com',
   'DNS anomaly detected',
 ];
 
 function updateDashboard() {
-  const score = Math.floor(Math.random() * 15) + 82;
+  const score  = Math.floor(Math.random() * 15) + 82;
   const alerts = Math.floor(Math.random() * 20) + 10;
   const vulns  = Math.floor(Math.random() * 10) + 5;
   const assets = Math.floor(Math.random() * 10) + 8;
@@ -665,10 +708,8 @@ function updateDashboard() {
   document.getElementById('vulns').textContent  = vulns;
   document.getElementById('assets').textContent = assets;
 
-  const event = eventPool[Math.floor(Math.random() * eventPool.length)];
-  addActivity(event);
+  addActivity(eventPool[Math.floor(Math.random() * eventPool.length)]);
 
-  // push new data point to chart
   const now = new Date();
   const label = `${now.getHours()}:${String(now.getMinutes()).padStart(2,'0')}`;
   vulnChart.data.labels.push(label);
@@ -681,54 +722,32 @@ function updateDashboard() {
   vulnChart.update('none');
 }
 
-updateScore(92); // init ring
+updateScore(92);
 setInterval(updateDashboard, 4000);
+
+/* ── MOBILE SIDEBAR TOGGLE ──────────────────────── */
+const menuBtn = document.getElementById('mobile-menu');
+const sidebar  = document.getElementById('sidebar');
+
+menuBtn.addEventListener('click', function () {
+  menuBtn.classList.toggle('is-active');
+  sidebar.classList.toggle('active');
+  document.body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : '';
+});
+
+sidebar.querySelectorAll('.nav-link').forEach(function (link) {
+  link.addEventListener('click', function () {
+    menuBtn.classList.remove('is-active');
+    sidebar.classList.remove('active');
+    document.body.style.overflow = '';
+  });
+});
 
 /* ── FOOTER ─────────────────────────────────────── */
 fetch('/components/footer.html')
   .then(r => r.ok ? r.text() : '')
-  .then(html => { if(html) document.getElementById('footer').innerHTML = html; })
+  .then(html => { if (html) document.getElementById('footer').innerHTML = html; })
   .catch(() => {});
-
-/* ── DNS SCANNER (kept from original) ──────────── */
-async function runScan() {
-  const domain = document.getElementById('scanDomain')?.value;
-  if (!domain) { alert('Enter a domain'); return; }
-  const resultBox = document.getElementById('scanResult');
-  resultBox.innerHTML = 'Scanning...';
-  try {
-    const res  = await fetch(`https://dns.google/resolve?name=${domain}&type=A`);
-    const data = await res.json();
-    const score = Math.floor(Math.random() * 30) + 70;
-    resultBox.innerHTML = data.Answer
-      ? `<b>Domain:</b> ${domain}<br><b>IP:</b> ${data.Answer[0].data}<br><b>Security Score:</b> ${score}/100`
-      : 'No DNS records found.';
-    addActivity(`Scan completed — ${domain}`);
-  } catch { resultBox.innerHTML = 'Scan failed.'; }
-}
 </script>
 </body>
 </html>
-const menu = document.querySelector('#mobile-menu');
-const sidebar = document.querySelector('.sidebar');
-
-menu.addEventListener('click', function() {
-    menu.classList.toggle('is-active');
-    sidebar.classList.toggle('active');
-    
-    // Optional: Prevent body scroll when menu is open
-    if(sidebar.classList.contains('active')) {
-        document.body.style.overflow = 'hidden';
-    } else {
-        document.body.style.overflow = 'auto';
-    }
-});
-
-// Close menu when a link is clicked
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        menu.classList.remove('is-active');
-        sidebar.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    });
-});
