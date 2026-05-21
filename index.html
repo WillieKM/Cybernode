@@ -247,6 +247,76 @@
     .hero-content h1 { font-size: 24px; }
     .hero-wrap { padding: 90px 12px 40px; }
   }
+
+  /* ── CLIENT MARQUEE ─────────────────────────────── */
+  .clients-bar {
+    background: rgba(0,0,0,0.2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 0;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .clients-bar::before,
+  .clients-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 120px;
+    height: 100%;
+    z-index: 2;
+  }
+
+  .clients-bar::before {
+    left: 0;
+    background: linear-gradient(90deg, #0e1f38 0%, transparent 100%);
+  }
+
+  .clients-bar::after {
+    right: 0;
+    background: linear-gradient(270deg, #0e1f38 0%, transparent 100%);
+  }
+
+  .marquee-track {
+    display: flex;
+    gap: 0;
+    width: max-content;
+    animation: marquee 28s linear infinite;
+  }
+
+  .marquee-track:hover { animation-play-state: paused; }
+
+  @keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .client-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 40px;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    border-right: 1px solid var(--border);
+    transition: color 0.2s;
+  }
+
+  .client-item:hover { color: var(--accent); }
+
+  .client-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.4;
+    flex-shrink: 0;
+  }
 </style>
 </head>
 <body>
@@ -265,6 +335,34 @@
     </div>
   </div>
 </section>
+
+<!-- CLIENT MARQUEE -->
+<div class="clients-bar">
+  <div class="marquee-track">
+    <!-- first set -->
+    <div class="client-item"><span class="client-dot"></span>MedCore Systems</div>
+    <div class="client-item"><span class="client-dot"></span>Apex Fintech</div>
+    <div class="client-item"><span class="client-dot"></span>NovaCare Health</div>
+    <div class="client-item"><span class="client-dot"></span>Stratum Cloud</div>
+    <div class="client-item"><span class="client-dot"></span>Bridgepoint Legal</div>
+    <div class="client-item"><span class="client-dot"></span>Vantage Logistics</div>
+    <div class="client-item"><span class="client-dot"></span>Orion Defense Group</div>
+    <div class="client-item"><span class="client-dot"></span>PulseData Analytics</div>
+    <div class="client-item"><span class="client-dot"></span>Nexon Retail</div>
+    <div class="client-item"><span class="client-dot"></span>ClearPath Gov Solutions</div>
+    <!-- duplicate for seamless loop -->
+    <div class="client-item"><span class="client-dot"></span>MedCore Systems</div>
+    <div class="client-item"><span class="client-dot"></span>Apex Fintech</div>
+    <div class="client-item"><span class="client-dot"></span>NovaCare Health</div>
+    <div class="client-item"><span class="client-dot"></span>Stratum Cloud</div>
+    <div class="client-item"><span class="client-dot"></span>Bridgepoint Legal</div>
+    <div class="client-item"><span class="client-dot"></span>Vantage Logistics</div>
+    <div class="client-item"><span class="client-dot"></span>Orion Defense Group</div>
+    <div class="client-item"><span class="client-dot"></span>PulseData Analytics</div>
+    <div class="client-item"><span class="client-dot"></span>Nexon Retail</div>
+    <div class="client-item"><span class="client-dot"></span>ClearPath Gov Solutions</div>
+  </div>
+</div>
 
 <div class="soc-section">
   <div class="soc-grid">
