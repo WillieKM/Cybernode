@@ -220,17 +220,28 @@
   fetch("../components/navbar.html").then(r => r.text()).then(h => document.getElementById("navbar").innerHTML = h);
   fetch("../components/footer.html").then(r => r.text()).then(h => document.getElementById("footer").innerHTML = h);
 
+  // The domain field is free-typed by the visitor — escape before it ever hits innerHTML.
+  function escapeHtml(str) {
+    return String(str ?? '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
   function runDiscovery() {
-    const domain = document.getElementById("domainInput").value.trim();
-    if (!domain) {
+    const domainRaw = document.getElementById("domainInput").value.trim();
+    if (!domainRaw) {
       alert("Target domain required for mapping.");
       return;
     }
+    const domain = escapeHtml(domainRaw);
 
     // Toggle UI
     document.getElementById("placeholder").style.display = "none";
     document.getElementById("resultsUI").style.display = "block";
-    document.getElementById("targetDisplay").innerText = domain.toUpperCase();
+    document.getElementById("targetDisplay").innerText = domainRaw.toUpperCase();
 
     // Populate DNS
     document.getElementById("dnsList").innerHTML = `

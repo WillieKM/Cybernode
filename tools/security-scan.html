@@ -469,6 +469,16 @@
     'Computing risk score...',
   ];
 
+  // The domain field is free-typed by the visitor — escape before it ever hits innerHTML.
+  function escapeHtml(str) {
+    return String(str ?? '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
   function runScan() {
     const email  = document.getElementById('userEmail').value.trim();
     const domain = document.getElementById('scanDomain').value.trim();
@@ -507,7 +517,7 @@
     card.innerHTML = `
       <div class="scan-loader">
         <div class="loader-ring"></div>
-        <div class="loader-text">SCANNING ${domain.toUpperCase()}</div>
+        <div class="loader-text">SCANNING ${escapeHtml(domain.toUpperCase())}</div>
         <div class="loader-steps">${stepHTML}</div>
       </div>`;
 
@@ -528,7 +538,7 @@
     const card = document.getElementById('resultCard');
     let ip = '—';
     try {
-      const res  = await fetch(`https://dns.google/resolve?name=${domain}&type=A`);
+      const res  = await fetch(`https://dns.google/resolve?name=${encodeURIComponent(domain)}&type=A`);
       const data = await res.json();
       if (data.Answer?.[0]) ip = data.Answer[0].data;
     } catch(e) {}
@@ -548,7 +558,7 @@
       <div class="result-header">
         <div>
           <div class="result-domain">// SCAN COMPLETE</div>
-          <div class="result-title">${domain}</div>
+          <div class="result-title">${escapeHtml(domain)}</div>
         </div>
         <div class="score-badge">
           <div class="score-val" style="color:${riskColor}">${score}<span style="font-size:14px;color:var(--muted)">/100</span></div>

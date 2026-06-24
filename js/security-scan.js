@@ -1,3 +1,12 @@
+function escapeHtml(str){
+return String(str ?? '')
+.replace(/&/g, "&amp;")
+.replace(/</g, "&lt;")
+.replace(/>/g, "&gt;")
+.replace(/"/g, "&quot;")
+.replace(/'/g, "&#39;")
+}
+
 async function scanDomain(){
 
 let domain = document.getElementById("domainInput").value
@@ -11,10 +20,10 @@ document.getElementById("results").innerHTML="Running Cyber-Node security scan..
 
 try{
 
-let ssl = await fetch(`https://api.ssllabs.com/api/v3/analyze?host=${domain}`)
+let ssl = await fetch(`https://api.ssllabs.com/api/v3/analyze?host=${encodeURIComponent(domain)}`)
 let sslData = await ssl.json()
 
-let dns = await fetch(`https://dns.google/resolve?name=${domain}`)
+let dns = await fetch(`https://dns.google/resolve?name=${encodeURIComponent(domain)}`)
 let dnsData = await dns.json()
 
 let tech = fingerprintTechnology(domain)
@@ -90,20 +99,22 @@ if(vulns.length>=2) return 60
 
 function displayResults(domain,score,sslStatus,dnsCount,tech,vulns){
 
-let vulnList = vulns.map(v => `<li>${v}</li>`).join("")
+let vulnList = vulns.map(v => `<li>${escapeHtml(v)}</li>`).join("")
 
-document.getElementById("results").innerHTML =
+let resultsEl = document.getElementById("results")
+
+resultsEl.innerHTML =
 
 `
 <h3>Cyber-Node Security Intelligence Report</h3>
 
-<p><strong>Domain:</strong> ${domain}</p>
+<p><strong>Domain:</strong> ${escapeHtml(domain)}</p>
 <p><strong>Security Score:</strong> ${score}/100</p>
 
 <ul>
-<li>SSL Status: ${sslStatus}</li>
+<li>SSL Status: ${escapeHtml(sslStatus)}</li>
 <li>DNS Records: ${dnsCount}</li>
-<li>Technology Stack: ${tech}</li>
+<li>Technology Stack: ${escapeHtml(tech)}</li>
 </ul>
 
 <h4>Known Vulnerabilities</h4>
@@ -112,14 +123,15 @@ document.getElementById("results").innerHTML =
 ${vulnList}
 </ul>
 
-<button onclick="generateReport('${domain}',${score})"
-class="btn-primary">
+<button class="btn-primary">
 
 Download Security Report
 
 </button>
 
 `
+
+resultsEl.querySelector("button").addEventListener("click", () => generateReport(domain, score))
 
 }
 

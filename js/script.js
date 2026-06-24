@@ -42,6 +42,15 @@ card.style.opacity="1";
 }
 
 });
+  function escapeHtml(str){
+return String(str ?? '')
+.replace(/&/g, "&amp;")
+.replace(/</g, "&lt;")
+.replace(/>/g, "&gt;")
+.replace(/"/g, "&quot;")
+.replace(/'/g, "&#39;")
+}
+
   function runScan(){
 
 let domain = document.getElementById("domain").value;
@@ -52,7 +61,7 @@ let results = `
 
 <h3>Security Score: ${score}%</h3>
 
-<p>Scan Results for <strong>${domain}</strong></p>
+<p>Scan Results for <strong>${escapeHtml(domain)}</strong></p>
 
 <ul>
 <li>SSL Certificate: Detected</li>
