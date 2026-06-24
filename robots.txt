@@ -7,5 +7,6 @@ Disallow: /login.html
 Disallow: /platform/
 Disallow: /api/
 Disallow: /backend/
+Disallow: /admin/
 
 Sitemap: https://www.cyber-node.com/sitemap.xml

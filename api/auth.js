@@ -11,24 +11,55 @@
 //    GITHUB_CLIENT_SECRET = your client secret
 // ----------------------------------------------------------------
 
+import { randomBytes } from 'crypto';
+
 const GITHUB_CLIENT_ID     = process.env.GITHUB_CLIENT_ID;
 const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET;
 const ORIGIN               = 'https://www.cyber-node.com';
+const STATE_COOKIE         = 'cn_oauth_state';
+
+// JSON.stringify doesn't escape `<`, so a value containing "</script>"
+// could break out of the inline <script> block below — escape it first.
+function safeJsonForScript(value) {
+  return JSON.stringify(value).replace(/</g, '\\u003c');
+}
+
+function parseCookies(header) {
+  const out = {};
+  (header || '').split(';').forEach(pair => {
+    const idx = pair.indexOf('=');
+    if (idx === -1) return;
+    out[pair.slice(0, idx).trim()] = decodeURIComponent(pair.slice(idx + 1).trim());
+  });
+  return out;
+}
 
 export default async function handler(req, res) {
   const { code, state } = req.query;
 
-  // Step 1 — Redirect to GitHub OAuth
+  // Step 1 — Redirect to GitHub OAuth, pinning a random state in a cookie
+  // so step 2 can verify the callback wasn't forged (CSRF on the OAuth flow).
   if (!code) {
+    const csrfState = randomBytes(16).toString('hex');
+    res.setHeader('Set-Cookie', `${STATE_COOKIE}=${csrfState}; Path=/api/auth; HttpOnly; Secure; SameSite=Lax; Max-Age=600`);
+
     const params = new URLSearchParams({
       client_id: GITHUB_CLIENT_ID,
       scope: 'repo,user',
-      state: state || '',
+      state: csrfState,
     });
     return res.redirect(`https://github.com/login/oauth/authorize?${params}`);
   }
 
-  // Step 2 — Exchange code for access token
+  // Step 2 — Verify state against the cookie set in step 1, then exchange code for token
+  const cookies = parseCookies(req.headers.cookie);
+  const expectedState = cookies[STATE_COOKIE];
+  res.setHeader('Set-Cookie', `${STATE_COOKIE}=; Path=/api/auth; HttpOnly; Secure; SameSite=Lax; Max-Age=0`);
+
+  if (!expectedState || expectedState !== state) {
+    return res.status(400).send('Invalid OAuth state — possible CSRF attempt. Please restart the login.');
+  }
+
   try {
     const tokenRes = await fetch('https://github.com/login/oauth/access_token', {
       method: 'POST',
@@ -49,7 +80,7 @@ export default async function handler(req, res) {
       return res.status(400).send(`
         <script>
           window.opener.postMessage(
-            'authorization:github:error:${JSON.stringify(tokenData.error)}',
+            'authorization:github:error:${safeJsonForScript(tokenData.error)}',
             '${ORIGIN}'
           );
           window.close();
@@ -61,7 +92,7 @@ export default async function handler(req, res) {
     return res.send(`
       <script>
         window.opener.postMessage(
-          'authorization:github:success:${JSON.stringify({ token: tokenData.access_token, provider: 'github' })}',
+          'authorization:github:success:${safeJsonForScript({ token: tokenData.access_token, provider: 'github' })}',
           '${ORIGIN}'
         );
         window.close();

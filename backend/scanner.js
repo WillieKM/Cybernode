@@ -4,11 +4,27 @@ const axios=require("axios")
 
 const app=express()
 
-app.use(cors())
+const ALLOWED_ORIGINS = ["https://www.cyber-node.com", "https://cyber-node.com"]
+app.use(cors({ origin: ALLOWED_ORIGINS }))
+
+const DOMAIN_PATTERN = /^[a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(\.[a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;")
+}
 
 app.get("/scan", async(req,res)=>{
 
 let domain=req.query.domain
+
+if (!domain || !DOMAIN_PATTERN.test(domain)) {
+  return res.status(400).json({error:"Invalid domain"})
+}
 
 try{
 
@@ -37,11 +53,15 @@ app.get("/report",(req,res)=>{
 
 let domain=req.query.domain
 
+if (!domain || !DOMAIN_PATTERN.test(domain)) {
+  return res.status(400).send("Invalid domain")
+}
+
 res.send(`
 
 <h1>Cyber-Node Security Report</h1>
 
-<p>Domain: ${domain}</p>
+<p>Domain: ${escapeHtml(domain)}</p>
 
 <p>SSL: Active</p>
 

@@ -5,9 +5,19 @@
 
 const POSTS_INDEX = '/_posts/index.json'; // generated at build, see below
 
+// ── ESCAPE UNTRUSTED STRINGS BEFORE INTERPOLATING INTO HTML ──────
+function escapeHtml(str) {
+  return String(str ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 // ── PARSE FRONTMATTER ────────────────────────────────────────────
 function parseFrontmatter(raw) {
-  const match = raw.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+  const match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
   if (!match) return { meta: {}, body: raw };
 
   const meta = {};
@@ -91,17 +101,17 @@ async function renderBlogIndex(containerId) {
     <article class="blog-card">
       <div class="blog-card-meta">
         <span class="blog-category" style="border-color:${categoryColor(post.category)};color:${categoryColor(post.category)}">
-          ${post.category || 'General'}
+          ${escapeHtml(post.category || 'General')}
         </span>
-        <span class="blog-date">${formatDate(post.date)}</span>
+        <span class="blog-date">${escapeHtml(formatDate(post.date))}</span>
       </div>
       <h2 class="blog-card-title">
-        <a href="/blog/post.html?slug=${post.slug}">${post.title}</a>
+        <a href="/blog/post.html?slug=${encodeURIComponent(post.slug)}">${escapeHtml(post.title)}</a>
       </h2>
-      <p class="blog-card-desc">${post.description || ''}</p>
+      <p class="blog-card-desc">${escapeHtml(post.description || '')}</p>
       <div class="blog-card-footer">
-        <span class="blog-author">// ${post.author || 'Cyber-Node Team'}</span>
-        <a href="/blog/post.html?slug=${post.slug}" class="blog-read-more">READ_MORE →</a>
+        <span class="blog-author">// ${escapeHtml(post.author || 'Cyber-Node Team')}</span>
+        <a href="/blog/post.html?slug=${encodeURIComponent(post.slug)}" class="blog-read-more">READ_MORE →</a>
       </div>
     </article>
   `).join('');
@@ -135,19 +145,22 @@ async function renderPost(containerId) {
     if (descMeta && meta.description) descMeta.setAttribute('content', meta.description);
 
     const catColor = categoryColor(meta.category);
-    const html = typeof marked !== 'undefined' ? marked.parse(body) : body.replace(/\n/g, '<br>');
+    const rawHtml = typeof marked !== 'undefined' ? marked.parse(body) : escapeHtml(body).replace(/\n/g, '<br>');
+    // Markdown bodies come from blog posts written through the CMS, but marked
+    // passes through raw inline HTML by default — sanitize before it ever hits innerHTML.
+    const html = typeof DOMPurify !== 'undefined' ? DOMPurify.sanitize(rawHtml) : escapeHtml(rawHtml);
 
     container.innerHTML = `
       <div class="post-header">
         <div class="post-meta-top">
-          <span class="blog-category" style="border-color:${catColor};color:${catColor}">${meta.category || 'General'}</span>
-          <span class="blog-date">${formatDate(meta.date)}</span>
+          <span class="blog-category" style="border-color:${catColor};color:${catColor}">${escapeHtml(meta.category || 'General')}</span>
+          <span class="blog-date">${escapeHtml(formatDate(meta.date))}</span>
         </div>
-        <h1 class="post-title">${meta.title}</h1>
-        <p class="post-description">${meta.description || ''}</p>
-        <div class="post-author">// Written by <strong>${meta.author || 'Cyber-Node Team'}</strong></div>
+        <h1 class="post-title">${escapeHtml(meta.title)}</h1>
+        <p class="post-description">${escapeHtml(meta.description || '')}</p>
+        <div class="post-author">// Written by <strong>${escapeHtml(meta.author || 'Cyber-Node Team')}</strong></div>
       </div>
-      ${meta.cover ? `<img src="${meta.cover}" alt="${meta.title}" class="post-cover">` : ''}
+      ${meta.cover ? `<img src="${escapeHtml(meta.cover)}" alt="${escapeHtml(meta.title)}" class="post-cover">` : ''}
       <div class="post-body">${html}</div>
       <div class="post-footer">
         <a href="/blog/" class="cn-btn btn-outline">← Back to Blog</a>
