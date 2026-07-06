@@ -597,10 +597,25 @@
             </div>
           </div>
         </div>
-        <a href="../checkout.html" class="unlock-btn">UNLOCK — $19 →</a>
+        <button class="unlock-btn" id="unlockBtn">UNLOCK — $19 →</button>
       </div>`;
 
+    document.getElementById('unlockBtn').addEventListener('click', () => unlockReport(domain));
     document.getElementById('scanBtn').disabled = false;
+  }
+
+  const STRIPE_PAYMENT_LINK = 'https://buy.stripe.com/bJedRabkeaKw4RCfowa7C00';
+
+  function unlockReport(domain) {
+    const email = document.getElementById('userEmail').value.trim();
+    // client_reference_id only allows alphanumeric/dash/underscore — dots in a
+    // domain get silently dropped by Stripe otherwise, so swap them for underscores.
+    // (Using underscore, not dash, because real hostnames can contain dashes —
+    // e.g. cyber-node.com — which would make the encoding ambiguous to reverse.)
+    const refId = domain.replace(/\./g, '_');
+    const params = new URLSearchParams({ client_reference_id: refId });
+    if (email) params.set('prefilled_email', email);
+    window.location.href = `${STRIPE_PAYMENT_LINK}?${params}`;
   }
 </script>
 </body>

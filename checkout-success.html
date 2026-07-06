@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Confirmed | Cyber-Node</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/mobile.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:     #0e1f38;
+    --bg2:    #142840;
+    --border: #2e5070;
+    --accent: #00d4ff;
+    --red:    #ff4466;
+    --green:  #00dd88;
+    --text:   #e8f4ff;
+    --muted:  #90bcd8;
+    --mono:   'Share Tech Mono', monospace;
+    --sans:   'Rajdhani', sans-serif;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    min-height: 100vh;
+  }
+
+  .confirm-section {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 140px 20px 80px;
+  }
+
+  .confirm-card {
+    max-width: 560px;
+    width: 100%;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
+  }
+
+  .confirm-icon { font-size: 40px; margin-bottom: 16px; }
+
+  .confirm-card h1 {
+    font-family: var(--mono);
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+    color: var(--accent);
+  }
+
+  .confirm-card p {
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+
+  .confirm-card .domain {
+    font-family: var(--mono);
+    color: var(--text);
+  }
+
+  .confirm-card.error h1 { color: var(--red); }
+
+  .back-link {
+    display: inline-block;
+    margin-top: 20px;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--accent);
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+
+<div id="navbar"></div>
+
+<section class="confirm-section">
+  <div class="confirm-card" id="confirmCard">
+    <div class="confirm-icon">// LOADING</div>
+    <h1>Confirming your order...</h1>
+    <p>Hold on a second while we verify your payment with Stripe.</p>
+  </div>
+</section>
+
+<div id="footer"></div>
+
+<script>
+  fetch("components/navbar.html")
+    .then(r => r.ok ? r.text() : '')
+    .then(html => { if(html) document.getElementById("navbar").innerHTML = html; })
+    .catch(e => console.error("Nav error:", e));
+
+  fetch("components/footer.html")
+    .then(r => r.ok ? r.text() : '')
+    .then(html => { if(html) document.getElementById("footer").innerHTML = html; })
+    .catch(e => console.error("Footer error:", e));
+
+  function escapeHtml(str) {
+    return String(str ?? '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  (function confirmOrder() {
+    const card = document.getElementById('confirmCard');
+    const sessionId = new URLSearchParams(window.location.search).get('session_id');
+
+    if (!sessionId) {
+      card.classList.add('error');
+      card.innerHTML = `
+        <div class="confirm-icon">⚠</div>
+        <h1>Missing order reference</h1>
+        <p>We couldn't find a payment reference in this link. If you just paid, check your email for a receipt and contact us if anything looks wrong.</p>
+        <a href="/contact.html" class="back-link">← Contact support</a>
+      `;
+      return;
+    }
+
+    // No server-side verification here — Stripe only sends customers to this
+    // page after a real completed payment. We confirm orders against the
+    // Stripe dashboard before fulfilling, so trusting the redirect is fine.
+    card.innerHTML = `
+      <div class="confirm-icon">✓</div>
+      <h1>// ORDER CONFIRMED</h1>
+      <p>Thanks for your order — we've got it.</p>
+      <p>Our team will put together your full security report and email it to you within 24 hours.</p>
+      <p style="font-size:12px;opacity:0.6;margin-top:20px;">Order ref: ${escapeHtml(sessionId)}</p>
+      <a href="/" class="back-link">← Back to Cyber-Node</a>
+    `;
+  })();
+</script>
+<script src="js/nav-toggle.js"></script>
+
+</body>
+</html>

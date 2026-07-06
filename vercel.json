@@ -1,5 +1,8 @@
 {
   "cleanUrls": true,
+  "functions": {
+    "api/stripe-webhook.js": { "maxDuration": 30 }
+  },
   "headers": [
     {
       "source": "/(.*)",
