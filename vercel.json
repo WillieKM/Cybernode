@@ -1,7 +1,8 @@
 {
   "cleanUrls": true,
   "functions": {
-    "api/stripe-webhook.js": { "maxDuration": 30 }
+    "api/stripe-webhook.js": { "maxDuration": 30 },
+    "api/scan.js": { "maxDuration": 15 }
   },
   "headers": [
     {

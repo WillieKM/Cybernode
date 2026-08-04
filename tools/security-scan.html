@@ -506,7 +506,10 @@
     startScan(domain);
   }
 
-  function startScan(domain) {
+  // Animates the step list while the real scan (DNS/TLS/header/port checks)
+  // runs server-side in api/scan.js — resolves once the last step has been
+  // shown for at least one interval, so it never looks instant even on a fast reply.
+  function playLoaderSteps(domain) {
     const card = document.getElementById('resultCard');
     card.classList.remove('scanned');
 
@@ -521,66 +524,91 @@
         <div class="loader-steps">${stepHTML}</div>
       </div>`;
 
-    let i = 0;
-    const iv = setInterval(() => {
-      if (i > 0) {
-        const prev = document.getElementById(`lstep${i-1}`);
-        if (prev) { prev.classList.remove('active'); prev.classList.add('done'); prev.querySelector('.step-tick').textContent = '✓'; }
-      }
-      const cur = document.getElementById(`lstep${i}`);
-      if (cur) { cur.classList.add('active'); cur.querySelector('.step-tick').textContent = '›'; }
-      i++;
-      if (i >= SCAN_STEPS.length) { clearInterval(iv); setTimeout(() => finishScan(domain), 600); }
-    }, 340);
+    return new Promise((resolve) => {
+      let i = 0;
+      const iv = setInterval(() => {
+        if (i > 0) {
+          const prev = document.getElementById(`lstep${i-1}`);
+          if (prev) { prev.classList.remove('active'); prev.classList.add('done'); prev.querySelector('.step-tick').textContent = '✓'; }
+        }
+        const cur = document.getElementById(`lstep${i}`);
+        if (cur) { cur.classList.add('active'); cur.querySelector('.step-tick').textContent = '›'; }
+        i++;
+        if (i >= SCAN_STEPS.length) { clearInterval(iv); resolve(); }
+      }, 340);
+    });
   }
 
-  async function finishScan(domain) {
+  async function startScan(domain) {
+    const [, result] = await Promise.all([
+      playLoaderSteps(domain),
+      fetch(`/api/scan?domain=${encodeURIComponent(domain)}`).then(async (res) => {
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || 'Scan failed');
+        return data;
+      }),
+    ]).catch((err) => [null, { error: err.message }]);
+
+    if (result?.error) {
+      showScanError(result.error, domain);
+    } else {
+      renderResult(result);
+    }
+    document.getElementById('scanBtn').disabled = false;
+  }
+
+  function showScanError(message, domain) {
     const card = document.getElementById('resultCard');
-    let ip = '—';
-    try {
-      const res  = await fetch(`https://dns.google/resolve?name=${encodeURIComponent(domain)}&type=A`);
-      const data = await res.json();
-      if (data.Answer?.[0]) ip = data.Answer[0].data;
-    } catch(e) {}
+    card.classList.remove('scanned');
+    card.innerHTML = `
+      <div class="result-placeholder">
+        <div class="shield">⚠</div>
+        <p style="color:#ff4466">${escapeHtml(message)}</p>
+      </div>`;
+  }
 
-    const score = Math.floor(Math.random() * 30) + 70;
-    let risk, riskColor;
-    if (score >= 85)      { risk = 'LOW RISK';      riskColor = '#00dd88'; }
-    else if (score >= 70) { risk = 'MODERATE RISK'; riskColor = '#ffaa22'; }
-    else                  { risk = 'HIGH RISK';     riskColor = '#ff4466'; }
+  function renderResult(data) {
+    const card = document.getElementById('resultCard');
+    const riskColor = data.rating === 'LOW RISK' ? '#00dd88' : data.rating === 'MODERATE RISK' ? '#ffaa22' : '#ff4466';
 
-    const headers = score > 80 ? 'PARTIAL' : 'MISSING';
-    const ssl     = score > 75 ? 'VALID'   : 'EXPIRED';
-    const ports   = Math.floor(Math.random() * 4) + 1;
+    const sslLabel = data.ssl.valid
+      ? (data.ssl.daysRemaining != null && data.ssl.daysRemaining < 14 ? 'EXPIRING SOON' : 'VALID')
+      : 'INVALID';
+    const sslColor = sslLabel === 'VALID' ? '#00dd88' : sslLabel === 'EXPIRING SOON' ? '#ffaa22' : '#ff4466';
+
+    const headersLabel = !data.headers.reachable
+      ? 'UNREACHABLE'
+      : `${data.headers.total - data.headers.missing}/${data.headers.total} PRESENT`;
+    const headersColor = !data.headers.reachable ? '#ff4466' : data.headers.missing === 0 ? '#00dd88' : '#ffaa22';
 
     card.classList.add('scanned');
     card.innerHTML = `
       <div class="result-header">
         <div>
           <div class="result-domain">// SCAN COMPLETE</div>
-          <div class="result-title">${escapeHtml(domain)}</div>
+          <div class="result-title">${escapeHtml(data.domain)}</div>
         </div>
         <div class="score-badge">
-          <div class="score-val" style="color:${riskColor}">${score}<span style="font-size:14px;color:var(--muted)">/100</span></div>
-          <div class="score-lbl" style="color:${riskColor}">${risk}</div>
+          <div class="score-val" style="color:${riskColor}">${data.score}<span style="font-size:14px;color:var(--muted)">/100</span></div>
+          <div class="score-lbl" style="color:${riskColor}">${data.rating}</div>
         </div>
       </div>
       <div class="result-metrics">
         <div class="metric-box" style="border-left-color:#00d4ff">
           <div class="m-label">IP Address</div>
-          <div class="m-val" style="color:#00d4ff">${ip}</div>
+          <div class="m-val" style="color:#00d4ff">${escapeHtml(data.ip || '—')}</div>
         </div>
-        <div class="metric-box" style="border-left-color:${ssl==='VALID'?'#00dd88':'#ff4466'}">
+        <div class="metric-box" style="border-left-color:${sslColor}">
           <div class="m-label">SSL Cert</div>
-          <div class="m-val" style="color:${ssl==='VALID'?'#00dd88':'#ff4466'}">${ssl}</div>
+          <div class="m-val" style="color:${sslColor}">${sslLabel}</div>
         </div>
-        <div class="metric-box" style="border-left-color:${headers==='MISSING'?'#ffaa22':'#ffd700'}">
+        <div class="metric-box" style="border-left-color:${headersColor}">
           <div class="m-label">Sec Headers</div>
-          <div class="m-val" style="color:${headers==='MISSING'?'#ffaa22':'#ffd700'}">${headers}</div>
+          <div class="m-val" style="color:${headersColor}">${headersLabel}</div>
         </div>
         <div class="metric-box" style="border-left-color:#ff4466">
-          <div class="m-label">Open Vectors</div>
-          <div class="m-val" style="color:#ffaa22">${ports} FOUND</div>
+          <div class="m-label">Exposure Signals</div>
+          <div class="m-val" style="color:#ffaa22">${data.exposureSignals} FOUND</div>
         </div>
       </div>
       <div class="lock-box">
@@ -588,11 +616,10 @@
           <div class="lock-icon">🔒</div>
           <div class="lock-info">
             <h4>Full Report Locked</h4>
-            <p>Unlock detailed vulnerabilities, CVEs, port scan &amp; remediation steps.</p>
+            <p>Unlock the itemized port list, per-header audit &amp; remediation steps as a PDF, emailed to you.</p>
             <div class="lock-items">
-              <div class="lock-item">PORT SCAN</div>
-              <div class="lock-item">CVE LIST</div>
-              <div class="lock-item">HEADER AUDIT</div>
+              <div class="lock-item">PORT-BY-PORT DETAIL</div>
+              <div class="lock-item">HEADER-BY-HEADER AUDIT</div>
               <div class="lock-item">FIX GUIDE</div>
             </div>
           </div>
@@ -600,8 +627,7 @@
         <button class="unlock-btn" id="unlockBtn">UNLOCK — $19 →</button>
       </div>`;
 
-    document.getElementById('unlockBtn').addEventListener('click', () => unlockReport(domain));
-    document.getElementById('scanBtn').disabled = false;
+    document.getElementById('unlockBtn').addEventListener('click', () => unlockReport(data.domain));
   }
 
   const STRIPE_PAYMENT_LINK = 'https://buy.stripe.com/bJedRabkeaKw4RCfowa7C00';
