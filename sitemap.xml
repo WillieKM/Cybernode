@@ -32,6 +32,12 @@
   </url>
 
   <url>
+    <loc>https://www.cyber-node.com/solutions/healthcare.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://www.cyber-node.com/about.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

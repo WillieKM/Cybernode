@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HIPAA Security for Home Care & Adult Family Homes | Cyber-Node Health</title>
+<meta name="description" content="Cyber-Node Health keeps small care providers secure and HIPAA audit-ready. Take the free 2-minute HIPAA self-check, then book a risk assessment.">
+<link rel="canonical" href="https://www.cyber-node.com/solutions/healthcare.html">
+<meta property="og:title" content="Cyber-Node Health — HIPAA security for small care providers">
+<meta property="og:description" content="Free 2-minute HIPAA self-check for home care agencies and adult family homes.">
+<meta property="og:url" content="https://www.cyber-node.com/solutions/healthcare.html">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/mobile.css">
+<style>
+  :root {
+    --navy: #0e1f38;
+    --navy2: #1a3252;
+    --accent: #00a6c7;
+    --accent-soft: #e3f6fa;
+    --bg: #f6f9fc;
+    --card: #ffffff;
+    --text: #13243b;
+    --muted: #51637a;
+    --line: #dbe4ee;
+    --good: #1f8a5b;
+    --warn: #b7791f;
+    --bad: #c0392b;
+    --head: 'Rajdhani', sans-serif;
+    --body: 'Source Sans 3', system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--body); font-size: 17px; line-height: 1.6; overflow-x: hidden; }
+  h1, h2, h3 { font-family: var(--head); line-height: 1.15; margin: 0 0 12px; }
+  a { color: var(--accent); }
+
+  /* Hero */
+  .hero { background: linear-gradient(180deg, var(--navy) 0%, var(--navy2) 100%); color: #fff; padding: 130px 20px 80px; text-align: center; }
+  .eyebrow { display: inline-block; font-size: 14px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #7fe3f5; margin-bottom: 14px; }
+  .hero h1 { font-size: clamp(34px, 5vw, 54px); max-width: 820px; margin: 0 auto 18px; }
+  .hero p { max-width: 640px; margin: 0 auto 30px; color: #c9dbee; font-size: 19px; }
+  .btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 14px 28px; border-radius: 8px; font-weight: 700; font-size: 17px; text-decoration: none; border: 2px solid transparent; cursor: pointer; font-family: var(--body); transition: transform .15s, box-shadow .15s; }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,.15); }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-ghost { border-color: #7fe3f5; color: #fff; background: transparent; }
+  .btn-dark { background: var(--navy); color: #fff; }
+  .trust { margin-top: 30px; font-size: 15px; color: #a9c1da; }
+
+  .section { max-width: 1080px; margin: 0 auto; padding: 72px 20px; }
+  .section-head { text-align: center; max-width: 680px; margin: 0 auto 40px; }
+  .section-head h2 { font-size: clamp(28px, 3.5vw, 38px); }
+  .section-head p { color: var(--muted); margin: 0; }
+
+  /* Pain */
+  .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+  .pain { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 24px; }
+  .pain q { display: block; font-size: 19px; font-weight: 600; margin-bottom: 8px; }
+  .pain span { color: var(--muted); font-size: 15px; }
+
+  /* Who */
+  .who { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 26px; }
+  .chip { background: var(--accent-soft); color: var(--navy); border-radius: 999px; padding: 8px 16px; font-weight: 600; font-size: 15px; }
+
+  /* Quiz */
+  .quiz-wrap { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 32px; max-width: 820px; margin: 0 auto; box-shadow: 0 10px 30px rgba(14,31,56,.06); }
+  .progress { height: 8px; background: var(--line); border-radius: 99px; overflow: hidden; margin-bottom: 8px; }
+  .progress div { height: 100%; width: 0; background: var(--accent); transition: width .25s; }
+  .progress-label { font-size: 14px; color: var(--muted); margin-bottom: 22px; }
+  .q { border-bottom: 1px solid var(--line); padding: 18px 0; }
+  .q:last-of-type { border-bottom: 0; }
+  .q p { margin: 0 0 10px; font-weight: 600; }
+  .q small { display: block; font-weight: 400; color: var(--muted); font-size: 15px; margin-top: 2px; }
+  .opts { display: flex; gap: 10px; flex-wrap: wrap; }
+  .opts label { cursor: pointer; }
+  .opts input { position: absolute; opacity: 0; pointer-events: none; }
+  .opts span { display: inline-block; padding: 8px 20px; border: 2px solid var(--line); border-radius: 8px; font-weight: 600; min-width: 84px; text-align: center; }
+  .opts input:checked + span { border-color: var(--accent); background: var(--accent-soft); }
+  .opts input:focus-visible + span { outline: 3px solid var(--accent); outline-offset: 2px; }
+  .quiz-actions { margin-top: 24px; text-align: center; }
+  .quiz-note { font-size: 14px; color: var(--muted); margin-top: 10px; }
+
+  .result { display: none; margin-top: 28px; padding: 26px; border-radius: 12px; border: 2px solid var(--line); }
+  .result.show { display: block; }
+  .score { font-family: var(--head); font-size: 46px; font-weight: 700; line-height: 1; }
+  .result h3 { font-size: 26px; margin-top: 6px; }
+  .gaps { padding-left: 20px; margin: 12px 0 0; }
+  .gaps li { margin-bottom: 8px; }
+  .gaps b { display: block; }
+
+  /* Offer */
+  .offer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+  .offer { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 30px; display: flex; flex-direction: column; }
+  .offer.featured { border: 2px solid var(--accent); }
+  .tag { align-self: flex-start; background: var(--accent); color: #fff; font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 6px; margin-bottom: 12px; letter-spacing: .5px; }
+  .price { font-family: var(--head); font-size: 42px; font-weight: 700; margin: 4px 0; }
+  .price s { font-size: 22px; color: var(--muted); font-weight: 500; margin-left: 6px; }
+  .price small { font-size: 18px; color: var(--muted); font-weight: 500; }
+  .offer ul { padding-left: 20px; margin: 14px 0 24px; flex: 1; }
+  .offer li { margin-bottom: 6px; }
+
+  /* Steps */
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; counter-reset: s; }
+  .step { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 24px; counter-increment: s; }
+  .step::before { content: counter(s); display: inline-flex; width: 36px; height: 36px; border-radius: 50%; background: var(--navy); color: #fff; align-items: center; justify-content: center; font-weight: 700; margin-bottom: 12px; }
+  .step h3 { font-size: 22px; }
+  .step p { color: var(--muted); margin: 0; font-size: 16px; }
+
+  /* Why */
+  .why { background: var(--navy); color: #fff; }
+  .why .section-head p { color: #c9dbee; }
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+  .why-grid div { border-top: 3px solid var(--accent); padding-top: 14px; }
+  .why-grid h3 { font-size: 22px; }
+  .why-grid p { color: #c9dbee; margin: 0; font-size: 16px; }
+
+  /* Form */
+  .form-card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 32px; max-width: 720px; margin: 0 auto; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .field { margin-bottom: 16px; }
+  .field label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 15px; }
+  .field input, .field select, .field textarea { width: 100%; padding: 12px 14px; border: 1px solid var(--line); border-radius: 8px; font: inherit; font-size: 16px; background: #fff; color: var(--text); }
+  .field textarea { min-height: 96px; resize: vertical; }
+  .field input:focus, .field select:focus, .field textarea:focus { outline: 2px solid var(--accent); border-color: var(--accent); }
+  .bot-trap { display: none; }
+  .form-status { display: none; margin-bottom: 14px; padding: 12px 14px; border-radius: 8px; font-weight: 600; }
+  .form-status.success { display: block; background: #e7f6ee; color: var(--good); }
+  .form-status.error { display: block; background: #fdecea; color: var(--bad); }
+  .score-attached { display: none; background: var(--accent-soft); border-radius: 8px; padding: 10px 14px; margin-bottom: 16px; font-size: 15px; }
+  .fine { font-size: 14px; color: var(--muted); margin-top: 12px; text-align: center; }
+
+  @media (max-width: 640px) {
+    .form-row { grid-template-columns: 1fr; }
+    .quiz-wrap, .form-card { padding: 22px 16px; }
+    .section { padding: 56px 16px; }
+    .hero { padding: 110px 16px 60px; }
+  }
+</style>
+</head>
+<body>
+<div id="navbar"></div>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="eyebrow">Cyber-Node Health</div>
+  <h1>Pass your next HIPAA audit — without hiring an IT person.</h1>
+  <p>We secure your computers and phones, keep your HIPAA paperwork current, and train your staff. Built for home care agencies and adult family homes.</p>
+  <div class="btns">
+    <a href="#self-check" class="btn btn-primary">Take the free 2-minute self-check</a>
+    <a href="#book" class="btn btn-ghost">Book a free 20-minute call</a>
+  </div>
+  <div class="trust">Washington-based · Led by an M.S. in Cybersecurity who also runs care businesses</div>
+</header>
+
+<!-- Pain -->
+<section class="section">
+  <div class="section-head">
+    <h2>Sound familiar?</h2>
+    <p>Small care providers handle the same patient data as hospitals, with none of the IT staff.</p>
+  </div>
+  <div class="pain-grid">
+    <div class="pain"><q>My insurance renewal asked about MFA. I don't know what that is.</q><span>Cyber insurers now expect MFA and backups before they quote.</span></div>
+    <div class="pain"><q>The auditor wants our security risk assessment.</q><span>HIPAA requires one. Most small agencies have never done it.</span></div>
+    <div class="pain"><q>Caregivers use their own phones for client info.</q><span>One lost phone can mean a reportable breach.</span></div>
+    <div class="pain"><q>If we got hacked, we'd be done.</q><span>Ransomware targets small providers because they're easy.</span></div>
+  </div>
+  <div class="who">
+    <span class="chip">Home care agencies</span>
+    <span class="chip">Adult family homes</span>
+    <span class="chip">Assisted living</span>
+    <span class="chip">Home health</span>
+    <span class="chip">Medical transport (NEMT)</span>
+  </div>
+</section>
+
+<!-- Self-check -->
+<section class="section" id="self-check" style="padding-top:20px;">
+  <div class="section-head">
+    <h2>Free HIPAA security self-check</h2>
+    <p>10 yes/no questions. Your score and your top gaps appear instantly — nothing is sent unless you choose to.</p>
+  </div>
+  <div class="quiz-wrap">
+    <div class="progress" aria-hidden="true"><div id="bar"></div></div>
+    <div class="progress-label" id="barLabel">0 of 10 answered</div>
+    <form id="quiz"></form>
+    <div class="quiz-actions">
+      <button class="btn btn-dark" id="scoreBtn" type="button">See my score</button>
+      <div class="quiz-note" id="quizNote">Answer all 10 questions to see your score.</div>
+    </div>
+    <div class="result" id="result" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- Offer -->
+<section class="section" id="pricing">
+  <div class="section-head">
+    <h2>Two simple ways to start</h2>
+    <p>Begin with the assessment. Keep your agency protected with the monthly plan.</p>
+  </div>
+  <div class="offer-grid">
+    <div class="offer featured">
+      <span class="tag">FOUNDING CLIENT PRICE</span>
+      <h3>HIPAA Risk Assessment</h3>
+      <div class="price">$1,500<s>$3,500</s></div>
+      <div style="color:var(--muted)">One-time · limited founding spots</div>
+      <ul>
+        <li>Full HIPAA security risk assessment</li>
+        <li>Plain-English gap report for your files and auditors</li>
+        <li>Prioritized 90-day fix plan</li>
+        <li>Help answering your cyber-insurance questionnaire</li>
+        <li>Walk-through meeting with the owner</li>
+      </ul>
+      <a href="#book" class="btn btn-primary" data-plan="Risk Assessment">Reserve an assessment</a>
+    </div>
+    <div class="offer">
+      <h3>Essentials Plan</h3>
+      <div class="price">$499<small>/month</small></div>
+      <div style="color:var(--muted)">Up to 10 staff · 12-month plan</div>
+      <ul>
+        <li>MFA set up on email and key systems</li>
+        <li>Antivirus / endpoint protection on every device</li>
+        <li>Automatic encrypted backups</li>
+        <li>Email phishing and spam filtering</li>
+        <li>HIPAA policy binder kept current</li>
+        <li>Yearly staff security training</li>
+      </ul>
+      <a href="#book" class="btn btn-dark" data-plan="Essentials Plan">Ask about Essentials</a>
+    </div>
+  </div>
+  <p class="fine">Larger agency or multiple sites? <a href="#book">Ask about Professional and vCISO plans.</a></p>
+</section>
+
+<!-- How it works -->
+<section class="section" style="padding-top:20px;">
+  <div class="section-head"><h2>How it works</h2></div>
+  <div class="steps">
+    <div class="step"><h3>Free call</h3><p>20 minutes to understand your agency, staff and systems.</p></div>
+    <div class="step"><h3>Assessment</h3><p>We review devices, accounts, vendors and policies — mostly remote.</p></div>
+    <div class="step"><h3>Fix plan</h3><p>You get a clear report and a 90-day plan, in plain English.</p></div>
+    <div class="step"><h3>Stay protected</h3><p>We handle the fixes and keep you audit-ready every month.</p></div>
+  </div>
+</section>
+
+<!-- Why us -->
+<section class="why">
+  <div class="section">
+    <div class="section-head">
+      <h2>Why Cyber-Node Health</h2>
+      <p>Most IT companies don't understand care. Most care consultants can't secure a laptop. We do both.</p>
+    </div>
+    <div class="why-grid">
+      <div><h3>We run care businesses too</h3><p>We know state surveys, caregiver turnover and shared office computers firsthand.</p></div>
+      <div><h3>Security credentials</h3><p>Led by Willie K. Murimi, M.S. Cybersecurity, M.S. Criminal Justice.</p></div>
+      <div><h3>One flat monthly fee</h3><p>No hourly surprises. Tools, monitoring and paperwork included.</p></div>
+      <div><h3>We sign your BAA</h3><p>We sign a Business Associate Agreement and treat your data accordingly.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Book -->
+<section class="section" id="book">
+  <div class="section-head">
+    <h2>Book a free 20-minute call</h2>
+    <p>Tell us a little about your agency. We'll reply within one business day to set a time.</p>
+  </div>
+  <div class="form-card">
+    <form id="leadForm">
+      <input type="hidden" name="access_key" value="59d2f31e-d9a6-4f5e-8687-c4f7147bd2fa">
+      <input type="hidden" name="subject" value="Cyber-Node Health — New healthcare lead">
+      <input type="hidden" name="from_name" value="cyber-node.com/healthcare">
+      <input type="hidden" name="selfcheck_score" id="f_score" value="not taken">
+      <input type="hidden" name="selfcheck_gaps" id="f_gaps" value="">
+      <input type="hidden" name="interested_in" id="f_plan" value="Not specified">
+      <input type="text" name="botcheck" class="bot-trap" tabindex="-1" autocomplete="off">
+
+      <div class="score-attached" id="scoreAttached"></div>
+
+      <div class="form-row">
+        <div class="field"><label for="name">Your name</label><input id="name" name="name" required autocomplete="name"></div>
+        <div class="field"><label for="org">Agency / home name</label><input id="org" name="organization" required autocomplete="organization"></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required autocomplete="email"></div>
+        <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel"></div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="type">Type of provider</label>
+          <select id="type" name="provider_type" required>
+            <option value="">Choose one</option>
+            <option>Home care agency</option>
+            <option>Adult family home</option>
+            <option>Assisted living</option>
+            <option>Home health</option>
+            <option>Medical transport (NEMT)</option>
+            <option>Clinic / other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="staff">Number of staff</label>
+          <select id="staff" name="staff_count" required>
+            <option value="">Choose one</option>
+            <option>1–5</option>
+            <option>6–10</option>
+            <option>11–30</option>
+            <option>31+</option>
+          </select>
+        </div>
+      </div>
+      <div class="field"><label for="msg">Anything we should know? <span style="font-weight:400;color:var(--muted)">(optional — please don't include patient information)</span></label><textarea id="msg" name="message" placeholder="e.g. insurance renewal next month, state survey coming up…"></textarea></div>
+
+      <div class="form-status" id="formStatus" role="status"></div>
+      <button type="submit" class="btn btn-primary" id="submitBtn" style="width:100%">Request my free call</button>
+      <p class="fine">Prefer email? <a href="mailto:sales@cyber-node.com">sales@cyber-node.com</a></p>
+    </form>
+  </div>
+  <p class="fine" style="max-width:720px;margin:20px auto 0;">The self-check is for general guidance only and is not a HIPAA risk assessment or legal advice.</p>
+</section>
+
+<div id="footer"></div>
+
+<script>
+  fetch("../components/navbar.html").then(r=>r.ok?r.text():'').then(h=>{if(h)document.getElementById("navbar").innerHTML=h;});
+  fetch("../components/footer.html").then(r=>r.ok?r.text():'').then(h=>{if(h)document.getElementById("footer").innerHTML=h;});
+
+  // ── Self-check ────────────────────────────────────────────────
+  const QUESTIONS = [
+    { q: "Does every staff member log in to email and your care software with MFA?", hint: "MFA = a code or app prompt on their phone, not just a password.", gap: "Turn on MFA", fix: "The single biggest protection against stolen passwords — and insurers ask for it." },
+    { q: "Has a HIPAA security risk assessment been done in the last 12 months?", hint: "HIPAA requires one, and auditors ask to see it.", gap: "Complete a risk assessment", fix: "Required by HIPAA and the first document an auditor requests." },
+    { q: "Is your client data backed up automatically, with a copy kept separate, and has a restore been tested?", hint: "", gap: "Fix your backups", fix: "Tested, separate backups are what let you recover from ransomware without paying." },
+    { q: "Does every computer have up-to-date antivirus and automatic updates turned on?", hint: "", gap: "Protect every device", fix: "Unpatched computers are the easiest way in for attackers." },
+    { q: "Does each staff member have their own login (no shared passwords)?", hint: "Including shared office or med-room computers.", gap: "End shared logins", fix: "HIPAA requires knowing who accessed what — shared logins make that impossible." },
+    { q: "Do you have signed Business Associate Agreements (BAAs) with every vendor that touches client data?", hint: "Your EHR, billing, email, IT and payroll vendors.", gap: "Collect your BAAs", fix: "Missing BAAs are a common audit finding and easy to fix." },
+    { q: "Have all staff completed HIPAA / security training in the last 12 months?", hint: "Including how to spot phishing emails.", gap: "Train your staff", fix: "Most breaches start with one clicked email." },
+    { q: "Do you have written HIPAA security policies that match how you actually work?", hint: "Not just a binder from years ago.", gap: "Update your policies", fix: "Auditors check that policies exist and match real practice." },
+    { q: "Are laptops and phones that hold client information encrypted, and can you wipe them if lost?", hint: "", gap: "Encrypt and manage devices", fix: "An encrypted lost device usually isn't a reportable breach — an unencrypted one is." },
+    { q: "Do you know exactly what to do, and who to call, in the first hour of a breach or ransomware attack?", hint: "", gap: "Write an incident plan", fix: "The first hour decides how bad, and how costly, a breach becomes." }
+  ];
+
+  const quiz = document.getElementById("quiz");
+  quiz.innerHTML = QUESTIONS.map((x, i) => `
+    <fieldset class="q" style="border:0;margin:0;padding-left:0;padding-right:0;">
+      <legend style="padding:0"><p>${i + 1}. ${x.q}${x.hint ? `<small>${x.hint}</small>` : ""}</p></legend>
+      <div class="opts">
+        <label><input type="radio" name="q${i}" value="yes"><span>Yes</span></label>
+        <label><input type="radio" name="q${i}" value="no"><span>No</span></label>
+        <label><input type="radio" name="q${i}" value="unsure"><span>Not sure</span></label>
+      </div>
+    </fieldset>`).join("");
+
+  const bar = document.getElementById("bar"), barLabel = document.getElementById("barLabel");
+  const answered = () => QUESTIONS.filter((_, i) => quiz.querySelector(`input[name=q${i}]:checked`)).length;
+  quiz.addEventListener("change", () => {
+    const n = answered();
+    bar.style.width = (n / QUESTIONS.length * 100) + "%";
+    barLabel.textContent = `${n} of ${QUESTIONS.length} answered`;
+  });
+
+  document.getElementById("scoreBtn").addEventListener("click", () => {
+    const note = document.getElementById("quizNote");
+    if (answered() < QUESTIONS.length) { note.textContent = `Please answer all ${QUESTIONS.length} questions (${answered()} done).`; note.style.color = "var(--bad)"; return; }
+    note.style.color = ""; note.textContent = "";
+
+    const gaps = [];
+    let score = 0;
+    QUESTIONS.forEach((x, i) => {
+      const v = quiz.querySelector(`input[name=q${i}]:checked`).value;
+      if (v === "yes") score++; else gaps.push(x);
+    });
+
+    let level, color, msg;
+    if (score >= 8) { level = "Strong foundation"; color = "var(--good)"; msg = "You're ahead of most small providers. A formal assessment will document it for auditors and insurers."; }
+    else if (score >= 5) { level = "Some important gaps"; color = "var(--warn)"; msg = "You have the basics in places, but these gaps are the kind auditors and attackers both find."; }
+    else { level = "High risk"; color = "var(--bad)"; msg = "Your agency is exposed. The good news: most of these fixes take days, not months."; }
+
+    const r = document.getElementById("result");
+    r.style.borderColor = color;
+    r.innerHTML = `
+      <div class="score" style="color:${color}">${score}/10</div>
+      <h3>${level}</h3>
+      <p style="margin:0;color:var(--muted)">${msg}</p>
+      ${gaps.length ? `<p style="margin:16px 0 0;font-weight:700">Your top gaps:</p>
+      <ol class="gaps">${gaps.slice(0, 5).map(g => `<li><b>${g.gap}</b>${g.fix}</li>`).join("")}</ol>` : ""}
+      <div class="btns" style="justify-content:flex-start;margin-top:20px">
+        <a href="#book" class="btn btn-primary">Get help closing these gaps</a>
+      </div>`;
+    r.classList.add("show");
+    r.scrollIntoView({ behavior: "smooth", block: "nearest" });
+
+    document.getElementById("f_score").value = `${score}/10 — ${level}`;
+    document.getElementById("f_gaps").value = gaps.map(g => g.gap).join("; ") || "none";
+    const att = document.getElementById("scoreAttached");
+    att.textContent = `Your self-check score (${score}/10) will be included so we can prepare for the call.`;
+    att.style.display = "block";
+    if (window.plausible) plausible("Self-check completed", { props: { score: String(score) } });
+  });
+
+  // Plan buttons pre-fill interest
+  document.querySelectorAll("[data-plan]").forEach(a => a.addEventListener("click", () => {
+    document.getElementById("f_plan").value = a.dataset.plan;
+  }));
+
+  // ── Lead form (Web3Forms) ────────────────────────────────────
+  const form = document.getElementById("leadForm"), btn = document.getElementById("submitBtn"), status = document.getElementById("formStatus");
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    btn.disabled = true; btn.textContent = "Sending…"; status.className = "form-status";
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", { method: "POST", body: new FormData(form) });
+      const json = await res.json();
+      if (!json.success) throw new Error(json.message);
+      status.textContent = "Thanks! We'll reach out within one business day to schedule your call.";
+      status.className = "form-status success";
+      form.reset(); btn.textContent = "Request sent ✓";
+      if (window.plausible) plausible("Healthcare lead");
+    } catch (err) {
+      status.textContent = "Something went wrong. Please email sales@cyber-node.com directly.";
+      status.className = "form-status error";
+      btn.disabled = false; btn.textContent = "Request my free call";
+    }
+  });
+</script>
+<script src="../js/nav-toggle.js"></script>
+</body>
+</html>
