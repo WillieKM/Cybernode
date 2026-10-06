@@ -54,7 +54,13 @@ export default async function handler(req, res) {
   }
 
   const orderId = randomBytes(8).toString('hex');
-  await redis.set(`intasend-order:${orderId}`, { domain: cleanDomain, email: cleanEmail }, { ex: ORDER_TTL_SECONDS });
+  try {
+    await redis.set(`intasend-order:${orderId}`, { domain: cleanDomain, email: cleanEmail }, { ex: ORDER_TTL_SECONDS });
+  } catch (err) {
+    console.error('Redis order storage failed:', err.message);
+    captureError(err, { domain: cleanDomain });
+    return res.status(500).json({ error: 'Payment is temporarily unavailable — please try again shortly.' });
+  }
 
   try {
     const checkout = await createMpesaCheckout({

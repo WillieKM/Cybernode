@@ -17,10 +17,17 @@ const RATE_WINDOW_SECONDS = 60 * 60; // per rolling hour
 
 async function checkRateLimit(ip) {
   if (!redis) return true; // Redis not configured (e.g. local dev) — don't block
-  const key = `scan-rate:${ip}`;
-  const count = await redis.incr(key);
-  if (count === 1) await redis.expire(key, RATE_WINDOW_SECONDS);
-  return count <= RATE_LIMIT;
+  try {
+    const key = `scan-rate:${ip}`;
+    const count = await redis.incr(key);
+    if (count === 1) await redis.expire(key, RATE_WINDOW_SECONDS);
+    return count <= RATE_LIMIT;
+  } catch (err) {
+    // Redis unreachable — fail open so a Redis outage doesn't take down the
+    // free scan tool entirely; just means rate limiting is temporarily off.
+    console.error('rate limit check failed, allowing request:', err.message);
+    return true;
+  }
 }
 
 export default async function handler(req, res) {

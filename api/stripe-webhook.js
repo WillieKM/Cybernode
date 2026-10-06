@@ -59,13 +59,19 @@ export default async function handler(req, res) {
 
   // Idempotency check — if Stripe retries the webhook (timeout, network blip),
   // skip re-processing so the customer doesn't receive the report twice.
+  // Wrapped in try/catch and fails open: a Redis outage shouldn't mean a
+  // paying customer never gets their report, just a small risk of a dupe.
   if (redis) {
-    const alreadyProcessed = await redis.get(`webhook:${session.id}`);
-    if (alreadyProcessed) {
-      console.log(`Session ${session.id} already processed — skipping`);
-      return res.status(200).json({ received: true, skipped: 'already processed' });
+    try {
+      const alreadyProcessed = await redis.get(`webhook:${session.id}`);
+      if (alreadyProcessed) {
+        console.log(`Session ${session.id} already processed — skipping`);
+        return res.status(200).json({ received: true, skipped: 'already processed' });
+      }
+      await redis.set(`webhook:${session.id}`, '1', { ex: 60 * 60 * 24 * 7 }); // expire after 7 days
+    } catch (err) {
+      console.error('Redis idempotency check failed, proceeding anyway:', err.message);
     }
-    await redis.set(`webhook:${session.id}`, '1', { ex: 60 * 60 * 24 * 7 }); // expire after 7 days
   }
 
   try {

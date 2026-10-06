@@ -43,15 +43,24 @@ export default async function handler(req, res) {
   }
 
   // Idempotency — IntaSend retries webhooks up to 6 times on non-2xx/timeout;
-  // don't send the report twice for the same invoice.
-  const dedupeKey = `intasend-webhook:${event.invoice_id}`;
-  const alreadyProcessed = await redis.get(dedupeKey);
-  if (alreadyProcessed) {
-    return res.status(200).json({ received: true, skipped: 'already processed' });
-  }
-  await redis.set(dedupeKey, '1', { ex: 60 * 60 * 24 * 7 });
+  // don't send the report twice for the same invoice. Redis errors here
+  // return 500 (not 200) so IntaSend's retry mechanism tries again later
+  // instead of the payment silently never getting fulfilled.
+  let order;
+  try {
+    const dedupeKey = `intasend-webhook:${event.invoice_id}`;
+    const alreadyProcessed = await redis.get(dedupeKey);
+    if (alreadyProcessed) {
+      return res.status(200).json({ received: true, skipped: 'already processed' });
+    }
+    await redis.set(dedupeKey, '1', { ex: 60 * 60 * 24 * 7 });
 
-  const order = await redis.get(`intasend-order:${orderId}`);
+    order = await redis.get(`intasend-order:${orderId}`);
+  } catch (err) {
+    console.error('IntaSend webhook: Redis error during lookup:', err.message);
+    captureError(err, { orderId });
+    return res.status(502).json({ error: 'Temporary storage error — please retry' });
+  }
   if (!order) {
     console.error(`IntaSend webhook: no pending order found for ${orderId}`);
     return res.status(200).json({ received: true, skipped: 'order not found' });
