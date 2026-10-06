@@ -197,6 +197,13 @@ h1, h2, h3 { text-wrap: balance; letter-spacing: -0.02em; font-weight: 600; }
 .card p { color: var(--muted); margin: 0; font-size: 15px; }
 .card .ic { font-size: 18px; color: var(--muted); margin-bottom: 14px; display: block; }
 
+/* ── WHO'S BEHIND CARD ────────────────────────────────────────── */
+.who-head { display: flex; align-items: center; gap: 16px; }
+.who-avatar { width: 56px; height: 56px; border-radius: 50%; flex: none; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 18px; font-weight: 700; color: var(--accent); background: var(--accent-dim); border: 1px solid var(--accent); }
+.who-role { font-size: 14px; color: var(--muted); margin-top: 3px; }
+.who-creds { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+.who-creds .chip { margin-left: 0; }
+
 /* ── PRIORITY LIST (5 things to fix) ──────────────────────────── */
 .prio { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
 .prio-row { display: grid; grid-template-columns: 30px 1fr auto; gap: 12px; align-items: center; padding: 13px 16px; border-bottom: 1px solid var(--line); font-size: 14px; }
