@@ -341,12 +341,6 @@
   }
 
   .unlock-btn:hover { background: var(--accent); color: #080B12; }
-  .unlock-btn:disabled { opacity: 0.6; cursor: not-allowed; }
-
-  .unlock-actions { display: flex; flex-direction: column; gap: 8px; flex-shrink: 0; }
-
-  .unlock-btn-mpesa { border-color: var(--green); color: var(--green); }
-  .unlock-btn-mpesa:hover { background: var(--green); color: #0a1628; }
 
   .how-section { padding: 0 20px 80px; }
   .how-wrap { max-width: 760px; margin: 0 auto; }
@@ -662,14 +656,10 @@
             </div>
           </div>
         </div>
-        <div class="unlock-actions">
-          <button class="unlock-btn" id="unlockBtn">UNLOCK — $19 (Card) →</button>
-          <button class="unlock-btn unlock-btn-mpesa" id="unlockBtnMpesa">UNLOCK — KES 5,000 (M-Pesa) →</button>
-        </div>
+        <button class="unlock-btn" id="unlockBtn">UNLOCK — $19 →</button>
       </div>`;
 
     document.getElementById('unlockBtn').addEventListener('click', () => unlockReport(data.domain));
-    document.getElementById('unlockBtnMpesa').addEventListener('click', () => unlockReportMpesa(data.domain));
   }
 
   // Every scan is a sales lead. Send it to the same Web3Forms inbox the contact
@@ -721,35 +711,6 @@
     const params = new URLSearchParams({ client_reference_id: refId });
     if (email) params.set('prefilled_email', email);
     window.location.href = `${STRIPE_PAYMENT_LINK}?${params}`;
-  }
-
-  async function unlockReportMpesa(domain) {
-    const email = document.getElementById('userEmail').value.trim();
-    if (!email || !email.includes('@')) {
-      const el = document.getElementById('userEmail');
-      el.focus(); el.style.borderColor = '#ff4466';
-      setTimeout(() => el.style.borderColor = '', 1400);
-      return;
-    }
-
-    const btn = document.getElementById('unlockBtnMpesa');
-    btn.disabled = true;
-    btn.textContent = 'STARTING M-PESA CHECKOUT…';
-
-    try {
-      const res = await fetch('/api/intasend-checkout', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ domain, email }),
-      });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Could not start M-Pesa checkout');
-      window.location.href = data.url;
-    } catch (err) {
-      btn.disabled = false;
-      btn.textContent = 'UNLOCK — KES 5,000 (M-Pesa) →';
-      alert(err.message);
-    }
   }
 </script>
 </body>
