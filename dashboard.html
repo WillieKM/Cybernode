@@ -6,7 +6,7 @@
 <title>Cyber-Node SOC Dashboard</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/mobile.css">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -15,15 +15,15 @@
     --bg:       #040c16;
     --bg2:      #060e1a;
     --bg3:      #071525;
-    --border:   #0d2236;
-    --accent:   #00d4ff;
-    --red:      #ff2244;
+    --border:   #101722;
+    --accent:   #19D3E6;
+    --red:      #F0506E;
     --orange:   #ff8c00;
-    --green:    #00cc77;
-    --text:     #c8d8e8;
-    --muted:    #2a5a8a;
-    --mono:     'Share Tech Mono', monospace;
-    --sans:     'Rajdhani', sans-serif;
+    --green:    #2FD67B;
+    --text:     #C9D1DB;
+    --muted:    #2A3A50;
+    --mono:     'Geist Mono', monospace;
+    --sans:     'Geist', sans-serif;
   }
 
   body {
@@ -69,7 +69,7 @@
   .brand-name {
     font-size: 15px;
     font-weight: 700;
-    color: #e8f4ff;
+    color: #F2F5F7;
     letter-spacing: 2px;
     text-transform: uppercase;
   }
@@ -163,7 +163,7 @@
   .page-title {
     font-size: 24px;
     font-weight: 700;
-    color: #e8f4ff;
+    color: #F2F5F7;
     letter-spacing: 1px;
   }
 
@@ -259,7 +259,7 @@
   .score-info-label {
     font-size: 13px;
     font-weight: 600;
-    color: #c8d8e8;
+    color: #C9D1DB;
     letter-spacing: 1px;
   }
 
@@ -349,10 +349,10 @@
     border-left: 3px solid;
   }
 
-  .threat-item.critical { border-left-color: #ff2244; }
+  .threat-item.critical { border-left-color: #F0506E; }
   .threat-item.high     { border-left-color: #ff6b00; }
   .threat-item.medium   { border-left-color: #ffd700; }
-  .threat-item.low      { border-left-color: #00cc77; }
+  .threat-item.low      { border-left-color: #2FD67B; }
 
   .threat-icon {
     width: 28px; height: 28px;
@@ -362,17 +362,17 @@
     flex-shrink: 0;
   }
 
-  .threat-icon.critical { background:#1a0010; color:#ff2244; }
+  .threat-icon.critical { background:#1a0010; color:#F0506E; }
   .threat-icon.high     { background:#1a0a00; color:#ff6b00; }
   .threat-icon.medium   { background:#1a1400; color:#ffd700; }
-  .threat-icon.low      { background:#001a0d; color:#00cc77; }
+  .threat-icon.low      { background:#001a0d; color:#2FD67B; }
 
   .threat-info { flex: 1; min-width: 0; }
 
   .threat-name {
     font-size: 13px;
     font-weight: 600;
-    color: #c8d8e8;
+    color: #C9D1DB;
     letter-spacing: 0.5px;
     white-space: nowrap;
     overflow: hidden;
@@ -397,10 +397,10 @@
     flex-shrink: 0;
   }
 
-  .sev-badge.critical { background:#1a0010; color:#ff2244; border:1px solid #440020; }
+  .sev-badge.critical { background:#1a0010; color:#F0506E; border:1px solid #440020; }
   .sev-badge.high     { background:#1a0a00; color:#ff6b00; border:1px solid #442000; }
   .sev-badge.medium   { background:#1a1400; color:#ffd700; border:1px solid #443300; }
-  .sev-badge.low      { background:#001a0d; color:#00cc77; border:1px solid #003322; }
+  .sev-badge.low      { background:#001a0d; color:#2FD67B; border:1px solid #003322; }
 
   /* ── ACTIVITY LOG ───────────── */
   .activity-panel { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 20px; }
@@ -452,6 +452,7 @@
     .stat-grid { grid-template-columns: 1fr; }
   }
 </style>
+<link rel="stylesheet" href="css/brand.css">
 </head>
 <body>
 <div class="dashboard">
@@ -484,7 +485,7 @@
     <!-- TOPBAR -->
     <div class="topbar">
       <div>
-        <div class="page-sub">// security operations center</div>
+        <div class="page-sub">Security operations</div>
         <div class="page-title">SOC Dashboard</div>
       </div>
       <div class="live-pill">
@@ -502,7 +503,7 @@
           <div class="ring-container">
             <svg width="72" height="72" viewBox="0 0 72 72">
               <circle cx="36" cy="36" r="29" fill="none" stroke="#0d2035" stroke-width="6"/>
-              <circle id="ringArc" cx="36" cy="36" r="29" fill="none" stroke="#00d4ff" stroke-width="6"
+              <circle id="ringArc" cx="36" cy="36" r="29" fill="none" stroke="#19D3E6" stroke-width="6"
                 stroke-dasharray="182.2" stroke-dashoffset="32" stroke-linecap="round"/>
             </svg>
             <div class="ring-num" id="scoreNum">92%</div>
@@ -539,7 +540,7 @@
 
       <div class="panel">
         <div class="panel-header">
-          <div class="panel-title">// vulnerability trends</div>
+          <div class="panel-title">Vulnerability trends</div>
           <div class="panel-badge">30D</div>
         </div>
         <div class="chart-wrap">
@@ -549,7 +550,7 @@
 
       <div class="panel">
         <div class="panel-header">
-          <div class="panel-title">// active threats</div>
+          <div class="panel-title">Active threats</div>
           <div class="panel-badge">LIVE</div>
         </div>
         <div class="threat-list">
@@ -593,7 +594,7 @@
     <!-- ACTIVITY LOG -->
     <div class="activity-panel">
       <div class="panel-header">
-        <div class="panel-title">// recent activity</div>
+        <div class="panel-title">Recent activity</div>
         <div class="panel-badge" id="activityCount">3 events</div>
       </div>
       <ul id="activityLog">
@@ -619,11 +620,11 @@ const vulnChart = new Chart(ctx, {
       {
         label: 'Vulnerabilities',
         data: [12, 9, 14, 8, 11, 7, 6],
-        borderColor: '#00d4ff',
-        backgroundColor: 'rgba(0,212,255,0.08)',
+        borderColor: '#19D3E6',
+        backgroundColor: 'rgba(25,211,230,0.08)',
         tension: 0.4,
         fill: true,
-        pointBackgroundColor: '#00d4ff',
+        pointBackgroundColor: '#19D3E6',
         pointRadius: 4,
         pointHoverRadius: 6,
         borderWidth: 2
@@ -648,20 +649,20 @@ const vulnChart = new Chart(ctx, {
     plugins: {
       legend: {
         labels: {
-          color: '#2a5a8a',
-          font: { family: "'Share Tech Mono', monospace", size: 11 },
+          color: '#2A3A50',
+          font: { family: "'Geist Mono', monospace", size: 11 },
           boxWidth: 14
         }
       }
     },
     scales: {
       x: {
-        ticks: { color: '#2a5a8a', font: { family: "'Share Tech Mono', monospace", size: 10 } },
-        grid: { color: '#0d2236' }
+        ticks: { color: '#2A3A50', font: { family: "'Geist Mono', monospace", size: 10 } },
+        grid: { color: '#101722' }
       },
       y: {
-        ticks: { color: '#2a5a8a', font: { family: "'Share Tech Mono', monospace", size: 10 } },
-        grid: { color: '#0d2236' }
+        ticks: { color: '#2A3A50', font: { family: "'Geist Mono', monospace", size: 10 } },
+        grid: { color: '#101722' }
       }
     }
   }

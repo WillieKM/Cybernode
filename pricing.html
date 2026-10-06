@@ -4,314 +4,184 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- ══ PRIMARY SEO ══════════════════════════════════════════════ -->
-<title>Pricing | Cyber-Node Security Intelligence Plans</title>
-<meta name="description" content="Flexible cybersecurity plans starting at $1,500. Starter, Professional, and Enterprise packages covering risk assessments, pen-testing, NIST/HIPAA compliance, and 24/7 monitoring.">
-<meta name="keywords" content="cybersecurity pricing, security assessment cost, penetration testing price, HIPAA compliance consulting, NIST framework, SMB cybersecurity plans">
-<meta name="author" content="Cyber-Node Security Intelligence">
+<title>Pricing | Cyber-Node — Starter, Business & Managed Security Plans</title>
+<meta name="description" content="Simple monthly cybersecurity plans. Starter $499/mo for continuous external monitoring, Business $1,499/mo adds cloud, identity, compliance and automated remediation, Managed from $3,500/mo adds a security engineer, incident response and pen testing.">
+<meta name="keywords" content="cybersecurity pricing, continuous security monitoring price, managed security service pricing, vCISO, HIPAA security monitoring cost, attack surface monitoring pricing">
 <link rel="canonical" href="https://www.cyber-node.com/pricing.html">
 
-<!-- ══ OPEN GRAPH ════════════════════════════════════════════════ -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.cyber-node.com/pricing.html">
-<meta property="og:title" content="Cybersecurity Pricing Plans | Cyber-Node">
-<meta property="og:description" content="Flexible plans from $1,500 for startups to custom enterprise packages. Risk assessments, pen-testing, and compliance consulting.">
+<meta property="og:title" content="Cyber-Node Pricing — Starter, Business, Managed">
+<meta property="og:description" content="Continuous security monitoring from $499/month. Automated remediation, compliance and a managed security team when you need them.">
 <meta property="og:image" content="https://www.cyber-node.com/images/og-preview.png">
 <meta property="og:site_name" content="Cyber-Node">
-
-<!-- ══ TWITTER CARD ══════════════════════════════════════════════ -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Cybersecurity Pricing Plans | Cyber-Node">
-<meta name="twitter:description" content="Flexible plans from $1,500. Risk assessments, pen-testing, NIST/HIPAA compliance.">
+<meta name="twitter:title" content="Cyber-Node Pricing">
+<meta name="twitter:description" content="Continuous security monitoring from $499/month.">
 <meta name="twitter:image" content="https://www.cyber-node.com/images/og-preview.png">
 
-<!-- ══ JSON-LD: PRICING PAGE ════════════════════════════════════ -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "Cyber-Node Pricing",
   "url": "https://www.cyber-node.com/pricing.html",
-  "description": "Cybersecurity intelligence pricing plans for startups, SMBs, and enterprise.",
   "offers": [
-    {
-      "@type": "Offer",
-      "name": "Starter",
-      "description": "Initial security evaluation for emerging small businesses.",
-      "price": "1500",
-      "priceCurrency": "USD"
-    },
-    {
-      "@type": "Offer",
-      "name": "Professional",
-      "description": "Comprehensive security assessment for growing organizations.",
-      "price": "4500",
-      "priceCurrency": "USD"
-    },
-    {
-      "@type": "Offer",
-      "name": "Enterprise",
-      "description": "Advanced cybersecurity consulting and automated defense.",
-      "price": "0",
-      "priceCurrency": "USD",
-      "priceSpecification": {
-        "@type": "PriceSpecification",
-        "description": "Custom quote available on request"
-      }
-    }
+    { "@type": "Offer", "name": "Starter", "price": "499", "priceCurrency": "USD", "description": "Monthly. Continuous external monitoring, security score, asset discovery, vulnerability monitoring, reports." },
+    { "@type": "Offer", "name": "Business", "price": "1499", "priceCurrency": "USD", "description": "Monthly. Adds cloud, identity and compliance monitoring, automated remediation, priority support." },
+    { "@type": "Offer", "name": "Managed", "price": "3500", "priceCurrency": "USD", "description": "Monthly, starting at. Adds security monitoring, incident response, pen testing, compliance support and a security engineer." }
   ]
 }
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/gtm.css">
 <link rel="stylesheet" href="css/mobile.css">
-<style>
-  :root {
-    --bg: #0e1f38;
-    --bg2: #142840;
-    --border: #2e5070;
-    --accent: #00d4ff;
-    --neon-lime: #bfff00;
-    --text: #e8f4ff;
-    --muted: #90bcd8;
-    --mono: 'Share Tech Mono', monospace;
-    --sans: 'Rajdhani', sans-serif;
-  }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--sans);
-    margin: 0;
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
-
-  .hero-wrap {
-    position: relative;
-    padding: 160px 20px 80px;
-    text-align: center;
-    background: linear-gradient(180deg, #1a3252 0%, #0e1f38 100%);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .grid-lines {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(0,212,255,0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,212,255,0.05) 1px, transparent 1px);
-    background-size: 45px 45px;
-    mask-image: radial-gradient(circle, black, transparent 85%);
-  }
-
-  .hero-content { position: relative; z-index: 2; }
-  .hero-content h1 { font-size: 48px; letter-spacing: -1px; margin-bottom: 15px; }
-  .hero-content h1 span { color: var(--accent); }
-
-  .hero-badges {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 30px;
-    font-family: var(--mono);
-    font-size: 13px;
-    color: var(--muted);
-  }
-
-  .hero-badges span {
-    border: 1px solid var(--border);
-    padding: 5px 15px;
-    border-radius: 4px;
-    background: rgba(255,255,255,0.02);
-  }
-
-  .pricing-section {
-    max-width: 1200px;
-    margin: -40px auto 100px;
-    padding: 0 20px;
-    position: relative;
-    z-index: 10;
-  }
-
-  .pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 25px;
-  }
-
-  .pricing-card {
-    background: #0a1628;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 45px 35px;
-    transition: 0.3s ease;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .pricing-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-8px);
-    box-shadow: 0 15px 40px rgba(0, 212, 255, 0.15);
-  }
-
-  .pricing-card.highlight {
-    border: 1px solid var(--accent);
-    background: #0d1e35;
-    box-shadow: 0 0 30px rgba(0, 212, 255, 0.1);
-  }
-
-  .popular-tag {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 15px;
-    display: block;
-  }
-
-  .price-tag {
-    font-family: var(--mono);
-    font-size: 42px;
-    font-weight: 700;
-    color: var(--neon-lime);
-    margin-bottom: 10px;
-    text-shadow: 0 0 12px rgba(191, 255, 0, 0.4);
-  }
-
-  .pricing-card h3 { font-size: 24px; margin-bottom: 5px; color: #fff; }
-  .pricing-card p { font-size: 14px; color: var(--muted); margin-bottom: 30px; min-height: 44px; }
-
-  .features-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 40px 0;
-    flex-grow: 1;
-  }
-
-  .features-list li {
-    font-family: var(--mono);
-    font-size: 14px;
-    color: var(--muted);
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(46, 80, 112, 0.3);
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .features-list li::before { content: '✓'; color: var(--accent); font-weight: bold; }
-
-  .cn-btn {
-    display: block;
-    width: 100%;
-    padding: 15px;
-    font-family: var(--mono);
-    text-transform: uppercase;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 13px;
-    border-radius: 4px;
-    text-align: center;
-    transition: 0.3s;
-    box-sizing: border-box;
-  }
-
-  .btn-primary { background: var(--accent); color: var(--bg); }
-  .btn-outline { border: 1px solid var(--accent); color: var(--accent); }
-  .cn-btn:hover { box-shadow: 0 0 20px rgba(0,212,255,0.4); }
-
-  @media (max-width: 800px) {
-    .hero-content h1 { font-size: 34px; }
-    .hero-badges { flex-wrap: wrap; }
-  }
-</style>
+<link rel="stylesheet" href="css/brand.css">
 </head>
 <body>
 
 <div id="navbar"></div>
 
-<section class="hero-wrap">
+<section class="g-hero" style="padding-bottom:70px;">
   <div class="grid-lines"></div>
-  <div class="hero-content">
-    <div style="font-family: var(--mono); color: var(--accent); letter-spacing: 5px; margin-bottom: 10px;">[ PRICING_PROTOCOLS ]</div>
-    <h1>Solutions Built to <span>Protect</span></h1>
-    <p>Flexible cybersecurity intelligence plans for startups, SMBs, and enterprise infrastructure.</p>
-    <div class="hero-badges">
-      <span>✔ Risk Assessments</span>
-      <span>✔ HIPAA / NIST Ready</span>
-      <span>✔ Real-Time Insights</span>
+  <div class="g-hero-inner">
+    <div class="eyebrow">Pricing</div>
+    <h1 style="font-size:50px;">Simple plans. <span>Continuous protection.</span></h1>
+    <p class="lede">Every plan runs the full loop &mdash; discover, detect, prioritize, fix, verify. Pick how much of the fixing you want us to do.</p>
+  </div>
+</section>
+
+<section class="g-section" style="padding-top:60px;">
+  <div class="tiers">
+    <div class="tier">
+      <div class="tag">&nbsp;</div>
+      <h3>Starter</h3>
+      <div class="for">For small teams that need to know what's exposed &mdash; and when it changes.</div>
+      <div class="price">$499<small>/month</small></div>
+      <ul>
+        <li>Continuous external monitoring</li>
+        <li>Security score &amp; score history</li>
+        <li>Asset discovery (domains, subdomains, IPs, certs)</li>
+        <li>Vulnerability monitoring</li>
+        <li>&ldquo;Fix first&rdquo; priority list</li>
+        <li>Monthly executive report</li>
+      </ul>
+      <a href="/demo.html?plan=Starter" class="btn btn-ghost">Start with Starter</a>
     </div>
-    <div style="display: flex; justify-content: center; gap: 20px;">
-      <a href="contact.html" class="cn-btn btn-primary" style="width:auto; padding: 15px 40px;">Request Consultation</a>
+
+    <div class="tier featured">
+      <div class="tag">Most popular</div>
+      <h3>Business</h3>
+      <div class="for">For growing companies that handle sensitive data and answer security reviews.</div>
+      <div class="price">$1,499<small>/month</small></div>
+      <ul>
+        <li class="plus">Everything in Starter, plus</li>
+        <li>Cloud monitoring (AWS, Azure, GCP)</li>
+        <li>Identity monitoring (Microsoft 365, Google Workspace)</li>
+        <li>Compliance monitoring (HIPAA, SOC 2, NIST CSF)</li>
+        <li>Automated remediation workflows</li>
+        <li>Fix verification &amp; audit evidence</li>
+        <li>Priority support</li>
+      </ul>
+      <a href="/demo.html?plan=Business" class="btn btn-primary">Book a demo</a>
+    </div>
+
+    <div class="tier">
+      <div class="tag">&nbsp;</div>
+      <h3>Managed</h3>
+      <div class="for">For teams that want a security department without hiring one.</div>
+      <div class="price">$3,500<small>+/month</small></div>
+      <ul>
+        <li class="plus">Everything in Business, plus</li>
+        <li>Security monitoring &amp; alert triage</li>
+        <li>Incident response</li>
+        <li>Annual penetration test</li>
+        <li>Compliance support &amp; policy management</li>
+        <li>Named security engineer</li>
+      </ul>
+      <a href="/demo.html?plan=Managed" class="btn btn-ghost">Talk to us</a>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:22px; display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap;">
+    <div>
+      <h3 style="margin:0;">Enterprise</h3>
+      <p>Multiple business units, custom integrations, on-prem assets or contractual SLAs. Custom pricing.</p>
+    </div>
+    <a href="/demo.html?plan=Enterprise" class="btn btn-ghost">Contact sales</a>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section class="band">
+  <div class="g-section">
+    <div class="g-head"><h2>Compare plans</h2></div>
+    <div class="table-wrap">
+      <table class="compare">
+        <thead><tr><th></th><th>Starter</th><th>Business</th><th>Managed</th></tr></thead>
+        <tbody>
+          <tr><td>Attack-surface discovery</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+          <tr><td>Vulnerability &amp; exposure monitoring</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+          <tr><td>Security score &amp; prioritized fix list</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+          <tr><td>Reports</td><td>Monthly</td><td>Monthly + on demand</td><td>Monthly + exec briefing</td></tr>
+          <tr><td>Cloud monitoring</td><td class="n">&mdash;</td><td class="y">✓</td><td class="y">✓</td></tr>
+          <tr><td>Identity monitoring</td><td class="n">&mdash;</td><td class="y">✓</td><td class="y">✓</td></tr>
+          <tr><td>Compliance monitoring</td><td class="n">&mdash;</td><td class="y">✓</td><td class="y">✓</td></tr>
+          <tr><td>Automated remediation</td><td class="n">&mdash;</td><td class="y">✓</td><td class="y">✓</td></tr>
+          <tr><td>Fix verification &amp; evidence</td><td class="n">&mdash;</td><td class="y">✓</td><td class="y">✓</td></tr>
+          <tr><td>Security monitoring &amp; incident response</td><td class="n">&mdash;</td><td class="n">&mdash;</td><td class="y">✓</td></tr>
+          <tr><td>Penetration testing</td><td class="n">&mdash;</td><td>Add-on</td><td class="y">Annual</td></tr>
+          <tr><td>Named security engineer</td><td class="n">&mdash;</td><td class="n">&mdash;</td><td class="y">✓</td></tr>
+          <tr><td>Support</td><td>Email</td><td>Priority</td><td>Dedicated</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
 
-<div class="pricing-section">
-  <div class="pricing-grid">
-    <div class="pricing-card">
-      <div class="price-tag">$1,500</div>
-      <h3>Starter</h3>
-      <p>Initial security evaluation for emerging small businesses.</p>
-      <ul class="features-list">
-        <li>Security Risk Assessment</li>
-        <li>Infrastructure Vuln Scan</li>
-        <li>Compliance Readiness Review</li>
-        <li>Basic Remediation Report</li>
-      </ul>
-      <a href="contact.html" class="cn-btn btn-outline">Get Started</a>
-    </div>
-
-    <div class="pricing-card highlight">
-      <span class="popular-tag">// Most Popular</span>
-      <div class="price-tag">$4,500</div>
-      <h3>Professional</h3>
-      <p>Comprehensive security assessment for growing organizations.</p>
-      <ul class="features-list">
-        <li>Full Infrastructure Assessment</li>
-        <li>Web App Vulnerability Testing</li>
-        <li>NIST / HIPAA Framework Review</li>
-        <li>Detailed Remediation Roadmap</li>
-        <li>Executive Security Report</li>
-      </ul>
-      <a href="contact.html" class="cn-btn btn-primary">Initialize Assessment</a>
-    </div>
-
-    <div class="pricing-card">
-      <div class="price-tag">CUSTOM</div>
-      <h3>Enterprise</h3>
-      <p>Advanced cybersecurity consulting and automated defense.</p>
-      <ul class="features-list">
-        <li>Full Penetration Testing</li>
-        <li>Compliance Automation Systems</li>
-        <li>Live Security Dashboards</li>
-        <li>24/7 Infrastructure Monitoring</li>
-        <li>Priority Security Consulting</li>
-      </ul>
-      <a href="contact.html" class="cn-btn btn-outline">Contact Sales</a>
-    </div>
+<!-- ONE-TIME SERVICES -->
+<section class="g-section">
+  <div class="g-head">
+    <span class="label">One-time services</span>
+    <h2>Need a project, not a subscription?</h2>
+    <p>Assessments and tests are a great way to start. Subscribe afterwards and we'll credit part of the project fee toward your plan.</p>
   </div>
-</div>
+  <div class="grid-3">
+    <div class="card"><h3>Security Risk Assessment</h3><p style="margin-bottom:14px;">External + internal review, compliance readiness, prioritized remediation report.</p><div style="font-family:var(--mono); font-size:24px; color:#F2F5F7;">from $1,500</div></div>
+    <div class="card"><h3>HIPAA / SOC 2 Readiness</h3><p style="margin-bottom:14px;">Gap analysis against the framework, policy set, and a 90-day plan to close the gaps.</p><div style="font-family:var(--mono); font-size:24px; color:#F2F5F7;">from $4,500</div></div>
+    <div class="card"><h3>Penetration Test</h3><p style="margin-bottom:14px;">Web app, API or network test by a human tester, with retest of fixes included.</p><div style="font-family:var(--mono); font-size:24px; color:#F2F5F7;">Scoped quote</div></div>
+  </div>
+  <p style="text-align:center; margin-top:28px;"><a href="/demo.html?plan=Assessment" class="btn btn-ghost">Scope a project</a></p>
+</section>
+
+<!-- FAQ -->
+<section class="band">
+  <div class="g-section" style="max-width:860px;">
+    <div class="g-head"><h2>Questions</h2></div>
+    <details class="faq"><summary>Can I try it before I buy?</summary><p>Yes. Start with the <a href="/tools/security-scan.html">free security score</a>. For a deeper look, we'll run a free external assessment and walk you through the results on a call.</p></details>
+    <details class="faq"><summary>What does &ldquo;automated remediation&rdquo; actually do?</summary><p>Where it's safe and you've approved it, Cyber-Node can disable compromised accounts, revoke sessions, block malicious IPs, update configurations, open tickets in your tools, and trigger remediation workflows. Anything risky goes to a human for approval first.</p></details>
+    <details class="faq"><summary>Is there a contract?</summary><p>Plans are billed monthly or annually &mdash; annual billing is discounted. We'll agree terms on your demo call.</p></details>
+    <details class="faq"><summary>Do you sign a BAA?</summary><p>Yes. Business and Managed customers handling PHI can sign a Business Associate Agreement.</p></details>
+    <details class="faq"><summary>What's the Founding Customer Program?</summary><p>A limited group of early customers who get founding-rate pricing locked for 24 months and direct input on the roadmap. <a href="/demo.html?plan=Founding%20Customer">Apply here</a>.</p></details>
+  </div>
+</section>
+
+<section class="cta-band">
+  <h2>Not sure which plan fits?</h2>
+  <p>Get your free security score first &mdash; it'll make the answer obvious.</p>
+  <div class="btn-row">
+    <a href="/tools/security-scan.html" class="btn btn-primary">Get Your Free Security Score</a>
+    <a href="/demo.html" class="btn btn-ghost">Book a demo</a>
+  </div>
+</section>
 
 <div id="footer"></div>
-
 <script>
-  fetch("components/navbar.html")
-    .then(r => r.ok ? r.text() : '')
-    .then(html => { if(html) document.getElementById("navbar").innerHTML = html; })
-    .catch(e => console.error("Nav Error:", e));
-
-  fetch("components/footer.html")
-    .then(r => r.ok ? r.text() : '')
-    .then(html => { if(html) document.getElementById("footer").innerHTML = html; })
-    .catch(e => console.error("Footer Error:", e));
+  fetch("components/navbar.html").then(r => r.ok ? r.text() : '').then(h => { if (h) document.getElementById("navbar").innerHTML = h; }).catch(() => {});
+  fetch("components/footer.html").then(r => r.ok ? r.text() : '').then(h => { if (h) document.getElementById("footer").innerHTML = h; }).catch(() => {});
 </script>
 <script src="js/nav-toggle.js"></script>
-
 </body>
 </html>

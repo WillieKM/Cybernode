@@ -1,0 +1,21 @@
+/* ================================================================
+   CYBER-NODE — BRAND LAYER (loaded last on every page)
+   Moves older pages from "terminal" styling to the product look:
+   sans-serif reading text, sentence-case buttons, no neon glow.
+   Mono stays for data, labels and code via their own classes.
+   ================================================================ */
+body p, body li, body td, body label, body input, body textarea, body select, body button, .cn-btn {
+  font-family: 'Geist', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif !important;
+}
+body .mono, body code, body pre, body .num { font-family: 'Geist Mono', ui-monospace, Menlo, monospace !important; }
+h1, h2, h3, h4 { text-transform: none !important; letter-spacing: -0.02em !important; font-weight: 600; }
+.cn-btn, .btn-primary, .btn-secondary, .btn-outline, .unlock-btn {
+  text-transform: none !important; letter-spacing: 0 !important; font-weight: 600 !important; border-radius: 8px !important;
+}
+.cn-btn:hover, .btn-primary:hover, .btn-secondary:hover, .btn-outline:hover, .unlock-btn:hover { box-shadow: none !important; transform: none !important; }
+body { -webkit-font-smoothing: antialiased; }
+.stats-bar .stat-val { font-size: clamp(22px, 5.4vw, 40px) !important; }
+.stats-inner > div { min-width: 0; }
+body p { letter-spacing: 0 !important; }
+.hero-eyebrow, .step-label, .section-label, .result-domain, .m-label, .hero-stat, .lock-item, .solution-tag, .stat-lbl, .metric-lbl { letter-spacing: .08em !important; }
+.result-placeholder p { text-transform: none !important; letter-spacing: 0 !important; }

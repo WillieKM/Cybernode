@@ -41,13 +41,13 @@ function formatDate(dateStr) {
 // ── CATEGORY BADGE COLOR ─────────────────────────────────────────
 function categoryColor(cat) {
   const map = {
-    'Threat Intel':      '#ff4466',
-    'CVE Alerts':        '#ffaa22',
-    'Compliance':        '#00d4ff',
-    'How-To':            '#00dd88',
+    'Threat Intel':      '#F0506E',
+    'CVE Alerts':        '#F2B33D',
+    'Compliance':        '#19D3E6',
+    'How-To':            '#2FD67B',
     'Platform Updates':  '#aa88ff',
   };
-  return map[cat] || '#00d4ff';
+  return map[cat] || '#19D3E6';
 }
 
 // ── LOAD ALL POSTS (for blog index) ─────────────────────────────
@@ -85,12 +85,12 @@ async function renderBlogIndex(containerId) {
   const container = document.getElementById(containerId);
   if (!container) return;
 
-  container.innerHTML = '<p style="font-family:\'Share Tech Mono\',monospace;color:#90bcd8;text-align:center;padding:40px;">// LOADING POSTS...</p>';
+  container.innerHTML = '<p style="font-family:\'Share Tech Mono\',monospace;color:#8995A5;text-align:center;padding:40px;">// LOADING POSTS...</p>';
 
   const posts = (await loadPostList()).filter(Boolean);
 
   if (!posts.length) {
-    container.innerHTML = '<p style="font-family:\'Share Tech Mono\',monospace;color:#90bcd8;text-align:center;padding:40px;">// NO POSTS FOUND</p>';
+    container.innerHTML = '<p style="font-family:\'Share Tech Mono\',monospace;color:#8995A5;text-align:center;padding:40px;">// NO POSTS FOUND</p>';
     return;
   }
 
@@ -126,11 +126,11 @@ async function renderPost(containerId) {
   const slug   = params.get('slug');
 
   if (!slug) {
-    container.innerHTML = '<p style="color:#ff4466;font-family:monospace;text-align:center;padding:60px;">// POST NOT FOUND</p>';
+    container.innerHTML = '<p style="color:#F0506E;font-family:monospace;text-align:center;padding:60px;">// POST NOT FOUND</p>';
     return;
   }
 
-  container.innerHTML = '<p style="font-family:\'Share Tech Mono\',monospace;color:#90bcd8;text-align:center;padding:60px;">// DECRYPTING POST...</p>';
+  container.innerHTML = '<p style="font-family:\'Share Tech Mono\',monospace;color:#8995A5;text-align:center;padding:60px;">// DECRYPTING POST...</p>';
 
   try {
     const res = await fetch(`/_posts/${slug}.md`);
@@ -169,8 +169,8 @@ async function renderPost(containerId) {
   } catch {
     container.innerHTML = `
       <div style="text-align:center;padding:80px 20px;">
-        <p style="font-family:'Share Tech Mono',monospace;color:#ff4466;font-size:14px;margin-bottom:20px;">// POST NOT FOUND</p>
-        <a href="/blog/" style="color:#00d4ff;font-family:'Share Tech Mono',monospace;">← Return to Blog</a>
+        <p style="font-family:'Geist Mono',monospace;color:#F0506E;font-size:14px;margin-bottom:20px;">// POST NOT FOUND</p>
+        <a href="/blog/" style="color:#19D3E6;font-family:'Geist Mono',monospace;">← Return to Blog</a>
       </div>
     `;
   }

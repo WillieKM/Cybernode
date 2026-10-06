@@ -61,19 +61,19 @@
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/mobile.css">
 <style>
   :root {
-    --bg: #0e1f38;
-    --bg2: #142840;
-    --border: #2e5070;
-    --accent: #00d4ff;
-    --neon-lime: #bfff00;
-    --text: #e8f4ff;
-    --muted: #90bcd8;
-    --mono: 'Share Tech Mono', monospace;
-    --sans: 'Rajdhani', sans-serif;
+    --bg: #080B12;
+    --bg2: #101722;
+    --border: #223044;
+    --accent: #19D3E6;
+    --neon-lime: #F2F5F7;
+    --text: #F2F5F7;
+    --muted: #8995A5;
+    --mono: 'Geist Mono', monospace;
+    --sans: 'Geist', sans-serif;
   }
 
   body {
@@ -89,7 +89,7 @@
     position: relative;
     padding: 160px 20px 80px;
     text-align: center;
-    background: linear-gradient(180deg, #1a3252 0%, #0e1f38 100%);
+    background: linear-gradient(180deg, #0F1622 0%, #080B12 100%);
     border-bottom: 1px solid var(--border);
   }
 
@@ -97,8 +97,8 @@
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(rgba(0,212,255,0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,212,255,0.05) 1px, transparent 1px);
+      linear-gradient(rgba(25,211,230,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(25,211,230,0.05) 1px, transparent 1px);
     background-size: 45px 45px;
     mask-image: radial-gradient(circle, black, transparent 85%);
   }
@@ -142,7 +142,7 @@
   }
 
   .pricing-card {
-    background: #0a1628;
+    background: #0C121C;
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 45px 35px;
@@ -155,13 +155,13 @@
   .pricing-card:hover {
     border-color: var(--accent);
     transform: translateY(-8px);
-    box-shadow: 0 15px 40px rgba(0, 212, 255, 0.15);
+    box-shadow: 0 15px 40px rgba(25,211,230, 0.15);
   }
 
   .pricing-card.highlight {
     border: 1px solid var(--accent);
     background: #0d1e35;
-    box-shadow: 0 0 30px rgba(0, 212, 255, 0.1);
+    box-shadow: 0 0 30px rgba(25,211,230, 0.1);
   }
 
   .popular-tag {
@@ -180,7 +180,6 @@
     font-weight: 700;
     color: var(--neon-lime);
     margin-bottom: 10px;
-    text-shadow: 0 0 12px rgba(191, 255, 0, 0.4);
   }
 
   .pricing-card h3 { font-size: 24px; margin-bottom: 5px; color: #fff; }
@@ -198,7 +197,7 @@
     font-size: 14px;
     color: var(--muted);
     padding: 10px 0;
-    border-bottom: 1px solid rgba(46, 80, 112, 0.3);
+    border-bottom: 1px solid rgba(34,48,68, 0.3);
     display: flex;
     align-items: center;
     gap: 12px;
@@ -223,7 +222,7 @@
 
   .btn-primary { background: var(--accent); color: var(--bg); }
   .btn-outline { border: 1px solid var(--accent); color: var(--accent); }
-  .cn-btn:hover { box-shadow: 0 0 20px rgba(0,212,255,0.4); }
+  .cn-btn:hover { box-shadow: 0 0 20px rgba(25,211,230,0.4); }
 
   .payment-note {
     max-width: 1200px;
@@ -240,6 +239,7 @@
     .hero-badges { flex-wrap: wrap; }
   }
 </style>
+<link rel="stylesheet" href="../css/brand.css">
 </head>
 <body>
 
@@ -248,7 +248,7 @@
 <section class="hero-wrap">
   <div class="grid-lines"></div>
   <div class="hero-content">
-    <div style="font-family: var(--mono); color: var(--accent); letter-spacing: 5px; margin-bottom: 10px;">[ KENYA_PRICING_PROTOCOLS ]</div>
+    <div style="font-family: var(--mono); color: var(--accent); letter-spacing: 5px; margin-bottom: 10px;">Kenya pricing protocols</div>
     <h1>Solutions Built to <span>Protect</span></h1>
     <p style="font-family: var(--mono); color: var(--muted); max-width: 700px; margin: 0 auto 20px;">Cybersecurity plans sized for Kenyan startups, SMEs, and mobile-money businesses — not a straight dollar conversion.</p>
     <div class="hero-badges">
@@ -279,7 +279,7 @@
     </div>
 
     <div class="pricing-card highlight">
-      <span class="popular-tag">// Most Popular</span>
+      <span class="popular-tag">Most Popular</span>
       <div class="price-tag">KES 220,000</div>
       <h3>Professional</h3>
       <p>Comprehensive security assessment for growing organizations.</p>
@@ -290,7 +290,7 @@
         <li>Detailed Remediation Roadmap</li>
         <li>Executive Security Report</li>
       </ul>
-      <a href="contact.html" class="cn-btn btn-primary">Initialize Assessment</a>
+      <a href="contact.html" class="cn-btn btn-primary">Book an assessment</a>
     </div>
 
     <div class="pricing-card">

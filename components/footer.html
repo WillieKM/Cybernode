@@ -1,142 +1,36 @@
+<!-- components/footer.html -->
 <style>
-  .cn-footer {
-    background: var(--bg);
-    border-top: 1px solid var(--border);
-    /* Increased padding for a more premium feel */
-    padding: 100px 40px 60px;
-    font-family: var(--sans);
-  }
-
-  .footer-grid {
-    max-width: 1300px; /* Wider container */
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1.5fr;
-    gap: 60px; /* More breathing room between columns */
-  }
-
-  /* Branding Section */
-  .footer-brand .logo-icon {
-    width: 32px;
-    height: 32px;
-    background: var(--accent);
-    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-    margin-bottom: 20px;
-  }
-
-  .footer-brand h2 {
-    font-size: 24px; /* Was 20px */
-    color: var(--text);
-    margin-bottom: 20px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
-
-  .footer-brand p {
-    font-family: var(--mono);
-    font-size: 15px; /* Was 13px */
-    color: var(--muted);
-    line-height: 1.8;
-    max-width: 320px;
-  }
-
-  /* Column Headers */
-  .footer-col h4 {
-    font-family: var(--mono);
-    font-size: 14px; /* Was 12px */
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    margin-bottom: 30px;
-    border-bottom: 1px solid rgba(0, 212, 255, 0.2);
-    padding-bottom: 10px;
-    display: inline-block;
-  }
-
-  .footer-col ul { list-style: none; }
-
-  .footer-col ul li { margin-bottom: 16px; } /* More space between links */
-
-  .footer-col ul li a {
-    color: var(--muted);
-    text-decoration: none;
-    font-size: 16px; /* Was 14px */
-    font-family: var(--mono);
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .footer-col ul li a::before {
-    content: '›';
-    color: var(--accent);
-    opacity: 0.5;
-  }
-
-  .footer-col ul li a:hover { 
-    color: var(--text); 
-    padding-left: 5px;
-  }
-
-  /* Bottom Bar */
-  .footer-bottom {
-    max-width: 1300px;
-    margin: 80px auto 0;
-    padding-top: 40px;
-    border-top: 1px solid rgba(46, 80, 112, 0.3);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: var(--mono);
-    font-size: 13px; /* Was 11px */
-    color: #5a8aaa;
-  }
-
-  .status-tag {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--green);
-    font-weight: 600;
-    letter-spacing: 1px;
-  }
-
-  .status-dot {
-    width: 8px;
-    height: 8px;
-    background: var(--green);
-    border-radius: 50%;
-    box-shadow: 0 0 12px var(--green);
-  }
-
-  @media (max-width: 992px) {
-    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-  }
-
-  @media (max-width: 600px) {
-    .footer-grid { grid-template-columns: 1fr; }
-    .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
-  }
+  .cn-footer { background: #06090F; border-top: 1px solid #1F2A3A; padding: 64px 20px 28px; font-family: 'Geist', system-ui, sans-serif; color: #8995A5; }
+  .cn-footer * { box-sizing: border-box; }
+  .cn-footer .footer-grid { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; }
+  .cn-footer .brand { display: inline-flex; align-items: center; gap: 10px; color: #F2F5F7; font-weight: 600; font-size: 17px; text-decoration: none; }
+  .cn-footer .brand svg { width: 22px; height: 22px; }
+  .cn-footer .footer-brand p { font-size: 14px; line-height: 1.6; margin: 14px 0 0; max-width: 34ch; }
+  .cn-footer h4 { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: #5D6B7D; margin: 4px 0 16px; }
+  .cn-footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+  .cn-footer a { color: #8995A5; text-decoration: none; font-size: 14px; }
+  .cn-footer a:hover { color: #F2F5F7; }
+  .cn-footer .footer-bottom { max-width: 1180px; margin: 48px auto 0; padding-top: 22px; border-top: 1px solid #1F2A3A; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 13px; color: #5D6B7D; }
+  .cn-footer .badges { display: flex; gap: 8px; flex-wrap: wrap; }
+  .cn-footer .badges span { border: 1px solid #1F2A3A; padding: 3px 9px; border-radius: 4px; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: .04em; }
+  @media (max-width: 860px) { .cn-footer .footer-grid { grid-template-columns: 1fr 1fr; } .cn-footer .footer-brand { grid-column: 1 / -1; } }
+  @media (max-width: 480px) { .cn-footer .footer-grid { grid-template-columns: 1fr; } }
 </style>
 
 <footer class="cn-footer">
   <div class="footer-grid">
     <div class="footer-brand">
-      <div class="logo-icon"></div>
-      <h2>CYBER-<span>NODE</span></h2>
-      <p>Cybersecurity intelligence platform providing security assessments, threat monitoring & attack surface analysis.</p>
-      <div class="status-tag" style="margin-top: 25px;">
-        <div class="status-dot"></div>
-        ALL SYSTEMS OPERATIONAL
-      </div>
+      <a href="/" class="brand"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="1" y="1" width="22" height="22" rx="6" stroke="#2A3A50"/><circle cx="7" cy="8" r="2" fill="#8995A5"/><circle cx="17" cy="8" r="2" fill="#8995A5"/><circle cx="12" cy="16.5" r="2.4" fill="#19D3E6"/><path d="M8.6 9.2l2.4 5.4M15.4 9.2L13 14.6M9 8h6" stroke="#5D6B7D" stroke-width="1.2"/></svg>Cyber-Node</a>
+      <p>Autonomous security operations: continuous monitoring, prioritized risk, approved remediation, and proof that it worked.</p>
     </div>
 
     <div class="footer-col">
       <h4>Platform</h4>
       <ul>
-        <li><a href="/tools/security-scan.html">Security Scan</a></li>
-        <li><a href="/pricing.html">Plans & Pricing</a></li>
+        <li><a href="/platform.html">How it works</a></li>
+        <li><a href="/tools/security-scan.html">Free security score</a></li>
+        <li><a href="/pricing.html">Pricing</a></li>
+        <li><a href="/solutions/healthcare-saas.html">Healthcare SaaS</a></li>
         <li><a href="/resources.html">Resources</a></li>
       </ul>
     </div>
@@ -144,33 +38,26 @@
     <div class="footer-col">
       <h4>Services</h4>
       <ul>
-        <li><a href="/services.html">Penetration Testing</a></li>
-        <li><a href="/services.html">Risk Assessments</a></li>
-        <li><a href="/services.html">Compliance Consulting</a></li>
-        <li><a href="/about.html">About Us</a></li>
+        <li><a href="/services.html">Penetration testing</a></li>
+        <li><a href="/services.html">Risk assessments</a></li>
+        <li><a href="/services.html">Compliance consulting</a></li>
+        <li><a href="/solutions/healthcare.html">Care providers</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
-      <h4>Contact</h4>
-      <ul style="font-family: var(--mono); font-size: 15px; color: var(--muted);">
-        <li style="margin-bottom: 20px;">
-          <span style="color: var(--accent); font-size: 12px; display: block; letter-spacing: 2px;">EMAIL</span>
-          <a href="mailto:sales@cyber-node.com" style="display:inline; padding:0; color:var(--text);">sales@cyber-node.com</a>
-        </li>
-        <li style="margin-bottom: 20px;">
-          <span style="color: var(--accent); font-size: 12px; display: block; letter-spacing: 2px;">CONSULTATION</span>
-          <a href="/contact.html" style="display:inline; padding:0; color:var(--text);">Book a free call →</a>
-        </li>
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/security.html">Security &amp; trust</a></li>
+        <li><a href="/demo.html">Book a demo</a></li>
+        <li><a href="mailto:sales@cyber-node.com">sales@cyber-node.com</a></li>
       </ul>
     </div>
   </div>
 
   <div class="footer-bottom">
-    <div>CYBER-NODE © 2026 — ALL RIGHTS RESERVED</div>
-    <div style="display: flex; gap: 20px;">
-      <span style="border: 1px solid var(--border); padding: 4px 8px; border-radius: 4px;">SSL SECURED</span>
-      <span style="border: 1px solid var(--border); padding: 4px 8px; border-radius: 4px;">SOC 2 READY</span>
-    </div>
+    <div>© 2026 Cyber-Node. Washington, USA.</div>
+    <div class="badges"><span>HIPAA-aligned</span><span>BAA available</span></div>
   </div>
 </footer>

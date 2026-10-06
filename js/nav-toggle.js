@@ -23,3 +23,23 @@
     }
   });
 })();
+
+// Analytics loader. The <script> tags inside components/navbar.html never execute
+// (they're injected via innerHTML), so Plausible + Vercel Insights were silently
+// not loading. nav-toggle.js is included on every page, so load them from here.
+(function () {
+  if (window.__cnAnalytics) return;
+  window.__cnAnalytics = true;
+  window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments); };
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  function add(src, attrs) {
+    var s = document.createElement('script');
+    s.defer = true; s.src = src;
+    for (var k in attrs) s.setAttribute(k, attrs[k]);
+    document.head.appendChild(s);
+  }
+  if (/(^|\.)cyber-node\.com$/.test(location.hostname)) {
+    add('https://plausible.io/js/script.js', { 'data-domain': 'cyber-node.com' });
+    add('/_vercel/insights/script.js', {});
+  }
+})();

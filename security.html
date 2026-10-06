@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Security & Trust | Cyber-Node</title>
+<meta name="description" content="How Cyber-Node handles your data, what our free scans do and don't do, our authorization policy for testing, BAAs, and how to report a vulnerability.">
+<link rel="canonical" href="https://www.cyber-node.com/security.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/gtm.css">
+<link rel="stylesheet" href="css/mobile.css">
+<style>
+  .doc { max-width: 860px; margin: 0 auto; }
+  .doc h2 { font-size: 28px; margin: 44px 0 10px; }
+  .doc p, .doc li { color: var(--muted); font-size: 18px; }
+  .doc ul { padding-left: 20px; }
+</style>
+<link rel="stylesheet" href="css/brand.css">
+</head>
+<body>
+<div id="navbar"></div>
+
+<section class="g-hero" style="padding-bottom:60px;">
+  <div class="grid-lines"></div>
+  <div class="g-hero-inner">
+    <div class="eyebrow">Security &amp; trust</div>
+    <h1 style="font-size:48px;">We hold ourselves to <span>the standard we sell.</span></h1>
+    <p class="lede">Plain answers about who we are, what our tools touch, and how we protect your information.</p>
+  </div>
+</section>
+
+<section class="g-section" style="padding-top:30px;">
+  <div class="doc">
+    <h2>Who we are</h2>
+    <p>Cyber-Node is a cybersecurity company based in Washington State, USA, founded and led by Willie K. Murimi (M.S. Cybersecurity, M.S. Criminal Justice). Contact: <a href="mailto:sales@cyber-node.com">sales@cyber-node.com</a>.</p>
+
+    <h2>What the free security score does</h2>
+    <ul>
+      <li>Looks only at information any internet user can see: public DNS records, your TLS certificate, HTTP security headers, and whether common service ports respond.</li>
+      <li>Does not attempt logins, exploit anything, or send attack traffic.</li>
+      <li>Is rate-limited to prevent abuse.</li>
+      <li>Your email and scan result are sent to our team so we can follow up. We don't sell or share them.</li>
+    </ul>
+
+    <h2>Authorization before testing</h2>
+    <p>We never run intrusive testing (penetration tests, authenticated scans, exploitation) without a signed scope and written authorization from the system owner.</p>
+
+    <h2>Customer data</h2>
+    <ul>
+      <li>We collect the minimum data needed to monitor and report on your environment.</li>
+      <li>Cloud and identity integrations use read-only access where possible, and you can revoke it at any time.</li>
+      <li>Customer data is encrypted in transit and at rest.</li>
+      <li>Business Associate Agreements (BAAs) are available for customers handling PHI.</li>
+    </ul>
+
+    <h2>Customer references &amp; claims</h2>
+    <p>We only name customers, show logos or publish testimonials with the customer's written permission. Examples on this site that aren't named customers are labeled as illustrative.</p>
+
+    <h2>Report a vulnerability</h2>
+    <p>Found a security issue in cyber-node.com? Email <a href="mailto:sales@cyber-node.com?subject=Vulnerability%20report">sales@cyber-node.com</a> with the subject &ldquo;Vulnerability report.&rdquo; We'll acknowledge within two business days. Please don't access other users' data or degrade the service while testing.</p>
+  </div>
+</section>
+
+<section class="cta-band">
+  <h2>Questions your security team wants answered?</h2>
+  <p>We'll walk through them on a call.</p>
+  <div class="btn-row"><a href="/demo.html" class="btn btn-primary">Book a demo</a></div>
+</section>
+
+<div id="footer"></div>
+<script>
+  fetch("components/navbar.html").then(r => r.ok ? r.text() : '').then(h => { if (h) document.getElementById("navbar").innerHTML = h; }).catch(() => {});
+  fetch("components/footer.html").then(r => r.ok ? r.text() : '').then(h => { if (h) document.getElementById("footer").innerHTML = h; }).catch(() => {});
+</script>
+<script src="js/nav-toggle.js"></script>
+</body>
+</html>

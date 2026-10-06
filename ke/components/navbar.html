@@ -7,26 +7,31 @@
     width: 100%;
     z-index: 999;
     padding: 0 40px;
-    height: 70px;
+    height: 64px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: rgba(14, 31, 56, 0.95);
+    background: rgba(8,11,18, 0.95);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(46, 80, 112, 0.5);
+    border-bottom: 1px solid rgba(34,48,68, 0.5);
     box-sizing: border-box;
   }
 
   .nav-logo {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 18px;
-    color: #00d4ff;
+    font-family: 'Geist', system-ui, sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: #F2F5F7;
     text-decoration: none;
-    letter-spacing: 2px;
+    letter-spacing: -0.01em;
     white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
   }
+  .nav-logo svg { width: 22px; height: 22px; flex: none; }
 
-  .nav-logo span { color: #e8f4ff; }
+  .nav-logo span { color: #8995A5; font-weight: 500; }
 
   .nav-links {
     display: flex;
@@ -38,21 +43,20 @@
   }
 
   .nav-links a {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 13px;
-    color: #90bcd8;
+    font-family: 'Geist', system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #8995A5;
     text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: color 0.2s;
+    transition: color 0.15s;
   }
 
-  .nav-links a:hover { color: #00d4ff; }
+  .nav-links a:hover { color: #F2F5F7; }
 
   .nav-region {
     font-size: 11px !important;
     opacity: 0.8;
-    border-left: 1px solid rgba(46, 80, 112, 0.6);
+    border-left: 1px solid rgba(34,48,68, 0.6);
     padding-left: 20px !important;
     display: inline-flex !important;
     align-items: center;
@@ -68,14 +72,14 @@
   }
 
   .nav-cta {
-    background: #00d4ff;
-    color: #0e1f38 !important;
-    padding: 8px 18px;
-    border-radius: 4px;
-    font-weight: 700;
+    background: #19D3E6;
+    color: #041016 !important;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 600 !important;
   }
 
-  .nav-cta:hover { box-shadow: 0 0 15px rgba(0, 212, 255, 0.4); }
+  .nav-cta:hover { background: #4FE0EF; }
 
   /* Hamburger toggle */
   .nav-toggle {
@@ -93,7 +97,7 @@
     display: block;
     width: 24px;
     height: 2px;
-    background: #00d4ff;
+    background: #F2F5F7;
     transition: 0.3s;
     border-radius: 2px;
   }
@@ -114,7 +118,7 @@
       left: 0;
       width: 100%;
       height: 100vh;
-      background: rgba(14, 31, 56, 0.98);
+      background: rgba(8,11,18, 0.98);
       flex-direction: column;
       justify-content: center;
       align-items: center;
@@ -134,7 +138,7 @@
 </style>
 
 <nav class="navbar">
-  <a href="/ke/" class="nav-logo">CYBER<span>-NODE</span> <span style="font-size:11px; color:#90bcd8;">KE</span></a>
+  <a href="/ke/" class="nav-logo" aria-label="Cyber-Node home"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="1" y="1" width="22" height="22" rx="6" stroke="#2A3A50"/><circle cx="7" cy="8" r="2" fill="#8995A5"/><circle cx="17" cy="8" r="2" fill="#8995A5"/><circle cx="12" cy="16.5" r="2.4" fill="#19D3E6"/><path d="M8.6 9.2l2.4 5.4M15.4 9.2L13 14.6M9 8h6" stroke="#5D6B7D" stroke-width="1.2"/></svg>Cyber-Node <span style="font-size:11px; color:#8995A5;">KE</span></a>
 
   <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
     <span></span>

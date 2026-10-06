@@ -5,25 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Threat Intel | Cyber-Node v2.4.1</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-dark: #070d19;
-            --sidebar-bg: #0a1628;
-            --card-bg: rgba(20, 40, 64, 0.4);
-            --accent: #00d4ff;
-            --red: #ff4466;
-            --orange: #ffaa22;
-            --text: #e8f4ff;
-            --muted: #90bcd8;
-            --border: #2e5070;
+            --sidebar-bg: #0C121C;
+            --card-bg: rgba(16,23,34, 0.4);
+            --accent: #19D3E6;
+            --red: #F0506E;
+            --orange: #F2B33D;
+            --text: #F2F5F7;
+            --muted: #8995A5;
+            --border: #223044;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { 
             background: var(--bg-dark); 
             color: var(--text); 
-            font-family: 'Rajdhani', sans-serif; 
+            font-family: 'Geist', sans-serif; 
             display: flex;
             min-height: 100vh;
         }
@@ -41,14 +41,14 @@
         .brand { margin-bottom: 40px; }
         .brand h2 { font-size: 20px; letter-spacing: 2px; }
         .brand span { color: var(--accent); }
-        .version { font-family: 'Share Tech Mono', monospace; font-size: 12px; color: var(--accent); opacity: 0.7; }
+        .version { font-family: 'Geist Mono', monospace; font-size: 12px; color: var(--accent); opacity: 0.7; }
 
         .nav-links { list-style: none; margin-top: 20px; }
         .nav-links li { margin-bottom: 15px; }
         .nav-links a { 
             text-decoration: none; 
             color: var(--muted); 
-            font-family: 'Share Tech Mono', monospace; 
+            font-family: 'Geist Mono', monospace; 
             font-size: 14px;
             text-transform: uppercase;
             transition: 0.3s;
@@ -62,7 +62,7 @@
         /* --- MAIN CONTENT --- */
         .main-content { flex: 1; padding: 40px; overflow-y: auto; }
         .header-area { margin-bottom: 30px; }
-        .header-eyebrow { font-family: 'Share Tech Mono', monospace; color: var(--accent); font-size: 12px; }
+        .header-eyebrow { font-family: 'Geist Mono', monospace; color: var(--accent); font-size: 12px; }
         
         .intel-grid {
             display: grid;
@@ -92,9 +92,9 @@
         .alert-item.warning { border-left-color: var(--orange); }
 
         .alert-content h4 { font-size: 18px; margin-bottom: 5px; }
-        .alert-content p { font-size: 14px; color: var(--muted); font-family: 'Share Tech Mono', monospace; }
+        .alert-content p { font-size: 14px; color: var(--muted); font-family: 'Geist Mono', monospace; }
 
-        .alert-meta { text-align: right; font-family: 'Share Tech Mono', monospace; }
+        .alert-meta { text-align: right; font-family: 'Geist Mono', monospace; }
         .severity { font-size: 10px; padding: 2px 6px; border-radius: 3px; background: rgba(255,255,255,0.1); display: block; margin-bottom: 5px; }
 
         /* --- THREAT MAP PLACEHOLDER --- */
@@ -109,14 +109,14 @@
             justify-content: center;
             overflow: hidden;
         }
-        .map-overlay { font-family: 'Share Tech Mono', monospace; font-size: 12px; color: var(--accent); text-align: center; }
+        .map-overlay { font-family: 'Geist Mono', monospace; font-size: 12px; color: var(--accent); text-align: center; }
 
         .btn-action {
             background: var(--accent);
             color: var(--sidebar-bg);
             border: none;
             padding: 5px 12px;
-            font-family: 'Share Tech Mono', monospace;
+            font-family: 'Geist Mono', monospace;
             font-weight: 700;
             font-size: 11px;
             cursor: pointer;
@@ -124,6 +124,7 @@
             margin-top: 10px;
         }
     </style>
+<link rel="stylesheet" href="../css/brand.css">
 </head>
 <body>
 
@@ -143,13 +144,13 @@
 
     <main class="main-content">
         <div class="header-area">
-            <span class="header-eyebrow">// SECURITY_OPERATIONS_CENTER</span>
+            <span class="header-eyebrow">Security operations</span>
             <h1>Threat Intelligence Feed</h1>
         </div>
 
         <div class="intel-grid">
             <section class="intel-module">
-                <h3 style="margin-bottom: 20px;">// LIVE_MALWARE_STREAM</h3>
+                <h3 style="margin-bottom: 20px;">Malware activity</h3>
                 
                 <div class="alert-item critical">
                     <div class="alert-content">
@@ -189,18 +190,18 @@
 
             <div style="display: flex; flex-direction: column; gap: 25px;">
                 <section class="intel-module">
-                    <h3>// THREAT_GEOGRAPHY</h3>
+                    <h3>Threat geography</h3>
                     <div class="map-container">
                         <div class="map-overlay">
-                            [ SCANNING_GLOBAL_NODES... ]<br>
+                            Scanning global nodes...<br>
                             <span style="font-size: 10px; opacity: 0.5;">RECON_IN_PROGRESS</span>
                         </div>
                     </div>
                 </section>
 
                 <section class="intel-module">
-                    <h3>// TOP_ATTACK_VECTORS</h3>
-                    <div style="font-family: 'Share Tech Mono', monospace; font-size: 14px; margin-top: 15px;">
+                    <h3>Top attack vectors</h3>
+                    <div style="font-family: 'Geist Mono', monospace; font-size: 14px; margin-top: 15px;">
                         <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
                             <span>Credential Stuffing</span><span style="color:var(--accent);">42%</span>
                         </div>

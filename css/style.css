@@ -7,14 +7,14 @@
   --bg-hover: #112240;
   --border: rgba(255, 255, 255, 0.05);
   --accent: #3b82f6;        /* Primary Blue */
-  --neon-lime: #bfff00;     /* Cyber-Node Price Accent */
-  --neon-cyan: #00d4ff;     /* Cyber-Node Luminous Accent */
+  --neon-lime: #F2F5F7;     /* Cyber-Node Price Accent */
+  --neon-cyan: #19D3E6;     /* Cyber-Node Luminous Accent */
   --text-main: #e2e8f0;
   --text-muted: #94a3b8;
   --success: #22c55e;
   --danger: #ef4444;
-  --mono: 'Share Tech Mono', monospace;
-  --sans: 'Rajdhani', 'Inter', sans-serif;
+  --mono: 'Geist Mono', monospace;
+  --sans: 'Geist', 'Inter', sans-serif;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -104,18 +104,17 @@ body {
   font-size: 22px;
   font-weight: 700;
   color: var(--neon-lime);
-  background: rgba(191, 255, 0, 0.08);
+  background: rgba(242,245,247, 0.08);
   padding: 10px 18px;
   border-radius: 4px;
-  border: 1px solid rgba(191, 255, 0, 0.4);
+  border: 1px solid rgba(242,245,247, 0.4);
   display: inline-block;
-  text-shadow: 0 0 12px rgba(191, 255, 0, 0.5);
   margin-bottom: 20px;
 }
 
 .service-card {
-  background: #0a1628;
-  border: 1px solid #2e5070;
+  background: #0C121C;
+  border: 1px solid #223044;
   border-radius: 12px;
   padding: 40px;
   transition: 0.3s;

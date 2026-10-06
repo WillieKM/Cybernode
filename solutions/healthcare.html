@@ -11,12 +11,12 @@
 <meta property="og:url" content="https://www.cyber-node.com/solutions/healthcare.html">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/mobile.css">
 <style>
   :root {
-    --navy: #0e1f38;
-    --navy2: #1a3252;
+    --navy: #080B12;
+    --navy2: #0F1622;
     --accent: #00a6c7;
     --accent-soft: #e3f6fa;
     --bg: #f6f9fc;
@@ -27,7 +27,7 @@
     --good: #1f8a5b;
     --warn: #b7791f;
     --bad: #c0392b;
-    --head: 'Rajdhani', sans-serif;
+    --head: 'Geist', sans-serif;
     --body: 'Source Sans 3', system-ui, sans-serif;
   }
   * { box-sizing: border-box; }
@@ -37,14 +37,14 @@
 
   /* Hero */
   .hero { background: linear-gradient(180deg, var(--navy) 0%, var(--navy2) 100%); color: #fff; padding: 130px 20px 80px; text-align: center; }
-  .eyebrow { display: inline-block; font-size: 14px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #7fe3f5; margin-bottom: 14px; }
+  .eyebrow { display: inline-block; font-size: 14px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #5FE3F0; margin-bottom: 14px; }
   .hero h1 { font-size: clamp(34px, 5vw, 54px); max-width: 820px; margin: 0 auto 18px; }
-  .hero p { max-width: 640px; margin: 0 auto 30px; color: #c9dbee; font-size: 19px; }
+  .hero p { max-width: 640px; margin: 0 auto 30px; color: #C9D1DB; font-size: 19px; }
   .btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
   .btn { display: inline-block; padding: 14px 28px; border-radius: 8px; font-weight: 700; font-size: 17px; text-decoration: none; border: 2px solid transparent; cursor: pointer; font-family: var(--body); transition: transform .15s, box-shadow .15s; }
   .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,.15); }
   .btn-primary { background: var(--accent); color: #fff; }
-  .btn-ghost { border-color: #7fe3f5; color: #fff; background: transparent; }
+  .btn-ghost { border-color: #5FE3F0; color: #fff; background: transparent; }
   .btn-dark { background: var(--navy); color: #fff; }
   .trust { margin-top: 30px; font-size: 15px; color: #a9c1da; }
 
@@ -64,7 +64,7 @@
   .chip { background: var(--accent-soft); color: var(--navy); border-radius: 999px; padding: 8px 16px; font-weight: 600; font-size: 15px; }
 
   /* Quiz */
-  .quiz-wrap { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 32px; max-width: 820px; margin: 0 auto; box-shadow: 0 10px 30px rgba(14,31,56,.06); }
+  .quiz-wrap { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 32px; max-width: 820px; margin: 0 auto; box-shadow: 0 10px 30px rgba(8,11,18,.06); }
   .progress { height: 8px; background: var(--line); border-radius: 99px; overflow: hidden; margin-bottom: 8px; }
   .progress div { height: 100%; width: 0; background: var(--accent); transition: width .25s; }
   .progress-label { font-size: 14px; color: var(--muted); margin-bottom: 22px; }
@@ -109,11 +109,11 @@
 
   /* Why */
   .why { background: var(--navy); color: #fff; }
-  .why .section-head p { color: #c9dbee; }
+  .why .section-head p { color: #C9D1DB; }
   .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
   .why-grid div { border-top: 3px solid var(--accent); padding-top: 14px; }
   .why-grid h3 { font-size: 22px; }
-  .why-grid p { color: #c9dbee; margin: 0; font-size: 16px; }
+  .why-grid p { color: #C9D1DB; margin: 0; font-size: 16px; }
 
   /* Form */
   .form-card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 32px; max-width: 720px; margin: 0 auto; }
@@ -137,6 +137,7 @@
     .hero { padding: 110px 16px 60px; }
   }
 </style>
+<link rel="stylesheet" href="../css/brand.css">
 </head>
 <body>
 <div id="navbar"></div>

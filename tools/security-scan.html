@@ -3,26 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cyber Security Scanner | Cyber-Node</title>
+<title>Free Security Score | Cyber-Node</title>
+<meta name="description" content="Get your free security score in 30 seconds. Cyber-Node checks your domain's SSL, security headers, DNS and exposed services with public, non-intrusive checks.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --bg:     #0e1f38;
-    --bg2:    #142840;
-    --bg3:    #1a3250;
-    --border: #2e5070;
-    --accent: #00d4ff;
-    --red:    #ff4466;
-    --orange: #ffaa22;
-    --green:  #00dd88;
-    --text:   #e8f4ff;
-    --muted:  #90bcd8;
-    --mono:   'Share Tech Mono', monospace;
-    --sans:   'Rajdhani', sans-serif;
+    --bg:     #080B12;
+    --bg2:    #101722;
+    --bg3:    #151D29;
+    --border: #223044;
+    --accent: #19D3E6;
+    --red:    #F0506E;
+    --orange: #F2B33D;
+    --green:  #2FD67B;
+    --text:   #F2F5F7;
+    --muted:  #8995A5;
+    --mono:   'Geist Mono', monospace;
+    --sans:   'Geist', sans-serif;
   }
 
   body {
@@ -38,22 +39,22 @@
     padding: 110px 20px 80px;
     overflow: hidden;
     border-bottom: 1px solid var(--border);
-    background: linear-gradient(180deg, #1a3252 0%, #0e1f38 100%);
+    background: linear-gradient(180deg, #0F1622 0%, #080B12 100%);
   }
 
   .hero::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse 60% 60% at 50% 0%, rgba(0,212,255,0.15) 0%, transparent 70%);
+    background: radial-gradient(ellipse 60% 60% at 50% 0%, rgba(25,211,230,0.15) 0%, transparent 70%);
   }
 
   .hero-grid-lines {
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(rgba(0,212,255,0.07) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,212,255,0.07) 1px, transparent 1px);
+      linear-gradient(rgba(25,211,230,0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(25,211,230,0.07) 1px, transparent 1px);
     background-size: 40px 40px;
     mask-image: linear-gradient(180deg, transparent 10%, rgba(0,0,0,0.5) 40%, transparent);
   }
@@ -72,7 +73,7 @@
   .hero h1 {
     font-size: 48px;
     font-weight: 700;
-    color: #f0f8ff;
+    color: #F2F5F7;
     letter-spacing: 1px;
     margin-bottom: 12px;
     line-height: 1.1;
@@ -160,13 +161,13 @@
     transition: border-color 0.2s;
   }
 
-  .cn-input::placeholder { color: #5a8aaa; }
+  .cn-input::placeholder { color: #5D6B7D; }
   .cn-input:focus { border-color: var(--accent); }
 
   .cn-btn {
     padding: 13px 28px;
     background: var(--accent);
-    color: #0a1628;
+    color: #0C121C;
     border: none;
     border-radius: 7px;
     font-family: var(--mono);
@@ -180,7 +181,7 @@
     flex-shrink: 0;
   }
 
-  .cn-btn:hover { background: #33ddff; }
+  .cn-btn:hover { background: #5FE3F0; }
   .cn-btn:active { transform: scale(0.98); }
   .cn-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
@@ -251,7 +252,7 @@
     gap: 10px;
     font-size: 11px;
     font-family: var(--mono);
-    color: #5a8aaa;
+    color: #5D6B7D;
     letter-spacing: 1px;
     transition: color 0.3s;
   }
@@ -263,7 +264,7 @@
   .result-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; }
 
   .result-domain { font-size: 10px; font-family: var(--mono); color: var(--muted); letter-spacing: 3px; margin-bottom: 4px; }
-  .result-title  { font-size: 20px; font-weight: 700; color: #f0f8ff; letter-spacing: 1px; }
+  .result-title  { font-size: 20px; font-weight: 700; color: #F2F5F7; letter-spacing: 1px; }
 
   .score-badge {
     display: flex;
@@ -304,7 +305,7 @@
   }
 
   .lock-icon { font-size: 22px; }
-  .lock-info h4 { font-size: 15px; font-weight: 700; color: #f0f8ff; letter-spacing: 1px; margin-bottom: 4px; }
+  .lock-info h4 { font-size: 15px; font-weight: 700; color: #F2F5F7; letter-spacing: 1px; margin-bottom: 4px; }
   .lock-info p  { font-size: 12px; font-family: var(--mono); color: var(--muted); letter-spacing: 0.5px; }
 
   .lock-items { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
@@ -339,7 +340,13 @@
     white-space: nowrap;
   }
 
-  .unlock-btn:hover { background: var(--accent); color: #0e1f38; }
+  .unlock-btn:hover { background: var(--accent); color: #080B12; }
+  .unlock-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+  .unlock-actions { display: flex; flex-direction: column; gap: 8px; flex-shrink: 0; }
+
+  .unlock-btn-mpesa { border-color: var(--green); color: var(--green); }
+  .unlock-btn-mpesa:hover { background: var(--green); color: #0a1628; }
 
   .how-section { padding: 0 20px 80px; }
   .how-wrap { max-width: 760px; margin: 0 auto; }
@@ -359,7 +366,7 @@
 
   .step-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 20px; }
   .step-num  { font-size: 11px; font-family: var(--mono); color: var(--accent); letter-spacing: 2px; margin-bottom: 10px; }
-  .step-card h4 { font-size: 14px; font-weight: 700; color: #f0f8ff; letter-spacing: 0.5px; margin-bottom: 6px; }
+  .step-card h4 { font-size: 14px; font-weight: 700; color: #F2F5F7; letter-spacing: 0.5px; margin-bottom: 6px; }
   .step-card p  { font-size: 12px; font-family: var(--mono); color: var(--muted); letter-spacing: 0.5px; line-height: 1.6; }
 
   @media (max-width: 640px) {
@@ -369,7 +376,28 @@
     .input-row { flex-direction: column; }
     .cn-btn { width: 100%; }
   }
+
+  .fix-box {
+    background: linear-gradient(135deg, rgba(25,211,230,0.12), rgba(47,214,123,0.08));
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    padding: 22px 24px;
+    margin-bottom: 14px;
+  }
+  .fix-box h4 { font-size: 18px; font-weight: 700; color: #F2F5F7; margin: 0 0 6px; letter-spacing: 0.5px; }
+  .fix-box p  { font-size: 13px; font-family: var(--mono); color: var(--muted); margin: 0 0 14px; line-height: 1.6; }
+  .fix-box ul { margin: 0 0 16px; padding-left: 18px; font-size: 13px; color: var(--muted); font-family: var(--mono); }
+  .fix-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  .fix-btn {
+    display: inline-block; padding: 12px 20px; border-radius: 6px; font-family: var(--mono);
+    font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-decoration: none; text-transform: uppercase;
+    border: 1px solid var(--accent);
+  }
+  .fix-btn.primary { background: var(--accent); color: #080B12; }
+  .fix-btn.ghost { color: var(--accent); }
+  .fix-btn:hover { box-shadow: 0 0 18px rgba(25,211,230,0.35); }
 </style>
+<link rel="stylesheet" href="../css/brand.css">
 </head>
 <body>
 
@@ -385,9 +413,9 @@
 <section class="hero">
   <div class="hero-grid-lines"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow">// threat analysis engine</div>
-    <h1>Cyber <span>Security</span> Scanner</h1>
-    <p>Run a quick security analysis and uncover risks instantly.</p>
+    <div class="hero-eyebrow">Free security score</div>
+    <h1>Your Free <span>Security Score</span></h1>
+    <p>See what an attacker sees when they look at your company &mdash; in about 30 seconds. Public, non-intrusive checks only.</p>
     <div class="hero-stats">
       <div class="hero-stat"><div class="dot"></div>DNS LOOKUP</div>
       <div class="hero-stat"><div class="dot"></div>HEADER ANALYSIS</div>
@@ -401,28 +429,28 @@
   <div class="scanner-wrap">
 
     <div class="input-card">
-      <div class="step-label">// step 01 — identify</div>
+      <div class="step-label">Step 1 · Your work email</div>
       <div class="field-wrap">
         <span class="field-icon">@</span>
-        <input class="cn-input" type="email" id="userEmail" placeholder="your@email.com — required to unlock results">
+        <input class="cn-input" type="email" id="userEmail" placeholder="you@company.com">
       </div>
     </div>
 
     <div class="input-card">
-      <div class="step-label">// step 02 — target domain</div>
+      <div class="step-label">Step 2 · Domain to check</div>
       <div class="input-row">
         <div class="field-wrap">
           <span class="field-icon">⌕</span>
           <input class="cn-input" type="text" id="scanDomain" placeholder="example.com">
         </div>
-        <button class="cn-btn" onclick="runScan()" id="scanBtn">RUN SCAN</button>
+        <button class="cn-btn" onclick="runScan()" id="scanBtn">Get score</button>
       </div>
     </div>
 
     <div class="result-card" id="resultCard">
       <div class="result-placeholder">
         <div class="shield">🛡</div>
-        <p>AWAITING TARGET — ENTER DOMAIN ABOVE</p>
+        <p>Enter your email and domain above to see your score</p>
       </div>
     </div>
 
@@ -431,7 +459,7 @@
 
 <section class="how-section">
   <div class="how-wrap">
-    <div class="section-label">// how it works</div>
+    <div class="section-label">how it works</div>
     <div class="steps-row">
       <div class="step-card">
         <div class="step-num">01 / INPUT</div>
@@ -485,22 +513,17 @@
 
     if (!email || !email.includes('@')) {
       const el = document.getElementById('userEmail');
-      el.focus(); el.style.borderColor = '#ff4466';
+      el.focus(); el.style.borderColor = '#F0506E';
       setTimeout(() => el.style.borderColor = '', 1400);
       return;
     }
     if (!domain) {
       const el = document.getElementById('scanDomain');
-      el.focus(); el.style.borderColor = '#ff4466';
+      el.focus(); el.style.borderColor = '#F0506E';
       setTimeout(() => el.style.borderColor = '', 1400);
       return;
     }
 
-    try {
-      let leads = JSON.parse(localStorage.getItem('cybernode_leads') || '[]');
-      leads.push({ email, domain, date: new Date().toISOString() });
-      localStorage.setItem('cybernode_leads', JSON.stringify(leads));
-    } catch(e) {}
 
     document.getElementById('scanBtn').disabled = true;
     startScan(domain);
@@ -520,7 +543,7 @@
     card.innerHTML = `
       <div class="scan-loader">
         <div class="loader-ring"></div>
-        <div class="loader-text">SCANNING ${escapeHtml(domain.toUpperCase())}</div>
+        <div class="loader-text">Checking ${escapeHtml(domain)}</div>
         <div class="loader-steps">${stepHTML}</div>
       </div>`;
 
@@ -553,6 +576,8 @@
       showScanError(result.error, domain);
     } else {
       renderResult(result);
+      captureLead(document.getElementById('userEmail').value.trim(), result);
+      if (window.plausible) window.plausible('Free Scan', { props: { rating: result.rating } });
     }
     document.getElementById('scanBtn').disabled = false;
   }
@@ -563,29 +588,29 @@
     card.innerHTML = `
       <div class="result-placeholder">
         <div class="shield">⚠</div>
-        <p style="color:#ff4466">${escapeHtml(message)}</p>
+        <p style="color:#F0506E">${escapeHtml(message)}</p>
       </div>`;
   }
 
   function renderResult(data) {
     const card = document.getElementById('resultCard');
-    const riskColor = data.rating === 'LOW RISK' ? '#00dd88' : data.rating === 'MODERATE RISK' ? '#ffaa22' : '#ff4466';
+    const riskColor = data.rating === 'LOW RISK' ? '#2FD67B' : data.rating === 'MODERATE RISK' ? '#F2B33D' : '#F0506E';
 
     const sslLabel = data.ssl.valid
       ? (data.ssl.daysRemaining != null && data.ssl.daysRemaining < 14 ? 'EXPIRING SOON' : 'VALID')
       : 'INVALID';
-    const sslColor = sslLabel === 'VALID' ? '#00dd88' : sslLabel === 'EXPIRING SOON' ? '#ffaa22' : '#ff4466';
+    const sslColor = sslLabel === 'VALID' ? '#2FD67B' : sslLabel === 'EXPIRING SOON' ? '#F2B33D' : '#F0506E';
 
     const headersLabel = !data.headers.reachable
       ? 'UNREACHABLE'
       : `${data.headers.total - data.headers.missing}/${data.headers.total} PRESENT`;
-    const headersColor = !data.headers.reachable ? '#ff4466' : data.headers.missing === 0 ? '#00dd88' : '#ffaa22';
+    const headersColor = !data.headers.reachable ? '#F0506E' : data.headers.missing === 0 ? '#2FD67B' : '#F2B33D';
 
     card.classList.add('scanned');
     card.innerHTML = `
       <div class="result-header">
         <div>
-          <div class="result-domain">// SCAN COMPLETE</div>
+          <div class="result-domain">Scan complete</div>
           <div class="result-title">${escapeHtml(data.domain)}</div>
         </div>
         <div class="score-badge">
@@ -594,9 +619,9 @@
         </div>
       </div>
       <div class="result-metrics">
-        <div class="metric-box" style="border-left-color:#00d4ff">
+        <div class="metric-box" style="border-left-color:#19D3E6">
           <div class="m-label">IP Address</div>
-          <div class="m-val" style="color:#00d4ff">${escapeHtml(data.ip || '—')}</div>
+          <div class="m-val" style="color:#19D3E6">${escapeHtml(data.ip || '—')}</div>
         </div>
         <div class="metric-box" style="border-left-color:${sslColor}">
           <div class="m-label">SSL Cert</div>
@@ -606,16 +631,29 @@
           <div class="m-label">Sec Headers</div>
           <div class="m-val" style="color:${headersColor}">${headersLabel}</div>
         </div>
-        <div class="metric-box" style="border-left-color:#ff4466">
+        <div class="metric-box" style="border-left-color:#F0506E">
           <div class="m-label">Exposure Signals</div>
-          <div class="m-val" style="color:#ffaa22">${data.exposureSignals} FOUND</div>
+          <div class="m-val" style="color:#F2B33D">${data.exposureSignals} FOUND</div>
+        </div>
+      </div>
+      <div class="fix-box">
+        <h4>Fix these problems with Cyber-Node</h4>
+        <p>This is a snapshot of one domain. Cyber-Node watches your whole attack surface every day, tells you the 5 things to fix first, automates the safe fixes, and re-scans to prove they worked.</p>
+        <ul>
+          <li>Free external assessment of all your domains &amp; cloud assets</li>
+          <li>Walk-through call with a security engineer</li>
+          <li>Founding-customer pricing (limited spots)</li>
+        </ul>
+        <div class="fix-actions">
+          <a class="fix-btn primary" href="/demo.html?domain=${encodeURIComponent(data.domain)}&score=${data.score}&plan=Free%20Assessment">Book my free assessment →</a>
+          <a class="fix-btn ghost" href="/pricing.html">See plans</a>
         </div>
       </div>
       <div class="lock-box">
         <div style="display:flex;align-items:center;gap:16px;flex:1;min-width:0;">
           <div class="lock-icon">🔒</div>
           <div class="lock-info">
-            <h4>Full Report Locked</h4>
+            <h4>Just want the detailed report for this domain?</h4>
             <p>Unlock the itemized port list, per-header audit &amp; remediation steps as a PDF, emailed to you.</p>
             <div class="lock-items">
               <div class="lock-item">PORT-BY-PORT DETAIL</div>
@@ -624,11 +662,52 @@
             </div>
           </div>
         </div>
-        <button class="unlock-btn" id="unlockBtn">UNLOCK — $19 →</button>
+        <div class="unlock-actions">
+          <button class="unlock-btn" id="unlockBtn">UNLOCK — $19 (Card) →</button>
+          <button class="unlock-btn unlock-btn-mpesa" id="unlockBtnMpesa">UNLOCK — KES 5,000 (M-Pesa) →</button>
+        </div>
       </div>`;
 
     document.getElementById('unlockBtn').addEventListener('click', () => unlockReport(data.domain));
+    document.getElementById('unlockBtnMpesa').addEventListener('click', () => unlockReportMpesa(data.domain));
   }
+
+  // Every scan is a sales lead. Send it to the same Web3Forms inbox the contact
+  // and healthcare forms use, so it lands in sales@ with the score attached —
+  // previously these only went to the visitor's own localStorage and were lost.
+  const WEB3FORMS_KEY = '59d2f31e-d9a6-4f5e-8687-c4f7147bd2fa';
+  function captureLead(email, data) {
+    if (!email) return;
+    const payload = {
+      access_key: WEB3FORMS_KEY,
+      subject: `Free scan lead: ${data.domain} scored ${data.score}/100 (${data.rating})`,
+      from_name: 'cyber-node.com/tools/security-scan',
+      email,
+      domain: data.domain,
+      score: `${data.score}/100`,
+      rating: data.rating,
+      ssl: data.ssl.valid ? `valid (${data.ssl.daysRemaining ?? '?'} days left)` : 'INVALID',
+      security_headers: data.headers.reachable ? `${data.headers.total - data.headers.missing}/${data.headers.total} present` : 'unreachable',
+      exposure_signals: String(data.exposureSignals),
+      next_step: 'Follow up within 24h: offer free external assessment / founding customer spot',
+    };
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(payload),
+    }).catch(() => {});
+  }
+
+  // Homepage scan box links here as /tools/security-scan.html?domain=acme.com
+  (function prefillFromQuery() {
+    const d = new URLSearchParams(location.search).get('domain');
+    if (!d) return;
+    const clean = d.trim().replace(/^https?:\/\//i, '').replace(/\/.*$/, '');
+    document.getElementById('scanDomain').value = clean;
+    const email = document.getElementById('userEmail');
+    email.focus();
+    email.placeholder = 'you@company.com — then press Get score';
+  })();
 
   const STRIPE_PAYMENT_LINK = 'https://buy.stripe.com/bJedRabkeaKw4RCfowa7C00';
 
@@ -642,6 +721,35 @@
     const params = new URLSearchParams({ client_reference_id: refId });
     if (email) params.set('prefilled_email', email);
     window.location.href = `${STRIPE_PAYMENT_LINK}?${params}`;
+  }
+
+  async function unlockReportMpesa(domain) {
+    const email = document.getElementById('userEmail').value.trim();
+    if (!email || !email.includes('@')) {
+      const el = document.getElementById('userEmail');
+      el.focus(); el.style.borderColor = '#ff4466';
+      setTimeout(() => el.style.borderColor = '', 1400);
+      return;
+    }
+
+    const btn = document.getElementById('unlockBtnMpesa');
+    btn.disabled = true;
+    btn.textContent = 'STARTING M-PESA CHECKOUT…';
+
+    try {
+      const res = await fetch('/api/intasend-checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ domain, email }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Could not start M-Pesa checkout');
+      window.location.href = data.url;
+    } catch (err) {
+      btn.disabled = false;
+      btn.textContent = 'UNLOCK — KES 5,000 (M-Pesa) →';
+      alert(err.message);
+    }
   }
 </script>
 </body>

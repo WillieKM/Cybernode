@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a Demo | Cyber-Node</title>
+<meta name="description" content="Book a 30-minute Cyber-Node demo. We'll review your free security score, walk through your top risks, and show how Cyber-Node fixes and verifies them.">
+<link rel="canonical" href="https://www.cyber-node.com/demo.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/gtm.css">
+<link rel="stylesheet" href="css/mobile.css">
+<style>
+  .form-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 34px; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+  .field label { font-family: var(--mono); font-size: 12px; letter-spacing: 1.5px; color: var(--muted); text-transform: uppercase; }
+  .field input, .field select, .field textarea {
+    background: #0C121C; border: 1px solid var(--border); border-radius: 6px; color: var(--text);
+    padding: 12px 14px; font-size: 16px; font-family: var(--sans);
+  }
+  .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--accent); }
+  .field textarea { min-height: 90px; resize: vertical; }
+  .bot-trap { display: none; }
+  .context { font-family: var(--mono); font-size: 13px; color: var(--green); border: 1px solid rgba(47,214,123,0.4); background: rgba(47,214,123,0.06); padding: 10px 14px; border-radius: 6px; margin-bottom: 18px; display: none; }
+  .status { margin-top: 14px; font-family: var(--mono); font-size: 14px; }
+  .expect li { padding: 10px 0; border-bottom: 1px solid rgba(34,48,68,0.4); color: var(--muted); font-size: 17px; }
+  .expect li b { color: var(--text); }
+  @media (max-width: 640px) { .row { grid-template-columns: 1fr; } .form-card { padding: 22px; } }
+</style>
+<link rel="stylesheet" href="css/brand.css">
+</head>
+<body>
+<div id="navbar"></div>
+
+<section class="g-hero" style="padding-bottom:60px;">
+  <div class="grid-lines"></div>
+  <div class="g-hero-inner">
+    <div class="eyebrow">Book a demo</div>
+    <h1 style="font-size:48px;">See your top risks &mdash; <span>and how we'd fix them.</span></h1>
+    <p class="lede">30 minutes. No slide deck. We look at your real attack surface together.</p>
+  </div>
+</section>
+
+<section class="g-section" style="padding-top:50px;">
+  <div class="grid-2" style="gap:40px; align-items:start;">
+    <div class="form-card">
+      <form id="demoForm">
+        <input type="hidden" name="access_key" value="59d2f31e-d9a6-4f5e-8687-c4f7147bd2fa">
+        <input type="hidden" name="subject" id="f_subject" value="Cyber-Node demo request">
+        <input type="hidden" name="from_name" value="cyber-node.com/demo">
+        <input type="hidden" name="scan_score" id="f_score" value="">
+        <input type="text" name="botcheck" class="bot-trap" tabindex="-1" autocomplete="off">
+        <div class="context" id="context"></div>
+        <div class="row">
+          <div class="field"><label for="name">Name</label><input id="name" name="name" required autocomplete="name"></div>
+          <div class="field"><label for="email">Work email</label><input id="email" name="email" type="email" required autocomplete="email"></div>
+        </div>
+        <div class="row">
+          <div class="field"><label for="company">Company</label><input id="company" name="company" required autocomplete="organization"></div>
+          <div class="field"><label for="domain">Company domain</label><input id="domain" name="domain" placeholder="yourcompany.com"></div>
+        </div>
+        <div class="row">
+          <div class="field"><label for="size">Company size</label>
+            <select id="size" name="company_size" required>
+              <option value="">Choose one</option><option>1&ndash;19</option><option>20&ndash;50</option><option>51&ndash;250</option><option>251&ndash;1,000</option><option>1,000+</option>
+            </select></div>
+          <div class="field"><label for="industry">Industry</label>
+            <select id="industry" name="industry" required>
+              <option value="">Choose one</option><option>Healthcare SaaS / health-tech</option><option>Healthcare provider</option><option>FinTech</option><option>Accounting</option><option>Legal</option><option>Professional services</option><option>Logistics</option><option>Other SaaS</option><option>Other</option>
+            </select></div>
+        </div>
+        <div class="field"><label for="plan">Interested in</label>
+          <select id="plan" name="interested_in">
+            <option>Not sure yet</option><option>Free Assessment</option><option>Founding Customer</option><option>Starter</option><option>Business</option><option>Managed</option><option>Enterprise</option><option>Assessment</option>
+          </select></div>
+        <div class="field"><label for="msg">What prompted you to look? (optional)</label><textarea id="msg" name="message" placeholder="e.g. a customer sent us a security questionnaire, insurance renewal, HIPAA audit..."></textarea></div>
+        <button class="btn btn-primary" type="submit" style="width:100%;">Request my demo</button>
+        <div class="status" id="status" aria-live="polite"></div>
+      </form>
+    </div>
+    <div>
+      <span class="label">What happens next</span>
+      <ul class="expect" style="list-style:none; padding:0; margin:0 0 30px;">
+        <li><b>1. We reply within one business day</b> to pick a time.</li>
+        <li><b>2. Before the call</b>, we run a free external assessment of your domains.</li>
+        <li><b>3. On the call</b>, we walk through your top 5 risks and how to fix them.</li>
+        <li><b>4. You keep the report</b> &mdash; whether or not you buy.</li>
+      </ul>
+      <div class="card">
+        <h3>Prefer email?</h3>
+        <p><a href="mailto:sales@cyber-node.com">sales@cyber-node.com</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer"></div>
+<script>
+  fetch("components/navbar.html").then(r => r.ok ? r.text() : '').then(h => { if (h) document.getElementById("navbar").innerHTML = h; }).catch(() => {});
+  fetch("components/footer.html").then(r => r.ok ? r.text() : '').then(h => { if (h) document.getElementById("footer").innerHTML = h; }).catch(() => {});
+
+  // Prefill from links like /demo.html?plan=Business or ?domain=acme.com&score=62&plan=Free%20Assessment
+  (function () {
+    const q = new URLSearchParams(location.search);
+    const plan = q.get('plan'), domain = q.get('domain'), score = q.get('score');
+    if (plan) {
+      const sel = document.getElementById('plan');
+      if (![...sel.options].some(o => o.text === plan)) sel.add(new Option(plan));
+      sel.value = plan;
+    }
+    if (domain) document.getElementById('domain').value = domain;
+    const ind = q.get('industry');
+    if (ind) {
+      const s2 = document.getElementById('industry');
+      const m = [...s2.options].find(o => o.text.toLowerCase().startsWith(ind.toLowerCase()));
+      if (m) s2.value = m.text;
+    }
+    if (domain && score) {
+      document.getElementById('f_score').value = score + '/100';
+      const c = document.getElementById('context');
+      c.textContent = '✓ Your free scan of ' + domain + ' (score ' + score + '/100) will be attached to this request.';
+      c.style.display = 'block';
+    }
+  })();
+
+  document.getElementById('demoForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.target, status = document.getElementById('status');
+    const data = Object.fromEntries(new FormData(form));
+    data.subject = `Demo request: ${data.company || ''} (${data.interested_in || 'n/a'})` + (data.scan_score ? ` — scan ${data.scan_score}` : '');
+    status.style.color = 'var(--muted)'; status.textContent = 'Sending...';
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(data)
+      });
+      const out = await res.json();
+      if (!out.success) throw new Error(out.message || 'failed');
+      form.reset();
+      status.style.color = 'var(--green)';
+      status.textContent = '✓ Got it. We\'ll email you within one business day to set a time.';
+      if (window.plausible) window.plausible('Demo Request');
+    } catch (err) {
+      status.style.color = 'var(--red)';
+      status.textContent = 'Something went wrong — please email sales@cyber-node.com.';
+    }
+  });
+</script>
+<script src="js/nav-toggle.js"></script>
+</body>
+</html>

@@ -36,23 +36,23 @@
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link rel="stylesheet" href="/css/mobile.css">
 <style>
   :root {
-    --bg: #0e1f38;
-    --bg2: #142840;
-    --bg3: #1a3250;
-    --border: #2e5070;
-    --accent: #00d4ff;
-    --red: #ff4466;
-    --orange: #ffaa22;
-    --green: #00dd88;
-    --text: #e8f4ff;
-    --muted: #90bcd8;
-    --mono: 'Share Tech Mono', monospace;
-    --sans: 'Rajdhani', sans-serif;
+    --bg: #080B12;
+    --bg2: #101722;
+    --bg3: #151D29;
+    --border: #223044;
+    --accent: #19D3E6;
+    --red: #F0506E;
+    --orange: #F2B33D;
+    --green: #2FD67B;
+    --text: #F2F5F7;
+    --muted: #8995A5;
+    --mono: 'Geist Mono', monospace;
+    --sans: 'Geist', sans-serif;
   }
 
   body {
@@ -68,7 +68,7 @@
     padding: 160px 20px 100px;
     text-align: center;
     border-bottom: 1px solid var(--border);
-    background: linear-gradient(180deg, #1a3252 0%, #0e1f38 100%);
+    background: linear-gradient(180deg, #0F1622 0%, #080B12 100%);
     overflow: hidden;
   }
 
@@ -76,15 +76,15 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse 60% 60% at 50% 0%, rgba(0,212,255,0.15) 0%, transparent 70%);
+    background: radial-gradient(ellipse 60% 60% at 50% 0%, rgba(25,211,230,0.15) 0%, transparent 70%);
   }
 
   .grid-lines {
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(rgba(0,212,255,0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,212,255,0.05) 1px, transparent 1px);
+      linear-gradient(rgba(25,211,230,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(25,211,230,0.05) 1px, transparent 1px);
     background-size: 50px 50px;
     mask-image: linear-gradient(180deg, transparent 0%, black 50%, transparent 100%);
   }
@@ -124,7 +124,7 @@
 
   .btn-primary { background: var(--accent); color: var(--bg); }
   .btn-secondary { border: 1px solid var(--accent); color: var(--accent); }
-  .cn-btn:hover { transform: translateY(-3px); box-shadow: 0 0 20px rgba(0,212,255,0.3); }
+  .cn-btn:hover { transform: translateY(-3px); box-shadow: 0 0 20px rgba(25,211,230,0.3); }
 
   .soc-section {
     max-width: 1200px;
@@ -155,7 +155,7 @@
     margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    border-bottom: 1px solid rgba(0,212,255,0.1);
+    border-bottom: 1px solid rgba(25,211,230,0.1);
     padding-bottom: 10px;
   }
 
@@ -166,8 +166,8 @@
     margin-bottom: 15px;
   }
 
-  .val-danger { color: var(--red); text-shadow: 0 0 10px var(--red); }
-  .val-success { color: var(--green); text-shadow: 0 0 10px var(--green); }
+  .val-danger { color: var(--red); }
+  .val-success { color: var(--green); }
 
   .threat-list { list-style: none; font-family: var(--mono); font-size: 13px; padding: 0; margin: 0; }
   .threat-list li {
@@ -198,7 +198,7 @@
   .service-card i { font-size: 32px; color: var(--accent); margin-bottom: 20px; }
   .service-card h4 { font-size: 20px; margin-bottom: 10px; }
   .service-card p { font-size: 14px; color: var(--muted); }
-  .service-card:hover { border-color: var(--accent); background: rgba(0,212,255,0.02); }
+  .service-card:hover { border-color: var(--accent); background: rgba(25,211,230,0.02); }
 
   @media (max-width: 900px) {
     .service-grid { grid-template-columns: 1fr 1fr; }
@@ -252,12 +252,12 @@
 
   .clients-bar::before {
     left: 0;
-    background: linear-gradient(90deg, #0e1f38 0%, transparent 100%);
+    background: linear-gradient(90deg, #080B12 0%, transparent 100%);
   }
 
   .clients-bar::after {
     right: 0;
-    background: linear-gradient(270deg, #0e1f38 0%, transparent 100%);
+    background: linear-gradient(270deg, #080B12 0%, transparent 100%);
   }
 
   .marquee-track {
@@ -312,6 +312,7 @@
   .why-card h3 { font-size: 20px; margin-bottom: 12px; color: var(--accent); }
   .why-card p { font-family: var(--mono); font-size: 14px; color: var(--muted); line-height: 1.8; }
 </style>
+<link rel="stylesheet" href="../css/brand.css">
 </head>
 <body>
 
@@ -320,7 +321,7 @@
 <section class="hero-wrap">
   <div class="grid-lines"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow" style="font-family: var(--mono); color: var(--accent); letter-spacing: 5px; margin-bottom: 15px;">// NOW LIVE IN KENYA</div>
+    <div class="hero-eyebrow" style="font-family: var(--mono); color: var(--accent); letter-spacing: 5px; margin-bottom: 15px;">Now live in kenya</div>
     <h1>Security <span>Intelligence</span> for Nairobi &<br>East Africa's Digital Economy</h1>
     <p>Enterprise-grade vulnerability discovery, penetration testing, and Data Protection Act (ODPC) compliance — built for Kenyan fintechs, SMEs, and mobile-money platforms.</p>
     <div class="btn-group">

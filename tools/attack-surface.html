@@ -5,22 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Attack Surface Discovery | Cyber-Node Intelligence</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --bg: #0e1f38;
-    --bg2: #142840;
-    --bg3: #1a3250;
-    --border: #2e5070;
-    --accent: #00d4ff;
-    --red: #ff4466;
-    --green: #00dd88;
-    --text: #e8f4ff;
-    --muted: #90bcd8;
-    --mono: 'Share Tech Mono', monospace;
-    --sans: 'Rajdhani', sans-serif;
+    --bg: #080B12;
+    --bg2: #101722;
+    --bg3: #151D29;
+    --border: #223044;
+    --accent: #19D3E6;
+    --red: #F0506E;
+    --green: #2FD67B;
+    --text: #F2F5F7;
+    --muted: #8995A5;
+    --mono: 'Geist Mono', monospace;
+    --sans: 'Geist', sans-serif;
   }
 
   body {
@@ -36,7 +36,7 @@
     position: relative;
     text-align: center;
     padding: 140px 20px 80px;
-    background: linear-gradient(180deg, #1a3252 0%, #0e1f38 100%);
+    background: linear-gradient(180deg, #0F1622 0%, #080B12 100%);
     border-bottom: 1px solid var(--border);
   }
 
@@ -44,8 +44,8 @@
     position: absolute;
     inset: 0;
     background-image: 
-      linear-gradient(rgba(0,212,255,0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,212,255,0.05) 1px, transparent 1px);
+      linear-gradient(rgba(25,211,230,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(25,211,230,0.05) 1px, transparent 1px);
     background-size: 45px 45px;
     mask-image: radial-gradient(circle, black, transparent 90%);
   }
@@ -99,7 +99,7 @@
     cursor: pointer;
     transition: 0.3s;
   }
-  .cn-btn:hover { box-shadow: 0 0 20px rgba(0,212,255,0.4); }
+  .cn-btn:hover { box-shadow: 0 0 20px rgba(25,211,230,0.4); }
 
   /* --- RESULTS TERMINAL --- */
   .results-wrapper {
@@ -126,7 +126,7 @@
   .terminal-body { padding: 30px; font-family: var(--mono); font-size: 14px; line-height: 1.8; }
   
   .res-block { margin-bottom: 25px; }
-  .res-label { color: var(--accent); margin-bottom: 10px; display: block; border-bottom: 1px solid rgba(0,212,255,0.1); padding-bottom: 5px; }
+  .res-label { color: var(--accent); margin-bottom: 10px; display: block; border-bottom: 1px solid rgba(25,211,230,0.1); padding-bottom: 5px; }
   
   .res-list { list-style: none; padding-left: 15px; }
   .res-item { color: var(--text); position: relative; }
@@ -155,6 +155,7 @@
     .cn-btn { padding: 15px; }
   }
 </style>
+<link rel="stylesheet" href="../css/brand.css">
 </head>
 <body>
 
@@ -163,7 +164,7 @@
 <section class="hero">
   <div class="grid-lines"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow">// ASSET_ENUMERATION_MODULE</div>
+    <div class="hero-eyebrow">Attack surface discovery</div>
     <h1>Attack <span>Surface</span> Discovery</h1>
     <p>Map out the digital footprint of any organization to identify exposed subdomains, DNS records, and infrastructure leaks.</p>
   </div>
@@ -175,12 +176,12 @@
       <span class="field-icon">⌕</span>
       <input class="cn-input" type="text" id="domainInput" placeholder="Enter target domain (e.g. example.com)">
     </div>
-    <button class="cn-btn" onclick="runDiscovery()">Initialize Discovery</button>
+    <button class="cn-btn" onclick="runDiscovery()">Discover your attack surface</button>
   </div>
 
   <div id="placeholder" class="placeholder-box">
     <div style="font-size: 40px; margin-bottom: 15px;">📡</div>
-    <p style="font-family: var(--mono); letter-spacing: 2px;">READY TO INITIALIZE RECONNAISSANCE</p>
+    <p style="font-family: var(--mono); letter-spacing: 2px;">READY TO Start discovery</p>
   </div>
 
   <div id="resultsUI" class="results-wrapper">

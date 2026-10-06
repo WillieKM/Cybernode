@@ -82,18 +82,18 @@
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/mobile.css">
 <style>
   :root {
-    --bg: #0e1f38;
-    --bg2: #142840;
-    --border: #2e5070;
-    --accent: #00d4ff;
-    --text: #e8f4ff;
-    --muted: #90bcd8;
-    --mono: 'Share Tech Mono', monospace;
-    --sans: 'Rajdhani', sans-serif;
+    --bg: #080B12;
+    --bg2: #101722;
+    --border: #223044;
+    --accent: #19D3E6;
+    --text: #F2F5F7;
+    --muted: #8995A5;
+    --mono: 'Geist Mono', monospace;
+    --sans: 'Geist', sans-serif;
   }
 
   body {
@@ -109,7 +109,7 @@
     position: relative;
     padding: 160px 20px 100px;
     text-align: center;
-    background: linear-gradient(180deg, #1a3252 0%, #0e1f38 100%);
+    background: linear-gradient(180deg, #0F1622 0%, #080B12 100%);
     border-bottom: 1px solid var(--border);
   }
 
@@ -117,8 +117,8 @@
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(rgba(0,212,255,0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,212,255,0.05) 1px, transparent 1px);
+      linear-gradient(rgba(25,211,230,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(25,211,230,0.05) 1px, transparent 1px);
     background-size: 40px 40px;
     mask-image: radial-gradient(circle, black, transparent 80%);
   }
@@ -159,17 +159,17 @@
   .service-card:hover {
     border-color: var(--accent);
     transform: translateY(-5px);
-    box-shadow: 0 10px 40px rgba(0,212,255,0.1);
+    box-shadow: 0 10px 40px rgba(25,211,230,0.1);
   }
 
   .price-module {
     font-family: var(--mono);
     font-size: 12px;
     color: var(--accent);
-    background: rgba(0, 212, 255, 0.05);
+    background: rgba(25,211,230, 0.05);
     padding: 5px 12px;
     border-radius: 4px;
-    border: 1px solid rgba(0, 212, 255, 0.2);
+    border: 1px solid rgba(25,211,230, 0.2);
     display: inline-block;
     margin-bottom: 20px;
   }
@@ -228,13 +228,14 @@
 
   .btn-primary { background: var(--accent); color: var(--bg); }
   .btn-outline { border: 1px solid var(--accent); color: var(--accent); }
-  .cn-btn:hover { box-shadow: 0 0 20px rgba(0,212,255,0.4); transform: scale(1.02); }
+  .cn-btn:hover { box-shadow: 0 0 20px rgba(25,211,230,0.4); transform: scale(1.02); }
 
   @media (max-width: 800px) {
     .process-grid { grid-template-columns: 1fr 1fr; }
     .hero-content h1 { font-size: 38px; }
   }
 </style>
+<link rel="stylesheet" href="css/brand.css">
 </head>
 <body>
 
@@ -243,7 +244,7 @@
 <section class="hero-wrap">
   <div class="grid-lines"></div>
   <div class="hero-content">
-    <div style="font-family: var(--mono); color: var(--accent); letter-spacing: 4px; margin-bottom: 10px;">[ SERVICE_MENU_v2.0 ]</div>
+    <div style="font-family: var(--mono); color: var(--accent); letter-spacing: 4px; margin-bottom: 10px;">Services</div>
     <h1>Security & <span>Automation</span> Solutions</h1>
     <p>Eliminate vulnerabilities and manual overhead with enterprise-grade protection and scalable secure workflows.</p>
     <div style="display: flex; justify-content: center; gap: 20px;">
@@ -255,7 +256,7 @@
 
 <section class="section-container">
   <div class="section-header">
-    <p>// Defense Strategies</p>
+    <p>Defense Strategies</p>
     <h2>Cybersecurity Services</h2>
   </div>
   <div class="services-grid">
@@ -295,10 +296,10 @@
   </div>
 </section>
 
-<section style="background: rgba(0,212,255,0.02); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+<section style="background: rgba(25,211,230,0.02); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
   <div class="section-container">
     <div class="section-header">
-      <p>// Scalability & Efficiency</p>
+      <p>Scalability & Efficiency</p>
       <h2>Automation Systems</h2>
     </div>
     <div class="services-grid">

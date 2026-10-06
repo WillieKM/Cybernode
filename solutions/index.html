@@ -14,19 +14,19 @@
 <meta property="og:image" content="https://www.cyber-node.com/images/og-preview.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/mobile.css">
 
 <style>
   :root {
-    --bg: #0e1f38;
-    --bg2: #142840;
-    --border: #2e5070;
-    --accent: #00d4ff;
-    --text: #e8f4ff;
-    --muted: #90bcd8;
-    --mono: 'Share Tech Mono', monospace;
-    --sans: 'Rajdhani', sans-serif;
+    --bg: #080B12;
+    --bg2: #101722;
+    --border: #223044;
+    --accent: #19D3E6;
+    --text: #F2F5F7;
+    --muted: #8995A5;
+    --mono: 'Geist Mono', monospace;
+    --sans: 'Geist', sans-serif;
   }
 
   body {
@@ -42,7 +42,7 @@
     position: relative;
     padding: 160px 20px 100px;
     text-align: center;
-    background: linear-gradient(180deg, #1a3252 0%, #0e1f38 100%);
+    background: linear-gradient(180deg, #0F1622 0%, #080B12 100%);
     border-bottom: 1px solid var(--border);
   }
 
@@ -50,8 +50,8 @@
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(rgba(0,212,255,0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,212,255,0.05) 1px, transparent 1px);
+      linear-gradient(rgba(25,211,230,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(25,211,230,0.05) 1px, transparent 1px);
     background-size: 45px 45px;
     mask-image: radial-gradient(circle, black, transparent 85%);
   }
@@ -104,7 +104,7 @@
   .solution-card:hover {
     border-color: var(--accent);
     transform: translateY(-6px);
-    box-shadow: 0 15px 40px rgba(0,212,255,0.12);
+    box-shadow: 0 15px 40px rgba(25,211,230,0.12);
   }
 
   .solution-card:hover::before { transform: scaleX(1); }
@@ -144,7 +144,7 @@
     font-size: 13px;
     color: var(--muted);
     padding: 8px 0;
-    border-bottom: 1px solid rgba(46,80,112,0.3);
+    border-bottom: 1px solid rgba(34,48,68,0.3);
     display: flex;
     align-items: center;
     gap: 10px;
@@ -187,7 +187,7 @@
 
   .btn-primary { background: var(--accent); color: var(--bg); }
   .btn-outline  { border: 1px solid var(--accent); color: var(--accent); }
-  .cn-btn:hover { box-shadow: 0 0 20px rgba(0,212,255,0.4); transform: translateY(-2px); }
+  .cn-btn:hover { box-shadow: 0 0 20px rgba(25,211,230,0.4); transform: translateY(-2px); }
 
   @media (max-width: 700px) {
     .solutions-grid { grid-template-columns: 1fr; }
@@ -195,6 +195,7 @@
     .solution-card { padding: 35px 25px; }
   }
 </style>
+<link rel="stylesheet" href="../css/brand.css">
 </head>
 <body>
 
@@ -203,7 +204,7 @@
 <section class="hero-wrap">
   <div class="grid-lines"></div>
   <div class="hero-content">
-    <div style="font-family:var(--mono);color:var(--accent);letter-spacing:5px;margin-bottom:10px;">[ SOLUTION_MATRIX ]</div>
+    <div style="font-family:var(--mono);color:var(--accent);letter-spacing:5px;margin-bottom:10px;">Solutions</div>
     <h1>Built to <span>Defend</span></h1>
     <p>Purpose-built solutions for cybersecurity and automation — designed for the threats of today and tomorrow.</p>
   </div>
@@ -213,7 +214,7 @@
   <div class="solutions-grid">
 
     <a href="/solutions/cybersecurity.html" class="solution-card">
-      <div class="solution-tag">// 01 — Defense</div>
+      <div class="solution-tag">01 — Defense</div>
       <h2>Cybersecurity</h2>
       <p>Enterprise-grade vulnerability discovery, penetration testing, and compliance frameworks to harden your entire infrastructure.</p>
       <ul class="solution-list">
@@ -226,7 +227,7 @@
     </a>
 
     <a href="/solutions/automation.html" class="solution-card">
-      <div class="solution-tag">// 02 — Efficiency</div>
+      <div class="solution-tag">02 — Efficiency</div>
       <h2>Automation</h2>
       <p>Eliminate manual overhead and secure your workflows with intelligent automation systems built for high-velocity business operations.</p>
       <ul class="solution-list">
@@ -238,8 +239,21 @@
       <span class="solution-link">Explore Automation →</span>
     </a>
 
+    <a href="/solutions/healthcare-saas.html" class="solution-card">
+      <div class="solution-tag">00 — Primary focus</div>
+      <h2>Healthcare SaaS</h2>
+      <p>Continuous, HIPAA-aligned security for health-tech companies with 20–250 people. Pass hospital security reviews and prove your fixes worked.</p>
+      <ul class="solution-list">
+        <li>Attack-Surface Discovery</li>
+        <li>"Fix First" Prioritization</li>
+        <li>Automated Remediation</li>
+        <li>Fix Verification & Evidence</li>
+      </ul>
+      <span class="solution-link">Explore Healthcare SaaS →</span>
+    </a>
+
     <a href="/solutions/healthcare.html" class="solution-card">
-      <div class="solution-tag">// 03 — Healthcare</div>
+      <div class="solution-tag">03 — Healthcare</div>
       <h2>Cyber-Node Health</h2>
       <p>HIPAA security built for home care agencies and adult family homes — no in-house IT required. Take the free self-check to see where you stand.</p>
       <ul class="solution-list">
@@ -258,7 +272,7 @@
   <h2 style="margin-bottom:10px;">Not sure which solution fits?</h2>
   <p style="font-family:var(--mono);color:var(--muted);margin-bottom:30px;">Book a free consultation and we'll map the right approach to your infrastructure.</p>
   <div style="display:flex;justify-content:center;gap:15px;flex-wrap:wrap;">
-    <a href="/contact.html" class="cn-btn btn-primary">Book Consultation</a>
+    <a href="/demo.html" class="cn-btn btn-primary">Book a Demo</a>
     <a href="/pricing.html" class="cn-btn btn-outline">View Pricing</a>
   </div>
 </div>

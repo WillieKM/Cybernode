@@ -5,462 +5,369 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ══ PRIMARY SEO ══════════════════════════════════════════════ -->
-<title>Cyber-Node | Security Intelligence & Infrastructure Monitoring</title>
-<meta name="description" content="Enterprise-grade vulnerability discovery, real-time attack surface management, and penetration testing. Cyber-Node protects startups, SMBs, and enterprise infrastructure.">
-<meta name="keywords" content="cybersecurity, vulnerability scanning, penetration testing, NIST compliance, HIPAA security, attack surface management, security intelligence platform">
-<meta name="author" content="Cyber-Node Security Intelligence">
+<title>Cyber-Node | Find the Risk. Fix the Risk. Prove It's Fixed.</title>
+<meta name="description" content="Autonomous cybersecurity monitoring and remediation for modern businesses. Cyber-Node investigates threats, prioritizes risk, executes approved fixes, and verifies the result.">
+<meta name="keywords" content="attack surface monitoring, continuous security monitoring, vulnerability management, healthcare SaaS security, HIPAA security, security score, automated remediation">
+<meta name="author" content="Cyber-Node">
 <link rel="canonical" href="https://www.cyber-node.com/">
 
-<!-- ══ OPEN GRAPH (Facebook, LinkedIn previews) ═════════════════ -->
+<!-- ══ OPEN GRAPH ════════════════════════════════════════════════ -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.cyber-node.com/">
-<meta property="og:title" content="Cyber-Node | Security Intelligence Platform">
-<meta property="og:description" content="Enterprise-grade vulnerability discovery and real-time attack surface management. Protecting startups to enterprise.">
+<meta property="og:title" content="Cyber-Node | Find the Risk. Fix the Risk. Prove It's Fixed.">
+<meta property="og:description" content="Continuous security monitoring that prioritizes what matters, automates the fix, and verifies it. Get your free security score.">
 <meta property="og:image" content="https://www.cyber-node.com/images/og-preview.png">
 <meta property="og:site_name" content="Cyber-Node">
 
 <!-- ══ TWITTER CARD ══════════════════════════════════════════════ -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://www.cyber-node.com/">
-<meta name="twitter:title" content="Cyber-Node | Security Intelligence Platform">
-<meta name="twitter:description" content="Enterprise-grade vulnerability discovery and real-time attack surface management.">
+<meta name="twitter:title" content="Cyber-Node | Find the Risk. Fix the Risk. Prove It's Fixed.">
+<meta name="twitter:description" content="Continuous security monitoring that prioritizes, automates and verifies. Get your free security score.">
 <meta name="twitter:image" content="https://www.cyber-node.com/images/og-preview.png">
 
-<!-- ══ JSON-LD STRUCTURED DATA ══════════════════════════════════ -->
+<!-- ══ JSON-LD ══════════════════════════════════════════════════ -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": "SoftwareApplication",
   "name": "Cyber-Node",
+  "applicationCategory": "SecurityApplication",
+  "operatingSystem": "Web",
   "url": "https://www.cyber-node.com",
-  "description": "Enterprise cybersecurity intelligence platform providing vulnerability scanning, penetration testing, and compliance consulting.",
-  "email": "sales@cyber-node.com",
-  "sameAs": [],
+  "description": "Continuous attack-surface discovery, vulnerability detection, risk prioritization, automated remediation and fix verification for companies without a large security team.",
+  "publisher": { "@type": "Organization", "name": "Cyber-Node", "email": "sales@cyber-node.com", "url": "https://www.cyber-node.com" },
   "offers": [
-    {
-      "@type": "Offer",
-      "name": "Starter Security Assessment",
-      "price": "1500",
-      "priceCurrency": "USD"
-    },
-    {
-      "@type": "Offer",
-      "name": "Professional Security Assessment",
-      "price": "4500",
-      "priceCurrency": "USD"
-    }
+    { "@type": "Offer", "name": "Starter", "price": "499", "priceCurrency": "USD", "description": "Per month" },
+    { "@type": "Offer", "name": "Business", "price": "1499", "priceCurrency": "USD", "description": "Per month" },
+    { "@type": "Offer", "name": "Managed", "price": "3500", "priceCurrency": "USD", "description": "Per month, starting at" }
   ]
 }
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="css/gtm.css">
 <link rel="stylesheet" href="css/mobile.css">
-<style>
-  :root {
-    --bg: #0e1f38;
-    --bg2: #142840;
-    --bg3: #1a3250;
-    --border: #2e5070;
-    --accent: #00d4ff;
-    --red: #ff4466;
-    --orange: #ffaa22;
-    --green: #00dd88;
-    --text: #e8f4ff;
-    --muted: #90bcd8;
-    --mono: 'Share Tech Mono', monospace;
-    --sans: 'Rajdhani', sans-serif;
-  }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--sans);
-    margin: 0;
-    line-height: 1.6;
-  }
-
-  .hero-wrap {
-    position: relative;
-    padding: 160px 20px 100px;
-    text-align: center;
-    border-bottom: 1px solid var(--border);
-    background: linear-gradient(180deg, #1a3252 0%, #0e1f38 100%);
-    overflow: hidden;
-  }
-
-  .hero-wrap::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 60% 60% at 50% 0%, rgba(0,212,255,0.15) 0%, transparent 70%);
-  }
-
-  .grid-lines {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(0,212,255,0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,212,255,0.05) 1px, transparent 1px);
-    background-size: 50px 50px;
-    mask-image: linear-gradient(180deg, transparent 0%, black 50%, transparent 100%);
-  }
-
-  .hero-content { position: relative; z-index: 2; }
-
-  .hero-content h1 {
-    font-size: 56px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    letter-spacing: -1px;
-    line-height: 1.1;
-  }
-
-  .hero-content h1 span { color: var(--accent); }
-
-  .hero-content p {
-    font-family: var(--mono);
-    color: var(--muted);
-    font-size: 18px;
-    max-width: 700px;
-    margin: 0 auto 40px;
-  }
-
-  .btn-group { display: flex; justify-content: center; gap: 20px; }
-
-  .cn-btn {
-    padding: 15px 35px;
-    font-family: var(--mono);
-    font-weight: 700;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 6px;
-    transition: 0.3s;
-    letter-spacing: 1px;
-  }
-
-  .btn-primary { background: var(--accent); color: var(--bg); }
-  .btn-secondary { border: 1px solid var(--accent); color: var(--accent); }
-  .cn-btn:hover { transform: translateY(-3px); box-shadow: 0 0 20px rgba(0,212,255,0.3); }
-
-  .soc-section {
-    max-width: 1200px;
-    margin: -60px auto 100px;
-    padding: 0 20px;
-    position: relative;
-    z-index: 10;
-  }
-
-  .soc-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-  }
-
-  .soc-card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 30px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-  }
-
-  .soc-card h3 {
-    font-family: var(--mono);
-    font-size: 14px;
-    color: var(--accent);
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border-bottom: 1px solid rgba(0,212,255,0.1);
-    padding-bottom: 10px;
-  }
-
-  .metric-row {
-    display: flex;
-    justify-content: space-between;
-    font-family: var(--mono);
-    margin-bottom: 15px;
-  }
-
-  .val-danger { color: var(--red); text-shadow: 0 0 10px var(--red); }
-  .val-success { color: var(--green); text-shadow: 0 0 10px var(--green); }
-
-  .threat-list { list-style: none; font-family: var(--mono); font-size: 13px; padding: 0; margin: 0; }
-  .threat-list li {
-    padding: 10px;
-    border-radius: 4px;
-    margin-bottom: 8px;
-    background: rgba(0,0,0,0.2);
-    border-left: 3px solid var(--accent);
-  }
-  .threat-list li.alert { border-left-color: var(--red); color: var(--red); }
-
-  .service-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    margin-bottom: 100px;
-  }
-
-  .service-card {
-    text-align: center;
-    padding: 40px 20px;
-    background: transparent;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    transition: 0.3s;
-  }
-
-  .service-card i { font-size: 32px; color: var(--accent); margin-bottom: 20px; }
-  .service-card h4 { font-size: 20px; margin-bottom: 10px; }
-  .service-card p { font-size: 14px; color: var(--muted); }
-  .service-card:hover { border-color: var(--accent); background: rgba(0,212,255,0.02); }
-
-  @media (max-width: 900px) {
-    .service-grid { grid-template-columns: 1fr 1fr; }
-    .hero-content h1 { font-size: 40px; }
-    .soc-grid { grid-template-columns: 1fr 1fr; }
-    .soc-section { margin: -40px auto 60px; }
-  }
-
-  @media (max-width: 600px) {
-    .hero-wrap { padding: 100px 16px 50px; }
-    .hero-content h1 { font-size: 30px; letter-spacing: -0.5px; }
-    .hero-content p { font-size: 14px; }
-    .btn-group {
-      flex-direction: column;
-      align-items: center;
-    }
-    .btn-group .cn-btn {
-      width: 100%;
-      max-width: 320px;
-      text-align: center;
-    }
-    .soc-section { margin: 20px auto 60px; }
-    .soc-grid { grid-template-columns: 1fr; }
-    .service-grid { grid-template-columns: 1fr; }
-  }
-
-  @media (max-width: 375px) {
-    .hero-content h1 { font-size: 24px; }
-    .hero-wrap { padding: 90px 12px 40px; }
-  }
-
-  /* ── CLIENT MARQUEE ─────────────────────────────── */
-  .clients-bar {
-    background: rgba(0,0,0,0.2);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    padding: 18px 0;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .clients-bar::before,
-  .clients-bar::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    width: 120px;
-    height: 100%;
-    z-index: 2;
-  }
-
-  .clients-bar::before {
-    left: 0;
-    background: linear-gradient(90deg, #0e1f38 0%, transparent 100%);
-  }
-
-  .clients-bar::after {
-    right: 0;
-    background: linear-gradient(270deg, #0e1f38 0%, transparent 100%);
-  }
-
-  .marquee-track {
-    display: flex;
-    gap: 0;
-    width: max-content;
-    animation: marquee 28s linear infinite;
-  }
-
-  .marquee-track:hover { animation-play-state: paused; }
-
-  @keyframes marquee {
-    0%   { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-
-  .client-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 0 40px;
-    font-family: var(--mono);
-    font-size: 13px;
-    color: var(--muted);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    white-space: nowrap;
-    border-right: 1px solid var(--border);
-    transition: color 0.2s;
-  }
-
-  .client-item:hover { color: var(--accent); }
-
-  .client-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--accent);
-    opacity: 0.4;
-    flex-shrink: 0;
-  }
-</style>
+<link rel="stylesheet" href="css/brand.css">
 </head>
 <body>
 
 <div id="navbar"></div>
 
-<section class="hero-wrap">
+<!-- ══ HERO ═════════════════════════════════════════════════════ -->
+<section class="g-hero" style="padding-bottom:130px; border-bottom:none;">
+  <canvas class="net" id="net" aria-hidden="true"></canvas>
   <div class="grid-lines"></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow" style="font-family: var(--mono); color: var(--accent); letter-spacing: 5px; margin-bottom: 15px;">// SYSTEM INITIALIZED</div>
-    <h1>Security <span>Intelligence</span> &<br>Infrastructure Monitoring</h1>
-    <p>Enterprise-grade vulnerability discovery and real-time attack surface management.</p>
-    <div class="btn-group">
-      <a href="tools/security-scan.html" class="cn-btn btn-primary">Initialize Scan</a>
-      <a href="pricing.html" class="cn-btn btn-secondary">View Platform</a>
+  <div class="g-hero-inner">
+    <div class="eyebrow"><span class="live"></span>Autonomous Security Operations</div>
+    <h1>Find the Risk.<br>Fix the Risk.<br><span>Prove It's Fixed.</span></h1>
+    <p class="lede">Autonomous cybersecurity monitoring and remediation for modern businesses.</p>
+    <p class="sublede">Cyber-Node uses intelligent analysis and automated workflows to investigate threats, prioritize risk, and execute approved remediation actions &mdash; then re-scans to verify the fix.</p>
+
+    <form class="scan-box" action="/tools/security-scan.html" method="get" id="heroScan">
+      <input type="text" name="domain" placeholder="yourcompany.com" aria-label="Your company domain" autocomplete="url" required>
+      <button type="submit">Get free security score</button>
+    </form>
+    <div class="scan-note">Free · about 30 seconds · public, non-intrusive checks &nbsp;·&nbsp; <a href="/demo.html">Book a demo</a></div>
+  </div>
+</section>
+
+<!-- ══ PRODUCT CONSOLE ═════════════════════════════════════════ -->
+<div class="console-wrap">
+  <div class="console" role="img" aria-label="Sample Cyber-Node dashboard: 1,284 assets discovered, 17 findings, 3 need action, 2 remediated automatically, security score 94 out of 100.">
+    <div class="console-bar">
+      <div class="who"><span class="status-dot"></span>Acme Health <span class="mono">acme-health.io</span></div>
+      <div class="row" style="display:flex; gap:8px; align-items:center;">
+        <span class="mono" style="font-size:12px; color:var(--faint);">Last scan 4 min ago</span>
+        <span class="tag">Sample environment</span>
+      </div>
+    </div>
+
+    <div class="flow">
+      <div><div class="k">Discover</div><div class="v">1,284</div><div class="d">assets mapped</div></div>
+      <div><div class="k">Analyze</div><div class="v">17</div><div class="d">security findings</div></div>
+      <div><div class="k">Prioritize</div><div class="v crit">3</div><div class="d">need action now</div></div>
+      <div><div class="k">Automate</div><div class="v">2</div><div class="d">remediated</div></div>
+      <div><div class="k">Verify</div><div class="v ok">94<small>/100</small></div><div class="d">security score</div></div>
+    </div>
+
+    <div class="console-body">
+      <section>
+        <div class="panel-title"><h4>Security events</h4><span>Last 7 days</span></div>
+        <div class="events-total"><span class="big num">24</span><span class="muted">events</span></div>
+        <div class="stack" aria-hidden="true">
+          <i style="flex:2; background:var(--crit)"></i>
+          <i style="flex:5; background:var(--warn)"></i>
+          <i style="flex:17; background:var(--line-strong)"></i>
+        </div>
+        <div class="legend">
+          <div><span class="sw" style="background:var(--crit)"></span><span>Critical</span><b>2</b></div>
+          <div><span class="sw" style="background:var(--warn)"></span><span>High</span><b>5</b></div>
+          <div><span class="sw" style="background:var(--line-strong)"></span><span>Resolved</span><b>17</b></div>
+        </div>
+        <div class="score-chart">
+          <div class="panel-title" style="margin-bottom:6px;"><h4>Security score</h4><span>30 days · <b style="color:var(--ok); font-weight:500;">71 → 94</b></span></div>
+          <svg id="scoreSvg" viewBox="0 0 320 86" preserveAspectRatio="none" aria-hidden="true"></svg>
+        </div>
+      </section>
+
+      <section>
+        <div class="panel-title"><h4>Cyber-Node action</h4><span>INC-0142 · resolved in 17 min</span></div>
+        <ol class="timeline">
+          <li class="crit">
+            <span class="ic"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5 15 14H1L8 1.5Zm-.8 4.3v4.2h1.6V5.8H7.2Zm0 5.4v1.6h1.6v-1.6H7.2Z"/></svg></span>
+            <div><div class="t">Critical vulnerability detected</div><div class="s">Admin portal on <span class="mono">staging.acme-health.io</span> exposed to the internet, no MFA</div></div>
+            <span class="when">09:14</span>
+          </li>
+          <li class="ai">
+            <span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3.5 3.5"/></svg></span>
+            <div><div class="t">Analysis completed</div><div class="s">Exploitable remotely · reaches PHI systems · ranked #1 of 17</div></div>
+            <span class="when">09:14</span>
+          </li>
+          <li class="act">
+            <span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h9M8 4.5 11.5 8 8 11.5"/><path d="M14 3v10"/></svg></span>
+            <div><div class="t">Remediation initiated <span class="chip">approved</span></div><div class="s">Access restricted to VPN · sessions revoked · ticket opened for owner</div></div>
+            <span class="when">09:16</span>
+          </li>
+          <li class="ok">
+            <span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 8.5 3 3 7-7"/></svg></span>
+            <div><div class="t">Exposure verified closed</div><div class="s">Re-scan clean · score +6 · evidence saved to audit log</div></div>
+            <span class="when">09:31</span>
+          </li>
+        </ol>
+      </section>
+    </div>
+    <div class="console-foot"><span>Illustrative data. Your dashboard shows your real attack surface.</span><a href="/demo.html">See it with your own domains →</a></div>
+  </div>
+</div>
+
+<!-- ══ BUILT FOR ═══════════════════════════════════════════════ -->
+<div class="built-for" style="margin-top:56px; border-top:1px solid var(--line);">
+  <span class="label">Built for</span>
+  <span>Healthcare</span><span class="sep">•</span><span>FinTech</span><span class="sep">•</span><span>SaaS</span><span class="sep">•</span><span>Professional Services</span><span class="sep">•</span><span>Logistics</span>
+</div>
+
+<!-- ══ WHAT / WHO / DOES / WHY ═════════════════════════════════ -->
+<section class="g-section" style="padding-bottom:40px;">
+  <div class="answers">
+    <div><div class="q">What is it</div><div class="a">A continuous cybersecurity platform.</div></div>
+    <div><div class="q">Who it's for</div><div class="a">Businesses without a large security team.</div></div>
+    <div><div class="q">What it does</div><div class="a">Finds security weaknesses and fixes them, with your approval.</div></div>
+    <div><div class="q">Why Cyber-Node</div><div class="a">Continuous monitoring, automation, and proof.</div></div>
+  </div>
+</section>
+
+<!-- ══ PROBLEM → PRIORITY ══════════════════════════════════════ -->
+<section class="g-section split">
+  <div class="grid-2" style="align-items:center; gap:56px;">
+    <div>
+      <span class="label">The problem</span>
+      <h2>Most security tools hand you 300 alerts. Cyber-Node hands you the few that matter.</h2>
+      <p>Small and mid-sized teams don't have time to triage scanner output. Cyber-Node ranks every finding by exploitability and business impact, explains it in plain English, and tells you whether it can fix it for you.</p>
+      <p>When the fix is in, it re-scans, updates your score, and keeps the evidence for your auditors, customers and insurer.</p>
+    </div>
+    <div class="prio">
+      <div class="prio-row" style="color:var(--muted); font-size:13px;"><span></span><span>Fix first · acme-health.io</span><span class="demo-tag">Sample</span></div>
+      <div class="prio-row"><span class="rank">1</span><span>Admin portal exposed to the internet, no MFA</span><span class="sev crit">Critical</span></div>
+      <div class="prio-row"><span class="rank">2</span><span>Staging subdomain running an outdated framework</span><span class="sev crit">Critical</span></div>
+      <div class="prio-row"><span class="rank">3</span><span>Database port open on a cloud host</span><span class="sev high">High</span></div>
+      <div class="prio-row"><span class="rank">4</span><span>No DMARC record: domain can be spoofed for phishing</span><span class="sev high">High</span></div>
+      <div class="prio-row"><span class="rank">5</span><span>TLS certificate expires in 9 days</span><span class="sev med">Medium</span></div>
+      <div class="prio-row" style="color:var(--muted)"><span></span><span>12 lower-priority findings grouped and scheduled</span><span class="sev ok">Tracked</span></div>
     </div>
   </div>
 </section>
 
-<!-- CLIENT MARQUEE -->
-<div class="clients-bar">
-  <div class="marquee-track">
-    <!-- first set -->
-    <div class="client-item"><span class="client-dot"></span>MedCore Systems</div>
-    <div class="client-item"><span class="client-dot"></span>Apex Fintech</div>
-    <div class="client-item"><span class="client-dot"></span>NovaCare Health</div>
-    <div class="client-item"><span class="client-dot"></span>Stratum Cloud</div>
-    <div class="client-item"><span class="client-dot"></span>Bridgepoint Legal</div>
-    <div class="client-item"><span class="client-dot"></span>Vantage Logistics</div>
-    <div class="client-item"><span class="client-dot"></span>Orion Defense Group</div>
-    <div class="client-item"><span class="client-dot"></span>PulseData Analytics</div>
-    <div class="client-item"><span class="client-dot"></span>Nexon Retail</div>
-    <div class="client-item"><span class="client-dot"></span>ClearPath Gov Solutions</div>
-    <!-- duplicate for seamless loop -->
-    <div class="client-item"><span class="client-dot"></span>MedCore Systems</div>
-    <div class="client-item"><span class="client-dot"></span>Apex Fintech</div>
-    <div class="client-item"><span class="client-dot"></span>NovaCare Health</div>
-    <div class="client-item"><span class="client-dot"></span>Stratum Cloud</div>
-    <div class="client-item"><span class="client-dot"></span>Bridgepoint Legal</div>
-    <div class="client-item"><span class="client-dot"></span>Vantage Logistics</div>
-    <div class="client-item"><span class="client-dot"></span>Orion Defense Group</div>
-    <div class="client-item"><span class="client-dot"></span>PulseData Analytics</div>
-    <div class="client-item"><span class="client-dot"></span>Nexon Retail</div>
-    <div class="client-item"><span class="client-dot"></span>ClearPath Gov Solutions</div>
-  </div>
-</div>
-
-<div class="soc-section">
-  <div class="soc-grid">
-    <div class="soc-card">
-      <h3>Active Node Status <span style="font-size:10px; color:var(--orange); border:1px solid var(--orange); padding:2px 6px; border-radius:3px; margin-left:8px; vertical-align:middle;">DEMO</span></h3>
-      <div class="metric-row"><span>Threat Alerts</span> <span class="val-danger">24</span></div>
-      <div class="metric-row"><span>Security Score</span> <span class="val-success">92%</span></div>
-      <div class="metric-row"><span>Active Assets</span> <span>12</span></div>
-      <div class="metric-row"><span>Uptime</span> <span>99.9%</span></div>
+<!-- ══ THE LOOP ════════════════════════════════════════════════ -->
+<section class="band">
+  <div class="g-section">
+    <div class="g-head">
+      <span class="label">How it works</span>
+      <h2>Discover, analyze, prioritize, fix, verify. Every day.</h2>
+      <p>One continuous loop, so your security posture doesn't go stale between audits.</p>
     </div>
-    <div class="soc-card">
-      <h3>Threat Intelligence <span style="font-size:10px; color:var(--orange); border:1px solid var(--orange); padding:2px 6px; border-radius:3px; margin-left:8px; vertical-align:middle;">DEMO</span></h3>
-      <ul class="threat-list">
-        <li class="alert">🚨 Exploit Detected: CVE-2024-3400</li>
-        <li>⚠️ Suspicious Login Attempt — IP: 185.220.101.47</li>
-        <li>🔍 Header Analysis Complete: demo-target.com</li>
-      </ul>
-    </div>
-    <div class="soc-card">
-      <h3>Recent Activity</h3>
-      <div style="font-size: 14px; font-family: var(--mono); color: var(--muted);">
-        <p>• Full Scan Completed — 2 mins ago</p>
-        <p>• Firewall Rules Updated — 1 hour ago</p>
-        <p>• New Asset Discovered — 4 hours ago</p>
+    <div class="loop">
+      <div class="loop-card"><span class="arrow">→</span>
+        <div class="n">Discover</div><h3>Map your exposure</h3>
+        <p>Everything you expose to the internet, including what you forgot.</p>
+        <ul><li>Domains &amp; subdomains</li><li>IPs &amp; cloud assets</li><li>Certificates</li><li>Exposed services</li></ul>
+      </div>
+      <div class="loop-card"><span class="arrow">→</span>
+        <div class="n">Analyze</div><h3>Find weaknesses</h3>
+        <p>The issues attackers look for first.</p>
+        <ul><li>Vulnerabilities (CVEs)</li><li>Misconfigurations</li><li>Suspicious activity</li><li>Compliance gaps</li></ul>
+      </div>
+      <div class="loop-card"><span class="arrow">→</span>
+        <div class="n">Prioritize</div><h3>Rank by real risk</h3>
+        <p>The handful that matter, explained in plain English.</p>
+        <ul><li>Exploitability</li><li>Business impact</li><li>Recommended fix</li></ul>
+      </div>
+      <div class="loop-card"><span class="arrow">→</span>
+        <div class="n">Automate</div><h3>Execute approved fixes</h3>
+        <p>Safe actions run automatically. Everything else is routed to an owner.</p>
+        <ul><li>Block IPs, revoke sessions</li><li>Update configurations</li><li>Open tickets</li></ul>
+      </div>
+      <div class="loop-card key">
+        <div class="n">Verify</div><h3>Prove it's fixed</h3>
+        <p>Re-scan, confirm, update the score, keep the evidence.</p>
+        <ul><li>Automatic re-scan</li><li>Score history</li><li>Audit-ready evidence</li></ul>
       </div>
     </div>
+    <p style="text-align:center; margin-top:34px;"><a href="/platform.html" class="btn btn-ghost">Platform &amp; roadmap</a></p>
   </div>
-</div>
+</section>
 
-<section style="max-width: 1200px; margin: 0 auto 100px; padding: 0 20px;">
-  <h2 style="text-align: center; margin-bottom: 50px; font-size: 32px;">Core Security Modules</h2>
-  <div class="service-grid">
-    <div class="service-card">
-      <i class="fa-solid fa-shield-halved"></i>
-      <h4>Assessments</h4>
-      <p>Identify deep-level risks across your infrastructure.</p>
+<!-- ══ BUILT FOR HEALTHCARE SAAS ═══════════════════════════════ -->
+<section class="g-section split">
+  <div class="grid-2" style="align-items:center; gap:56px;">
+    <div>
+      <span class="label">First focus</span>
+      <h2>Healthcare SaaS &amp; health-tech teams with 20–250 people</h2>
+      <p>You handle PHI, your customers send you security questionnaires, and your engineers are busy shipping product. Cyber-Node gives you continuous HIPAA-aligned monitoring and the evidence to answer "how do you protect our data?" with confidence.</p>
+      <div class="btn-row" style="justify-content:flex-start; margin-top:24px;">
+        <a href="/solutions/healthcare-saas.html" class="btn btn-primary">Healthcare SaaS</a>
+        <a href="/solutions/healthcare.html" class="btn btn-ghost">Care providers</a>
+      </div>
     </div>
-    <div class="service-card">
-      <i class="fa-solid fa-user-secret"></i>
-      <h4>Pen-Testing</h4>
-      <p>Real-world simulation of advanced threat actors.</p>
-    </div>
-    <div class="service-card">
-      <i class="fa-solid fa-chart-line"></i>
-      <h4>Compliance</h4>
-      <p>Automated alignment with NIST and SOC2 standards.</p>
-    </div>
-    <div class="service-card">
-      <i class="fa-solid fa-bolt"></i>
-      <h4>Automation</h4>
-      <p>Securing high-velocity business workflows.</p>
+    <div class="grid-2">
+      <div class="card"><span class="ic"><i class="fa-solid fa-file-shield"></i></span><h3>Pass security reviews</h3><p>Answer hospital and enterprise questionnaires with real evidence.</p></div>
+      <div class="card"><span class="ic"><i class="fa-solid fa-notes-medical"></i></span><h3>HIPAA-aligned</h3><p>Findings mapped to the HIPAA Security Rule. BAA available.</p></div>
+      <div class="card"><span class="ic"><i class="fa-solid fa-cloud"></i></span><h3>Cloud-native</h3><p>AWS, Azure, GCP and identity providers, watched continuously.</p></div>
+      <div class="card"><span class="ic"><i class="fa-solid fa-user-shield"></i></span><h3>No SOC required</h3><p>The security operations you haven't hired yet.</p></div>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section style="max-width: 1200px; margin: 0 auto 100px; padding: 0 20px;">
-  <h2 style="text-align: center; margin-bottom: 15px; font-size: 32px;">What Clients Say</h2>
-  <p style="text-align: center; font-family: var(--mono); color: var(--muted); margin-bottom: 50px; font-size: 14px;">// CLIENT_TESTIMONIALS</p>
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
-    <div style="background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 35px; border-top: 3px solid var(--accent);">
-      <p style="font-family: var(--mono); font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 25px;">"Cyber-Node identified 3 critical vulnerabilities in our infrastructure that our previous vendor completely missed. The remediation roadmap was clear and actionable."</p>
-      <div style="font-family: var(--mono); font-size: 12px;">
-        <div style="color: var(--text); margin-bottom: 4px;">— Operations Director</div>
-        <div style="color: var(--accent);">Healthcare SaaS Company</div>
-      </div>
+<!-- ══ PRICING TEASER ══════════════════════════════════════════ -->
+<section class="band">
+  <div class="g-section">
+    <div class="g-head">
+      <span class="label">Pricing</span>
+      <h2>Three plans. No surprises.</h2>
+      <p>Start with monitoring. Add automation and a security engineer when you need them.</p>
     </div>
-    <div style="background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 35px; border-top: 3px solid var(--accent);">
-      <p style="font-family: var(--mono); font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 25px;">"We needed HIPAA compliance fast before a major client audit. Cyber-Node got us ready in 6 weeks with a documentation framework we still use today."</p>
-      <div style="font-family: var(--mono); font-size: 12px;">
-        <div style="color: var(--text); margin-bottom: 4px;">— CTO</div>
-        <div style="color: var(--accent);">Medical Records Platform</div>
+    <div class="tiers">
+      <div class="tier">
+        <div class="tag">&nbsp;</div><h3>Starter</h3>
+        <div class="for">Continuous external monitoring</div>
+        <div class="price">$499<small>/mo</small></div>
+        <ul><li>Security score</li><li>Asset discovery</li><li>Vulnerability monitoring</li><li>Monthly reports</li></ul>
+        <a href="/pricing.html" class="btn btn-ghost">Details</a>
       </div>
-    </div>
-    <div style="background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 35px; border-top: 3px solid var(--accent);">
-      <p style="font-family: var(--mono); font-size: 14px; color: var(--muted); line-height: 1.8; margin-bottom: 25px;">"The penetration test surfaced a serious authentication bypass in our API. Fast turnaround, professional report, and they walked our dev team through every finding."</p>
-      <div style="font-family: var(--mono); font-size: 12px;">
-        <div style="color: var(--text); margin-bottom: 4px;">— Founder</div>
-        <div style="color: var(--accent);">Fintech Startup</div>
+      <div class="tier featured">
+        <div class="tag">Most teams start here</div><h3>Business</h3>
+        <div class="for">Cloud, identity &amp; compliance, plus automated fixes</div>
+        <div class="price">$1,499<small>/mo</small></div>
+        <ul><li>Everything in Starter</li><li>Cloud &amp; identity monitoring</li><li>Compliance monitoring</li><li>Automated remediation</li></ul>
+        <a href="/demo.html?plan=Business" class="btn btn-primary">Book a demo</a>
+      </div>
+      <div class="tier">
+        <div class="tag">&nbsp;</div><h3>Managed</h3>
+        <div class="for">Your outsourced security team</div>
+        <div class="price">$3,500<small>+/mo</small></div>
+        <ul><li>Everything in Business</li><li>Monitoring &amp; incident response</li><li>Penetration testing</li><li>Dedicated security engineer</li></ul>
+        <a href="/pricing.html" class="btn btn-ghost">Details</a>
       </div>
     </div>
   </div>
+</section>
+
+<!-- ══ FOUNDING CUSTOMERS + WHO'S BEHIND IT ════════════════════ -->
+<section class="g-section">
+  <div class="grid-2" style="gap:20px;">
+    <div class="card" style="padding:32px;">
+      <span class="label">Founding customer program</span>
+      <h3 style="font-size:26px;">Help shape Cyber-Node. Lock in founding pricing.</h3>
+      <p style="margin:10px 0 18px;">We're onboarding a small group of founding customers. You get a free external security assessment, founding-rate pricing locked for 24 months, and a direct line to the founder, in exchange for honest feedback.</p>
+      <a href="/demo.html?plan=Founding%20Customer" class="btn btn-primary">Apply for a founding spot</a>
+    </div>
+    <div class="card" style="padding:32px;">
+      <span class="label">Who's behind Cyber-Node</span>
+      <h3 style="font-size:26px;">Willie K. Murimi, MSCS, MSCJ</h3>
+      <p style="margin:10px 0 18px;">Founder &amp; Managing Director. M.S. Cybersecurity (UMGC), M.S. Criminal Justice. A systems-integration lead who also operates healthcare businesses, so Cyber-Node is built for both the technology and the compliance reality.</p>
+      <a href="/security.html">How we handle your data →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FINAL CTA ═══════════════════════════════════════════════ -->
+<section class="cta-band">
+  <h2>What does an attacker see when they look at you?</h2>
+  <p>Find out in about 30 seconds. Free, no credit card.</p>
+  <form class="scan-box" action="/tools/security-scan.html" method="get">
+    <input type="text" name="domain" placeholder="yourcompany.com" aria-label="Your company domain" required>
+    <button type="submit">Get free security score</button>
+  </form>
+  <div class="scan-note">Prefer to talk? <a href="/demo.html">Book a demo</a></div>
 </section>
 
 <div id="footer"></div>
 
 <script>
-  fetch("components/navbar.html")
-    .then(r => r.ok ? r.text() : '')
-    .then(html => { if(html) document.getElementById("navbar").innerHTML = html; })
-    .catch(e => console.error("Nav error:", e));
+  fetch("components/navbar.html").then(r => r.ok ? r.text() : '').then(h => { if (h) document.getElementById("navbar").innerHTML = h; }).catch(() => {});
+  fetch("components/footer.html").then(r => r.ok ? r.text() : '').then(h => { if (h) document.getElementById("footer").innerHTML = h; }).catch(() => {});
 
-  fetch("components/footer.html")
-    .then(r => r.ok ? r.text() : '')
-    .then(html => { if(html) document.getElementById("footer").innerHTML = html; })
-    .catch(e => console.error("Footer error:", e));
+  // Security score sparkline (sample data: 30 days, 71 → 94, with the dips that fixes recover from)
+  (function () {
+    const pts = [71,71,72,72,70,73,74,74,75,73,76,77,78,78,80,79,81,82,82,84,83,85,86,86,88,87,88,90,88,94];
+    const svg = document.getElementById('scoreSvg'); if (!svg) return;
+    const W = 320, H = 86, lo = 60, hi = 100, pad = 4;
+    const x = i => pad + i * (W - pad * 2) / (pts.length - 1);
+    const y = v => H - 6 - (v - lo) / (hi - lo) * (H - 14);
+    const line = pts.map((v, i) => `${i ? 'L' : 'M'}${x(i).toFixed(1)},${y(v).toFixed(1)}`).join('');
+    const ns = 'http://www.w3.org/2000/svg';
+    const mk = (t, a) => { const e = document.createElementNS(ns, t); for (const k in a) e.setAttribute(k, a[k]); svg.appendChild(e); return e; };
+    [70, 80, 90].forEach(g => mk('line', { x1: 0, x2: W, y1: y(g), y2: y(g), stroke: 'var(--line)', 'stroke-width': 1, 'vector-effect': 'non-scaling-stroke' }));
+    mk('path', { d: `${line}L${x(pts.length - 1)},${H}L${x(0)},${H}Z`, fill: 'rgba(47,214,123,0.08)' });
+    mk('path', { d: line, fill: 'none', stroke: 'var(--ok)', 'stroke-width': 1.6, 'vector-effect': 'non-scaling-stroke', 'stroke-linejoin': 'round' });
+    mk('circle', { cx: x(pts.length - 1), cy: y(94), r: 3.2, fill: 'var(--ok)' });
+  })();
+
+  // Ambient attack-surface network. Quiet grey nodes; an occasional accent pulse marks a system event.
+  (function () {
+    const c = document.getElementById('net'); if (!c) return;
+    const ctx = c.getContext('2d');
+    const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let W, H, nodes = [], pulse = null, raf;
+    function size() {
+      const r = c.getBoundingClientRect(), d = Math.min(window.devicePixelRatio || 1, 2);
+      W = r.width; H = r.height; c.width = W * d; c.height = H * d; ctx.setTransform(d, 0, 0, d, 0, 0);
+      const n = Math.round(Math.min(70, W * H / 16000));
+      nodes = Array.from({ length: n }, () => ({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .12, vy: (Math.random() - .5) * .12 }));
+    }
+    function draw(t) {
+      ctx.clearRect(0, 0, W, H);
+      const D = 150;
+      for (let i = 0; i < nodes.length; i++) {
+        const a = nodes[i];
+        for (let j = i + 1; j < nodes.length; j++) {
+          const b = nodes[j], dx = a.x - b.x, dy = a.y - b.y, d = Math.hypot(dx, dy);
+          if (d < D) { ctx.strokeStyle = `rgba(137,149,165,${(1 - d / D) * 0.10})`; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); }
+        }
+      }
+      for (const n of nodes) { ctx.fillStyle = 'rgba(137,149,165,0.35)'; ctx.beginPath(); ctx.arc(n.x, n.y, 1.4, 0, 6.283); ctx.fill(); }
+      if (pulse) {
+        const k = (t - pulse.t0) / 2400;
+        if (k >= 1) pulse = null; else {
+          const n = nodes[pulse.i];
+          ctx.strokeStyle = `rgba(25,211,230,${0.5 * (1 - k)})`; ctx.lineWidth = 1.2;
+          ctx.beginPath(); ctx.arc(n.x, n.y, 4 + k * 26, 0, 6.283); ctx.stroke();
+          ctx.fillStyle = `rgba(25,211,230,${0.9 * (1 - k * .6)})`; ctx.beginPath(); ctx.arc(n.x, n.y, 2.4, 0, 6.283); ctx.fill();
+        }
+      }
+    }
+    function tick(t) {
+      for (const n of nodes) { n.x += n.vx; n.y += n.vy; if (n.x < 0 || n.x > W) n.vx *= -1; if (n.y < 0 || n.y > H) n.vy *= -1; }
+      if (!pulse && Math.random() < 0.006) pulse = { i: Math.floor(Math.random() * nodes.length), t0: t };
+      draw(t); raf = requestAnimationFrame(tick);
+    }
+    size(); draw(0);
+    if (!still) raf = requestAnimationFrame(tick);
+    window.addEventListener('resize', () => { size(); draw(performance.now()); });
+    document.addEventListener('visibilitychange', () => { if (document.hidden) cancelAnimationFrame(raf); else if (!still) raf = requestAnimationFrame(tick); });
+  })();
 </script>
 <script src="js/nav-toggle.js"></script>
-
 </body>
 </html>

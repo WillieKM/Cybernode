@@ -6,23 +6,23 @@
 <title>Order Confirmed | Cyber-Node</title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/mobile.css">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --bg:     #0e1f38;
-    --bg2:    #142840;
-    --border: #2e5070;
-    --accent: #00d4ff;
-    --red:    #ff4466;
-    --green:  #00dd88;
-    --text:   #e8f4ff;
-    --muted:  #90bcd8;
-    --mono:   'Share Tech Mono', monospace;
-    --sans:   'Rajdhani', sans-serif;
+    --bg:     #080B12;
+    --bg2:    #101722;
+    --border: #223044;
+    --accent: #19D3E6;
+    --red:    #F0506E;
+    --green:  #2FD67B;
+    --text:   #F2F5F7;
+    --muted:  #8995A5;
+    --mono:   'Geist Mono', monospace;
+    --sans:   'Geist', sans-serif;
   }
 
   body {
@@ -82,6 +82,7 @@
     text-decoration: none;
   }
 </style>
+<link rel="stylesheet" href="css/brand.css">
 </head>
 <body>
 
@@ -89,7 +90,7 @@
 
 <section class="confirm-section">
   <div class="confirm-card" id="confirmCard">
-    <div class="confirm-icon">// LOADING</div>
+    <div class="confirm-icon">Loading</div>
     <h1>Confirming your order...</h1>
     <p>Hold on a second while we verify your payment with Stripe.</p>
   </div>
@@ -137,7 +138,7 @@
     // Stripe dashboard before fulfilling, so trusting the redirect is fine.
     card.innerHTML = `
       <div class="confirm-icon">✓</div>
-      <h1>// ORDER CONFIRMED</h1>
+      <h1>Order confirmed</h1>
       <p>Thanks for your order — we've got it.</p>
       <p>We're scanning your domain now. Your full security report will land in your inbox within a few minutes.</p>
       <p style="font-size:12px;opacity:0.6;margin-top:20px;">Order ref: ${escapeHtml(sessionId)}</p>
